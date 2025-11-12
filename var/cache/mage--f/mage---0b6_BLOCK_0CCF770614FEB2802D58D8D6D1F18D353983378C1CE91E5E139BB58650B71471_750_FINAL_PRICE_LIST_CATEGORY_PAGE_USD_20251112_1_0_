@@ -1,0 +1,26 @@
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1762932780;s:6:"expire";i:1763019180;s:4:"tags";s:47:"0b6_BLOCK_HTML,0b6_CAT_P_750,0b6_CAT_P,0b6_MAGE";}
+<div class="price-box price-final_price" data-role="priceBox" data-product-id="750" data-price-box="product-id-750">    <span class="normal-price">
+<span
+    x-data x-id="['product\u002Dprice\u002D750']"    class="price-container price-final_price&#x20;tax&#x20;weee"
+        >
+            <span class="price-label">As low as</span>
+        <span  :id="$id('product\u002Dprice\u002D750')"                data-price-amount="36.8"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">$36.80</span></span>
+        </span>
+</span>
+
+    <span class="old-price sly-old-price no-display">
+        <span
+    x-data x-id="['old\u002Dprice\u002D750']"    class="price-container price-final_price&#x20;tax&#x20;weee"
+        >
+            <span class="price-label">Regular Price</span>
+        <span  :id="$id('old\u002Dprice\u002D750')"                data-price-amount="46"
+        data-price-type="oldPrice"
+        class="price-wrapper "
+    ><span class="price">$46.00</span></span>
+        </span>
+    </span>
+
+</div>

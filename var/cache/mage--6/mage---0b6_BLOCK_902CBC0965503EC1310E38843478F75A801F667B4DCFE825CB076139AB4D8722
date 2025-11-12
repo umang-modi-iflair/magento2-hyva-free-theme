@@ -1,0 +1,676 @@
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1762939787;s:6:"expire";i:1762943387;s:4:"tags";s:741:"0b6_CAT_C_38,0b6_CAT_C_P_38,0b6_CAT_C_20,0b6_CAT_C_P_20,0b6_CAT_C_21,0b6_CAT_C_P_21,0b6_CAT_C_23,0b6_CAT_C_P_23,0b6_CAT_C_24,0b6_CAT_C_P_24,0b6_CAT_C_25,0b6_CAT_C_P_25,0b6_CAT_C_26,0b6_CAT_C_P_26,0b6_CAT_C_22,0b6_CAT_C_P_22,0b6_CAT_C_27,0b6_CAT_C_P_27,0b6_CAT_C_28,0b6_CAT_C_P_28,0b6_CAT_C_11,0b6_CAT_C_P_11,0b6_CAT_C_12,0b6_CAT_C_P_12,0b6_CAT_C_14,0b6_CAT_C_P_14,0b6_CAT_C_15,0b6_CAT_C_P_15,0b6_CAT_C_16,0b6_CAT_C_P_16,0b6_CAT_C_17,0b6_CAT_C_P_17,0b6_CAT_C_13,0b6_CAT_C_P_13,0b6_CAT_C_18,0b6_CAT_C_P_18,0b6_CAT_C_19,0b6_CAT_C_P_19,0b6_CAT_C_3,0b6_CAT_C_P_3,0b6_CAT_C_4,0b6_CAT_C_P_4,0b6_CAT_C_5,0b6_CAT_C_P_5,0b6_CAT_C_6,0b6_CAT_C_P_6,0b6_CAT_C_9,0b6_CAT_C_P_9,0b6_CAT_C_10,0b6_CAT_C_P_10,0b6_CAT_C_37,0b6_CAT_C_P_37,0b6_BLOCK_HTML,0b6_MAGE";}
+<div x-data="initMobileMenu" x-bind="eventListeners" class="lg:hidden">
+    <button
+        type="button"
+        class="btn bg-transparent border-transparent p-2"
+        aria-label="Open&#x20;menu"
+        @click="open"
+    >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M4 18h16M4 6h16"/></svg>
+    </button>
+    <dialog
+        class="size-full max-h-full ms-0 p-0 open:flex flex-col transition ease-out duration-300 motion-reduce:duration-0 rounded-s-none"
+        x-show="isOpen"
+        x-htmldialog="close"
+        closeby="any"
+        x-transition:enter-start="-translate-x-full"
+        x-transition:enter-end="translate-x-0"
+        x-transition:leave-start="translate-x-0"
+        x-transition:leave-end="-translate-x-full"
+    >
+        <div class="border-b border-slate-200">
+            <div class="flex justify-between items-center gap-2 py-4 px-6">
+                <div></div>
+                <button
+                    type="button"
+                    @click="close"
+                    class="btn bg-transparent border-transparent p-1"
+                    aria-label="Close&#x20;menu"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+        </div>
+        <div class="grow relative overflow-y-auto overflow-x-clip py-0.5" :style="lockWrapperScroll">
+            <nav aria-label="Mobile&#x20;Main&#x20;Menu">
+                <ul>
+                                                                        <li data-level="0">
+                                <a
+                                    href="http://192.168.0.147/hyvamagento/pub/what-is-new.html"
+                                    class="flex&#x20;items-center&#x20;gap-2&#x20;py-3&#x20;px-6&#x20;border-b&#x20;border-slate-200&#x20;outline-offset-0"
+                                >
+                                    What&#039;s New                                </a>
+                            </li>
+                                                                                                <li data-level="0" x-data="initMobileSubMenu">
+                                <button
+                                    type="button"
+                                    class="w-full justify-between flex&#x20;items-center&#x20;gap-2&#x20;py-3&#x20;px-6&#x20;border-b&#x20;border-slate-200&#x20;outline-offset-0"
+                                    aria-controls="category-node-20-mobile-menu-panel"
+                                    aria-expanded="false"
+                                    x-ref="openSubMenuBtn"
+                                    :aria-expanded="isOpen"
+                                    :disabled="isOpen"
+                                    @click="open"
+                                >
+                                    <span>Women</span>
+                                    <span class="btn p-1.5 border border-slate-300 bg-transparent text-current">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                                    </span>
+                                </button>
+                                <ul
+                                    id="category-node-20-mobile-menu-panel"
+                                    class="z-10 absolute inset-0 bg-white py-0.5 overflow-y-auto overscroll-y-contain transition motion-reduce:duration-0"
+                                    x-show="isOpen"
+                                    x-transition:enter-start="opacity-0 translate-x-8"
+                                    x-transition:enter-end="opacity-100 translate-x-0"
+                                    x-transition:leave-start="opacity-100 translate-x-0"
+                                    x-transition:leave-end="opacity-0 translate-x-8"
+                                    @keydown.escape.stop.prevent="close"
+                                >
+                                    <li data-level="1">
+                                        <button
+                                            type="button"
+                                            class="w-full bg-surface font-bold flex&#x20;items-center&#x20;gap-2&#x20;py-3&#x20;px-6&#x20;border-b&#x20;border-slate-200&#x20;outline-offset-0"
+                                            @click="close"
+                                            x-ref="closeSubMenuBtn"
+                                        >
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+                                            Women                                        </button>
+                                        <a
+                                            href="http://192.168.0.147/hyvamagento/pub/women.html"
+                                            class="flex&#x20;items-center&#x20;gap-2&#x20;py-3&#x20;px-6&#x20;border-b&#x20;border-slate-200&#x20;outline-offset-0"
+                                        >
+                                            <span class="ms-7">See all Women</span>
+                                        </a>
+                                    </li>
+                                                                            <li data-level="1">
+                                            <a
+                                                href="http://192.168.0.147/hyvamagento/pub/women/tops-women.html"
+                                                class="flex&#x20;items-center&#x20;gap-2&#x20;py-3&#x20;px-6&#x20;border-b&#x20;border-slate-200&#x20;outline-offset-0"
+                                            >
+                                                <span class="ms-7">Tops</span>
+                                            </a>
+                                        </li>
+                                                                            <li data-level="1">
+                                            <a
+                                                href="http://192.168.0.147/hyvamagento/pub/women/bottoms-women.html"
+                                                class="flex&#x20;items-center&#x20;gap-2&#x20;py-3&#x20;px-6&#x20;border-b&#x20;border-slate-200&#x20;outline-offset-0"
+                                            >
+                                                <span class="ms-7">Bottoms</span>
+                                            </a>
+                                        </li>
+                                                                    </ul>
+                            </li>
+                                                                                                <li data-level="0" x-data="initMobileSubMenu">
+                                <button
+                                    type="button"
+                                    class="w-full justify-between flex&#x20;items-center&#x20;gap-2&#x20;py-3&#x20;px-6&#x20;border-b&#x20;border-slate-200&#x20;outline-offset-0"
+                                    aria-controls="category-node-11-mobile-menu-panel"
+                                    aria-expanded="false"
+                                    x-ref="openSubMenuBtn"
+                                    :aria-expanded="isOpen"
+                                    :disabled="isOpen"
+                                    @click="open"
+                                >
+                                    <span>Men</span>
+                                    <span class="btn p-1.5 border border-slate-300 bg-transparent text-current">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                                    </span>
+                                </button>
+                                <ul
+                                    id="category-node-11-mobile-menu-panel"
+                                    class="z-10 absolute inset-0 bg-white py-0.5 overflow-y-auto overscroll-y-contain transition motion-reduce:duration-0"
+                                    x-show="isOpen"
+                                    x-transition:enter-start="opacity-0 translate-x-8"
+                                    x-transition:enter-end="opacity-100 translate-x-0"
+                                    x-transition:leave-start="opacity-100 translate-x-0"
+                                    x-transition:leave-end="opacity-0 translate-x-8"
+                                    @keydown.escape.stop.prevent="close"
+                                >
+                                    <li data-level="1">
+                                        <button
+                                            type="button"
+                                            class="w-full bg-surface font-bold flex&#x20;items-center&#x20;gap-2&#x20;py-3&#x20;px-6&#x20;border-b&#x20;border-slate-200&#x20;outline-offset-0"
+                                            @click="close"
+                                            x-ref="closeSubMenuBtn"
+                                        >
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+                                            Men                                        </button>
+                                        <a
+                                            href="http://192.168.0.147/hyvamagento/pub/men.html"
+                                            class="flex&#x20;items-center&#x20;gap-2&#x20;py-3&#x20;px-6&#x20;border-b&#x20;border-slate-200&#x20;outline-offset-0"
+                                        >
+                                            <span class="ms-7">See all Men</span>
+                                        </a>
+                                    </li>
+                                                                            <li data-level="1">
+                                            <a
+                                                href="http://192.168.0.147/hyvamagento/pub/men/tops-men.html"
+                                                class="flex&#x20;items-center&#x20;gap-2&#x20;py-3&#x20;px-6&#x20;border-b&#x20;border-slate-200&#x20;outline-offset-0"
+                                            >
+                                                <span class="ms-7">Tops</span>
+                                            </a>
+                                        </li>
+                                                                            <li data-level="1">
+                                            <a
+                                                href="http://192.168.0.147/hyvamagento/pub/men/bottoms-men.html"
+                                                class="flex&#x20;items-center&#x20;gap-2&#x20;py-3&#x20;px-6&#x20;border-b&#x20;border-slate-200&#x20;outline-offset-0"
+                                            >
+                                                <span class="ms-7">Bottoms</span>
+                                            </a>
+                                        </li>
+                                                                    </ul>
+                            </li>
+                                                                                                <li data-level="0" x-data="initMobileSubMenu">
+                                <button
+                                    type="button"
+                                    class="w-full justify-between flex&#x20;items-center&#x20;gap-2&#x20;py-3&#x20;px-6&#x20;border-b&#x20;border-slate-200&#x20;outline-offset-0"
+                                    aria-controls="category-node-3-mobile-menu-panel"
+                                    aria-expanded="false"
+                                    x-ref="openSubMenuBtn"
+                                    :aria-expanded="isOpen"
+                                    :disabled="isOpen"
+                                    @click="open"
+                                >
+                                    <span>Gear</span>
+                                    <span class="btn p-1.5 border border-slate-300 bg-transparent text-current">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                                    </span>
+                                </button>
+                                <ul
+                                    id="category-node-3-mobile-menu-panel"
+                                    class="z-10 absolute inset-0 bg-white py-0.5 overflow-y-auto overscroll-y-contain transition motion-reduce:duration-0"
+                                    x-show="isOpen"
+                                    x-transition:enter-start="opacity-0 translate-x-8"
+                                    x-transition:enter-end="opacity-100 translate-x-0"
+                                    x-transition:leave-start="opacity-100 translate-x-0"
+                                    x-transition:leave-end="opacity-0 translate-x-8"
+                                    @keydown.escape.stop.prevent="close"
+                                >
+                                    <li data-level="1">
+                                        <button
+                                            type="button"
+                                            class="w-full bg-surface font-bold flex&#x20;items-center&#x20;gap-2&#x20;py-3&#x20;px-6&#x20;border-b&#x20;border-slate-200&#x20;outline-offset-0"
+                                            @click="close"
+                                            x-ref="closeSubMenuBtn"
+                                        >
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+                                            Gear                                        </button>
+                                        <a
+                                            href="http://192.168.0.147/hyvamagento/pub/gear.html"
+                                            class="flex&#x20;items-center&#x20;gap-2&#x20;py-3&#x20;px-6&#x20;border-b&#x20;border-slate-200&#x20;outline-offset-0"
+                                        >
+                                            <span class="ms-7">See all Gear</span>
+                                        </a>
+                                    </li>
+                                                                            <li data-level="1">
+                                            <a
+                                                href="http://192.168.0.147/hyvamagento/pub/gear/bags.html"
+                                                class="flex&#x20;items-center&#x20;gap-2&#x20;py-3&#x20;px-6&#x20;border-b&#x20;border-slate-200&#x20;outline-offset-0"
+                                            >
+                                                <span class="ms-7">Bags</span>
+                                            </a>
+                                        </li>
+                                                                            <li data-level="1">
+                                            <a
+                                                href="http://192.168.0.147/hyvamagento/pub/gear/fitness-equipment.html"
+                                                class="flex&#x20;items-center&#x20;gap-2&#x20;py-3&#x20;px-6&#x20;border-b&#x20;border-slate-200&#x20;outline-offset-0"
+                                            >
+                                                <span class="ms-7">Fitness Equipment</span>
+                                            </a>
+                                        </li>
+                                                                            <li data-level="1">
+                                            <a
+                                                href="http://192.168.0.147/hyvamagento/pub/gear/watches.html"
+                                                class="flex&#x20;items-center&#x20;gap-2&#x20;py-3&#x20;px-6&#x20;border-b&#x20;border-slate-200&#x20;outline-offset-0"
+                                            >
+                                                <span class="ms-7">Watches</span>
+                                            </a>
+                                        </li>
+                                                                    </ul>
+                            </li>
+                                                                                                <li data-level="0" x-data="initMobileSubMenu">
+                                <button
+                                    type="button"
+                                    class="w-full justify-between flex&#x20;items-center&#x20;gap-2&#x20;py-3&#x20;px-6&#x20;border-b&#x20;border-slate-200&#x20;outline-offset-0"
+                                    aria-controls="category-node-9-mobile-menu-panel"
+                                    aria-expanded="false"
+                                    x-ref="openSubMenuBtn"
+                                    :aria-expanded="isOpen"
+                                    :disabled="isOpen"
+                                    @click="open"
+                                >
+                                    <span>Training</span>
+                                    <span class="btn p-1.5 border border-slate-300 bg-transparent text-current">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                                    </span>
+                                </button>
+                                <ul
+                                    id="category-node-9-mobile-menu-panel"
+                                    class="z-10 absolute inset-0 bg-white py-0.5 overflow-y-auto overscroll-y-contain transition motion-reduce:duration-0"
+                                    x-show="isOpen"
+                                    x-transition:enter-start="opacity-0 translate-x-8"
+                                    x-transition:enter-end="opacity-100 translate-x-0"
+                                    x-transition:leave-start="opacity-100 translate-x-0"
+                                    x-transition:leave-end="opacity-0 translate-x-8"
+                                    @keydown.escape.stop.prevent="close"
+                                >
+                                    <li data-level="1">
+                                        <button
+                                            type="button"
+                                            class="w-full bg-surface font-bold flex&#x20;items-center&#x20;gap-2&#x20;py-3&#x20;px-6&#x20;border-b&#x20;border-slate-200&#x20;outline-offset-0"
+                                            @click="close"
+                                            x-ref="closeSubMenuBtn"
+                                        >
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+                                            Training                                        </button>
+                                        <a
+                                            href="http://192.168.0.147/hyvamagento/pub/training.html"
+                                            class="flex&#x20;items-center&#x20;gap-2&#x20;py-3&#x20;px-6&#x20;border-b&#x20;border-slate-200&#x20;outline-offset-0"
+                                        >
+                                            <span class="ms-7">See all Training</span>
+                                        </a>
+                                    </li>
+                                                                            <li data-level="1">
+                                            <a
+                                                href="http://192.168.0.147/hyvamagento/pub/training/training-video.html"
+                                                class="flex&#x20;items-center&#x20;gap-2&#x20;py-3&#x20;px-6&#x20;border-b&#x20;border-slate-200&#x20;outline-offset-0"
+                                            >
+                                                <span class="ms-7">Video Download</span>
+                                            </a>
+                                        </li>
+                                                                    </ul>
+                            </li>
+                                                                                                <li data-level="0">
+                                <a
+                                    href="http://192.168.0.147/hyvamagento/pub/sale.html"
+                                    class="flex&#x20;items-center&#x20;gap-2&#x20;py-3&#x20;px-6&#x20;border-b&#x20;border-slate-200&#x20;outline-offset-0"
+                                >
+                                    Sale                                </a>
+                            </li>
+                                                            </ul>
+            </nav>
+        </div>
+    </dialog>
+</div>
+<script>
+    const initMobileMenu = () => {
+        return {
+            isOpen: false,
+            isSubMenuOpen: false,
+            isOverflowing: false,
+            init() {
+                Array.from(this.$root.querySelectorAll('a')).forEach(link => {
+                    if (link.href === `${window.location.origin}${window.location.pathname}`) {
+                        link.setAttribute('aria-current', 'page');
+                    }
+                });
+            },
+            open() {
+                this.isOpen = true;
+            },
+            close() {
+                this.isOpen = false;
+            },
+            lockWrapperScroll() {
+                return this.isSubMenuOpen ? { overflow: 'hidden' } : {}
+            },
+            hasActiveSubMenu() {
+                this.isSubMenuOpen = !!this.$root.querySelector('[data-open]');
+            },
+            eventListeners: {
+                ['@pageshow.window'](event) {
+                    if (event.persisted) {
+                        this.close();
+                    };
+                }
+            }
+        }
+    };
+
+    const initMobileSubMenu = () => {
+        return {
+            isOpen: false,
+            open() {
+                this.isOpen = true;
+                this.$root.setAttribute('data-open', '');
+                this.$nextTick(() => {
+                    this.$dispatch('sub-menu-state-change');
+                    this.$refs.closeSubMenuBtn.focus();
+                    this.toggleInert();
+                })
+            },
+            close() {
+                this.isOpen = false;
+                this.$root.removeAttribute('data-open');
+                this.toggleInert();
+                this.$nextTick(() => {
+                    this.$dispatch('sub-menu-state-change')
+                    this.$refs.openSubMenuBtn.focus();
+                })
+            },
+            toggleInert() {
+                const items = this.$root.parentElement.children;
+
+                for (item of items) {
+                    if (item.hasAttribute('data-open')) continue;
+                    item.toggleAttribute('inert', this.isOpen);
+                }
+            }
+        }
+    }
+
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('initMobileMenu', initMobileMenu);
+        Alpine.data('initMobileSubMenu', initMobileSubMenu);
+    }, { once: true });
+</script>
+<div x-data="initMenuDesktop" class="z-20 navigation hidden lg:flex">
+    <div class="hidden lg:block lg:px-8">
+        <nav
+            class="relative"
+            aria-label="Main&#x20;menu"
+        >
+            <ul class="flex justify-start flex-wrap gap-x-7 py-4">
+                                    <li
+                        class="relative level-0 border-b-2 border-transparent hover:border-primary data-[active]:border-primary"
+                        x-data="initMenuDesktopItem"
+                        x-bind="eventListeners"
+                        @click.outside="close"
+                        @keydown.escape="close"
+                        @mouseenter="canHoverOpen"
+                        @mouseleave="canHoverClose"
+                    >
+                        <span class="flex items-center text-md">
+                            <a
+                                href="http://192.168.0.147/hyvamagento/pub/what-is-new.html"
+                                class="level-0 block py-2 px-1 rounded aria-[current=page]:font-medium"
+                            >
+                                What&#039;s New                            </a>
+                                                    </span>
+                                            </li>
+                                    <li
+                        class="relative level-0 border-b-2 border-transparent hover:border-primary data-[active]:border-primary"
+                        x-data="initMenuDesktopItem"
+                        x-bind="eventListeners"
+                        @click.outside="close"
+                        @keydown.escape="close"
+                        @mouseenter="canHoverOpen"
+                        @mouseleave="canHoverClose"
+                    >
+                        <span class="flex items-center text-md">
+                            <a
+                                href="http://192.168.0.147/hyvamagento/pub/women.html"
+                                class="level-0 block py-2 px-1 rounded aria-[current=page]:font-medium"
+                            >
+                                Women                            </a>
+                                                            <button
+                                    type="button"
+                                    class="group rounded p-1"
+                                    @click="toggle"
+                                    aria-expanded="false"
+                                    :aria-expanded="open"
+                                    aria-controls="category-node-20"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="transition-transform group-aria-expanded:rotate-180" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                                    <span class="sr-only">
+                                        Show submenu for Women category                                    </span>
+                                </button>
+                                                    </span>
+                                                    <ul
+                                id="category-node-20"
+                                class="z-10 absolute top-full left-1/2 -translate-x-1/2 min-w-40 mt-0.5 py-2 px-1 rounded-md shadow-lg bg-white/95"
+                                x-show="open"
+                                x-transition
+                                x-cloak
+                            >
+                                                                    <li>
+                                        <a
+                                            href="http://192.168.0.147/hyvamagento/pub/women/tops-women.html"
+                                            title="Tops"
+                                            class="block py-3 px-5 hover:bg-gray-100 aria-[current=page]:font-medium text-nowrap"
+                                        >
+                                            Tops                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="http://192.168.0.147/hyvamagento/pub/women/bottoms-women.html"
+                                            title="Bottoms"
+                                            class="block py-3 px-5 hover:bg-gray-100 aria-[current=page]:font-medium text-nowrap"
+                                        >
+                                            Bottoms                                        </a>
+                                    </li>
+                                                            </ul>
+                                            </li>
+                                    <li
+                        class="relative level-0 border-b-2 border-transparent hover:border-primary data-[active]:border-primary"
+                        x-data="initMenuDesktopItem"
+                        x-bind="eventListeners"
+                        @click.outside="close"
+                        @keydown.escape="close"
+                        @mouseenter="canHoverOpen"
+                        @mouseleave="canHoverClose"
+                    >
+                        <span class="flex items-center text-md">
+                            <a
+                                href="http://192.168.0.147/hyvamagento/pub/men.html"
+                                class="level-0 block py-2 px-1 rounded aria-[current=page]:font-medium"
+                            >
+                                Men                            </a>
+                                                            <button
+                                    type="button"
+                                    class="group rounded p-1"
+                                    @click="toggle"
+                                    aria-expanded="false"
+                                    :aria-expanded="open"
+                                    aria-controls="category-node-11"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="transition-transform group-aria-expanded:rotate-180" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                                    <span class="sr-only">
+                                        Show submenu for Men category                                    </span>
+                                </button>
+                                                    </span>
+                                                    <ul
+                                id="category-node-11"
+                                class="z-10 absolute top-full left-1/2 -translate-x-1/2 min-w-40 mt-0.5 py-2 px-1 rounded-md shadow-lg bg-white/95"
+                                x-show="open"
+                                x-transition
+                                x-cloak
+                            >
+                                                                    <li>
+                                        <a
+                                            href="http://192.168.0.147/hyvamagento/pub/men/tops-men.html"
+                                            title="Tops"
+                                            class="block py-3 px-5 hover:bg-gray-100 aria-[current=page]:font-medium text-nowrap"
+                                        >
+                                            Tops                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="http://192.168.0.147/hyvamagento/pub/men/bottoms-men.html"
+                                            title="Bottoms"
+                                            class="block py-3 px-5 hover:bg-gray-100 aria-[current=page]:font-medium text-nowrap"
+                                        >
+                                            Bottoms                                        </a>
+                                    </li>
+                                                            </ul>
+                                            </li>
+                                    <li
+                        class="relative level-0 border-b-2 border-transparent hover:border-primary data-[active]:border-primary"
+                        x-data="initMenuDesktopItem"
+                        x-bind="eventListeners"
+                        @click.outside="close"
+                        @keydown.escape="close"
+                        @mouseenter="canHoverOpen"
+                        @mouseleave="canHoverClose"
+                    >
+                        <span class="flex items-center text-md">
+                            <a
+                                href="http://192.168.0.147/hyvamagento/pub/gear.html"
+                                class="level-0 block py-2 px-1 rounded aria-[current=page]:font-medium"
+                            >
+                                Gear                            </a>
+                                                            <button
+                                    type="button"
+                                    class="group rounded p-1"
+                                    @click="toggle"
+                                    aria-expanded="false"
+                                    :aria-expanded="open"
+                                    aria-controls="category-node-3"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="transition-transform group-aria-expanded:rotate-180" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                                    <span class="sr-only">
+                                        Show submenu for Gear category                                    </span>
+                                </button>
+                                                    </span>
+                                                    <ul
+                                id="category-node-3"
+                                class="z-10 absolute top-full left-1/2 -translate-x-1/2 min-w-40 mt-0.5 py-2 px-1 rounded-md shadow-lg bg-white/95"
+                                x-show="open"
+                                x-transition
+                                x-cloak
+                            >
+                                                                    <li>
+                                        <a
+                                            href="http://192.168.0.147/hyvamagento/pub/gear/bags.html"
+                                            title="Bags"
+                                            class="block py-3 px-5 hover:bg-gray-100 aria-[current=page]:font-medium text-nowrap"
+                                        >
+                                            Bags                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="http://192.168.0.147/hyvamagento/pub/gear/fitness-equipment.html"
+                                            title="Fitness&#x20;Equipment"
+                                            class="block py-3 px-5 hover:bg-gray-100 aria-[current=page]:font-medium text-nowrap"
+                                        >
+                                            Fitness Equipment                                        </a>
+                                    </li>
+                                                                    <li>
+                                        <a
+                                            href="http://192.168.0.147/hyvamagento/pub/gear/watches.html"
+                                            title="Watches"
+                                            class="block py-3 px-5 hover:bg-gray-100 aria-[current=page]:font-medium text-nowrap"
+                                        >
+                                            Watches                                        </a>
+                                    </li>
+                                                            </ul>
+                                            </li>
+                                    <li
+                        class="relative level-0 border-b-2 border-transparent hover:border-primary data-[active]:border-primary"
+                        x-data="initMenuDesktopItem"
+                        x-bind="eventListeners"
+                        @click.outside="close"
+                        @keydown.escape="close"
+                        @mouseenter="canHoverOpen"
+                        @mouseleave="canHoverClose"
+                    >
+                        <span class="flex items-center text-md">
+                            <a
+                                href="http://192.168.0.147/hyvamagento/pub/training.html"
+                                class="level-0 block py-2 px-1 rounded aria-[current=page]:font-medium"
+                            >
+                                Training                            </a>
+                                                            <button
+                                    type="button"
+                                    class="group rounded p-1"
+                                    @click="toggle"
+                                    aria-expanded="false"
+                                    :aria-expanded="open"
+                                    aria-controls="category-node-9"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="transition-transform group-aria-expanded:rotate-180" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                                    <span class="sr-only">
+                                        Show submenu for Training category                                    </span>
+                                </button>
+                                                    </span>
+                                                    <ul
+                                id="category-node-9"
+                                class="z-10 absolute top-full left-1/2 -translate-x-1/2 min-w-40 mt-0.5 py-2 px-1 rounded-md shadow-lg bg-white/95"
+                                x-show="open"
+                                x-transition
+                                x-cloak
+                            >
+                                                                    <li>
+                                        <a
+                                            href="http://192.168.0.147/hyvamagento/pub/training/training-video.html"
+                                            title="Video&#x20;Download"
+                                            class="block py-3 px-5 hover:bg-gray-100 aria-[current=page]:font-medium text-nowrap"
+                                        >
+                                            Video Download                                        </a>
+                                    </li>
+                                                            </ul>
+                                            </li>
+                                    <li
+                        class="relative level-0 border-b-2 border-transparent hover:border-primary data-[active]:border-primary"
+                        x-data="initMenuDesktopItem"
+                        x-bind="eventListeners"
+                        @click.outside="close"
+                        @keydown.escape="close"
+                        @mouseenter="canHoverOpen"
+                        @mouseleave="canHoverClose"
+                    >
+                        <span class="flex items-center text-md">
+                            <a
+                                href="http://192.168.0.147/hyvamagento/pub/sale.html"
+                                class="level-0 block py-2 px-1 rounded aria-[current=page]:font-medium"
+                            >
+                                Sale                            </a>
+                                                    </span>
+                                            </li>
+                            </ul>
+        </nav>
+    </div>
+</div>
+
+<script>
+    function initMenuDesktop() {
+        return {
+            init() {
+                this.setActiveMenu();
+            },
+            setActiveMenu() {
+                Array.from(this.$root.querySelectorAll('a')).forEach(link => {
+                    if (link.href === `${window.location.origin}${window.location.pathname}`) {
+                        link.setAttribute('aria-current', 'page');
+                    }
+                });
+            }
+        }
+    }
+
+    function initMenuDesktopItem() {
+        return {
+            open: false,
+            canHover(func) {
+                return window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+            },
+            canHoverOpen() {
+                if (!this.canHover()) return;
+                this.open = true;
+            },
+            canHoverClose() {
+                if (!this.canHover()) return;
+                this.open = false;
+            },
+            toggle() {
+                this.open = !this.open;
+            },
+            close() {
+                this.open = false;
+            },
+            eventListeners: {
+                ['@pageshow.window'](event) {
+                    if (event.persisted) {
+                        this.open = false;
+                    };
+                }
+            }
+        }
+    }
+
+    window.addEventListener('alpine:init', () => {
+        Alpine.data('initMenuDesktop', initMenuDesktop);
+        Alpine.data('initMenuDesktopItem', initMenuDesktopItem);
+    }, { once: true })
+</script>

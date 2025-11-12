@@ -1,0 +1,122 @@
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1762932593;s:6:"expire";i:1762936193;s:4:"tags";s:46:"0b6_CAT_P_10,0b6_CAT_P,0b6_BLOCK_HTML,0b6_MAGE";}
+
+<form method="post"
+    action="http://192.168.0.147/hyvamagento/pub/checkout/cart/add/uenc/%25uenc%25/product/10/"
+    class="item product product-item product_addtocart_form card card-interactive grow flex flex-col w-full md:flex-row"
+                                        data-sku="24-WB05"
+            >
+    <input name="form_key" type="hidden" value="wzE5fKhAmH1oT25X" />    <input type="hidden" name="product" value="10">
+                    <a href="http://192.168.0.147/hyvamagento/pub/savvy-shoulder-tote.html"
+            title="Savvy&#x20;Shoulder&#x20;Tote"
+            class="product photo product-item-photo block mx-auto mb-3 md:w-2/6 md:mb-0 md:shrink-0"
+            tabindex="-1"
+        >
+            <img
+    src="http://192.168.0.147/hyvamagento/pub/media/catalog/product/cache/67ee89799642c567a71fc92f3699d937/w/b/wb05-red-0.jpg"
+    width="360"
+    height="360"
+    alt="Savvy&#x20;Shoulder&#x20;Tote"
+    class="product-image-photo"
+            loading="lazy"
+        x-data="initProductItemImage"
+    @update-gallery-10.window="updateImage"
+    >
+        </a>
+        <div class="product-info flex flex-col grow md:pl-5 md:w-4/6">
+        <div class="mt-2 mb-1 items-center justify-center font-semibold text-lg text-center md:text-left">
+            <a
+                class="product-item-link"
+                href="http://192.168.0.147/hyvamagento/pub/savvy-shoulder-tote.html"
+            >
+                Savvy Shoulder Tote            </a>
+        </div>
+
+                <div class="py-1 mx-auto md:mx-0 md:w-auto">
+                <div
+        role="img"
+        class="rating-summary"
+        aria-label="Savvy&#x20;Shoulder&#x20;Tote&#x20;rating.&#x20;4&#x20;out&#x20;of&#x20;5&#x20;stars"
+    >
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="fill-current" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"/></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="fill-current" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"/></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="fill-current" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"/></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="fill-current" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"/></svg>
+                                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16z"/></svg>
+                                            </div>
+        </div>
+        
+                            
+                <div class="mt-2 mb-1 items-center justify-center text-center md:text-left">
+                    </div>
+        
+        
+        <div class="pt-1"
+             x-data="initPriceBox()"
+             x-defer="intersect"
+             @update-prices-10.window="updatePrice($event.detail);"
+        >
+            <div class="price-box price-final_price" data-role="priceBox" data-product-id="10" data-price-box="product-id-10">
+    <span class="special-price">
+        <span
+    x-data x-id="['product\u002Dprice\u002D10']"    class="price-container price-final_price&#x20;tax&#x20;weee"
+        >
+            <span class="price-label">Special Price</span>
+        <span  :id="$id('product\u002Dprice\u002D10')"                data-price-amount="24"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">$24.00</span></span>
+        </span>
+    </span>
+    <span class="old-price">
+        <span
+    x-data x-id="['old\u002Dprice\u002D10']"    class="price-container price-final_price&#x20;tax&#x20;weee"
+        >
+            <span class="price-label">Regular Price</span>
+        <span  :id="$id('old\u002Dprice\u002D10')"                data-price-amount="32"
+        data-price-type="oldPrice"
+        class="price-wrapper "
+    ><span class="price">$32.00</span></span>
+        </span>
+    </span>
+
+</div>        </div>
+
+        <div class="mt-auto pt-3 flex flex-wrap items-center gap-y-4 gap-x-2
+            md:justify-center">
+                                            <button
+                    class="w-auto btn btn-primary justify-center text-sm mr-auto md:mr-0"
+                    title="Add&#x20;to&#x20;Cart&#x20;Savvy&#x20;Shoulder&#x20;Tote"
+                    aria-label="Add&#x20;to&#x20;Cart&#x20;Savvy&#x20;Shoulder&#x20;Tote"
+                    data-addto="cart"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                    <span class="inline ">
+                        Add to Cart                    </span>
+                </button>
+                
+                        <div class="flex flex-wrap gap-2">
+                                    
+<button x-data="initWishlist()"
+        x-defer="intersect"
+        @click.prevent="addToWishlist(10)"
+        aria-label="Add&#x20;to&#x20;Wish&#x20;List&#x20;Savvy&#x20;Shoulder&#x20;Tote"
+        type="button"
+        class="btn p-2 rounded-full"
+        data-addto="wishlist"
+>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+</button>
+                                                <button x-data="initCompareOnProductList()"
+                        x-defer="intersect"
+                        @click.prevent="addToCompare(10)"
+                        aria-label="Add&#x20;to&#x20;Compare&#x20;Savvy&#x20;Shoulder&#x20;Tote"
+                        type="button"
+                        class="btn p-2 rounded-full"
+                        data-addto="compare"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1M2 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1M7 21h10M12 3v18M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>
+                </button>
+                                                                                </div>
+        </div>
+    </div>
+</form>

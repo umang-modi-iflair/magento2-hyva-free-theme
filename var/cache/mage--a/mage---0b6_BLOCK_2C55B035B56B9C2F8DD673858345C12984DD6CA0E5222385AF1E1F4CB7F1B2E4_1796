@@ -1,0 +1,334 @@
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1762932731;s:6:"expire";i:1762936331;s:4:"tags";s:48:"0b6_BLOCK_HTML,0b6_CAT_P_1796,0b6_CAT_P,0b6_MAGE";}
+
+    <script>
+        function initConfigurableSwatchOptions_1796() {
+            const configurableOptionsComponent = initConfigurableOptions(
+                '1796',
+                {"attributes":{"144":{"id":"144","code":"size","label":"Size","options":[{"id":"166","label":"XS","products":["1781","1782","1783"]},{"id":"167","label":"S","products":["1784","1785","1786"]},{"id":"168","label":"M","products":["1787","1788","1789"]},{"id":"169","label":"L","products":["1790","1791","1792"]},{"id":"170","label":"XL","products":["1793","1794","1795"]}],"position":"0"},"93":{"id":"93","code":"color","label":"Color","options":[{"id":"49","label":"Black","products":["1781","1784","1787","1790","1793"]},{"id":"57","label":"Purple","products":["1782","1785","1788","1791","1794"]},{"id":"60","label":"Yellow","products":["1783","1786","1789","1792","1795"]}],"position":"1"}},"template":"$<%- data.price %>","currencyFormat":"$%s","optionPrices":{"1781":{"baseOldPrice":{"amount":34},"oldPrice":{"amount":34},"basePrice":{"amount":34},"finalPrice":{"amount":34},"tierPrices":[],"msrpPrice":{"amount":0}},"1782":{"baseOldPrice":{"amount":34},"oldPrice":{"amount":34},"basePrice":{"amount":34},"finalPrice":{"amount":34},"tierPrices":[],"msrpPrice":{"amount":0}},"1783":{"baseOldPrice":{"amount":34},"oldPrice":{"amount":34},"basePrice":{"amount":34},"finalPrice":{"amount":34},"tierPrices":[],"msrpPrice":{"amount":0}},"1784":{"baseOldPrice":{"amount":34},"oldPrice":{"amount":34},"basePrice":{"amount":34},"finalPrice":{"amount":34},"tierPrices":[],"msrpPrice":{"amount":0}},"1785":{"baseOldPrice":{"amount":34},"oldPrice":{"amount":34},"basePrice":{"amount":34},"finalPrice":{"amount":34},"tierPrices":[],"msrpPrice":{"amount":0}},"1786":{"baseOldPrice":{"amount":34},"oldPrice":{"amount":34},"basePrice":{"amount":34},"finalPrice":{"amount":34},"tierPrices":[],"msrpPrice":{"amount":0}},"1787":{"baseOldPrice":{"amount":34},"oldPrice":{"amount":34},"basePrice":{"amount":34},"finalPrice":{"amount":34},"tierPrices":[],"msrpPrice":{"amount":0}},"1788":{"baseOldPrice":{"amount":34},"oldPrice":{"amount":34},"basePrice":{"amount":34},"finalPrice":{"amount":34},"tierPrices":[],"msrpPrice":{"amount":0}},"1789":{"baseOldPrice":{"amount":34},"oldPrice":{"amount":34},"basePrice":{"amount":34},"finalPrice":{"amount":34},"tierPrices":[],"msrpPrice":{"amount":0}},"1790":{"baseOldPrice":{"amount":34},"oldPrice":{"amount":34},"basePrice":{"amount":34},"finalPrice":{"amount":34},"tierPrices":[],"msrpPrice":{"amount":0}},"1791":{"baseOldPrice":{"amount":34},"oldPrice":{"amount":34},"basePrice":{"amount":34},"finalPrice":{"amount":34},"tierPrices":[],"msrpPrice":{"amount":0}},"1792":{"baseOldPrice":{"amount":34},"oldPrice":{"amount":34},"basePrice":{"amount":34},"finalPrice":{"amount":34},"tierPrices":[],"msrpPrice":{"amount":0}},"1793":{"baseOldPrice":{"amount":34},"oldPrice":{"amount":34},"basePrice":{"amount":34},"finalPrice":{"amount":34},"tierPrices":[],"msrpPrice":{"amount":0}},"1794":{"baseOldPrice":{"amount":34},"oldPrice":{"amount":34},"basePrice":{"amount":34},"finalPrice":{"amount":34},"tierPrices":[],"msrpPrice":{"amount":0}},"1795":{"baseOldPrice":{"amount":34},"oldPrice":{"amount":34},"basePrice":{"amount":34},"finalPrice":{"amount":34},"tierPrices":[],"msrpPrice":{"amount":0}}},"priceFormat":{"pattern":"$%s","precision":2,"requiredPrecision":2,"decimalSymbol":".","groupSymbol":",","groupLength":3,"integerRequired":false},"prices":{"baseOldPrice":{"amount":34},"oldPrice":{"amount":34},"basePrice":{"amount":34},"finalPrice":{"amount":34}},"productId":"1796","chooseText":"Choose an Option...","images":[],"index":{"1781":{"144":"166","93":"49"},"1782":{"144":"166","93":"57"},"1783":{"144":"166","93":"60"},"1784":{"144":"167","93":"49"},"1785":{"144":"167","93":"57"},"1786":{"144":"167","93":"60"},"1787":{"144":"168","93":"49"},"1788":{"144":"168","93":"57"},"1789":{"144":"168","93":"60"},"1790":{"144":"169","93":"49"},"1791":{"144":"169","93":"57"},"1792":{"144":"169","93":"60"},"1793":{"144":"170","93":"49"},"1794":{"144":"170","93":"57"},"1795":{"144":"170","93":"60"}},"salable":[],"canDisplayShowOutOfStockStatus":false,"channel":"website","salesChannelCode":"base","sku":{"1781":"WT08-XS-Black","1782":"WT08-XS-Purple","1783":"WT08-XS-Yellow","1784":"WT08-S-Black","1785":"WT08-S-Purple","1786":"WT08-S-Yellow","1787":"WT08-M-Black","1788":"WT08-M-Purple","1789":"WT08-M-Yellow","1790":"WT08-L-Black","1791":"WT08-L-Purple","1792":"WT08-L-Yellow","1793":"WT08-XL-Black","1794":"WT08-XL-Purple","1795":"WT08-XL-Yellow"}}            );
+            const swatchOptionsComponent = initSwatchOptions({"144":{"166":{"type":"0","value":"XS","label":"XS"},"167":{"type":"0","value":"S","label":"S"},"168":{"type":"0","value":"M","label":"M"},"169":{"type":"0","value":"L","label":"L"},"170":{"type":"0","value":"XL","label":"XL"},"additional_data":"{\"swatch_input_type\":\"text\",\"update_product_preview_image\":1,\"use_product_image_for_swatch\":0}"},"93":{"49":{"type":"1","value":"#000000","label":"Black"},"57":{"type":"1","value":"#ef3dff","label":"Purple"},"60":{"type":"1","value":"#ffd500","label":"Yellow"},"additional_data":"{\"swatch_input_type\":\"visual\",\"update_product_preview_image\":1,\"use_product_image_for_swatch\":0}"}});
+
+            return Object.assign(
+                configurableOptionsComponent,
+                swatchOptionsComponent,
+                {
+                    mediaCallback: "http\u003A\u002F\u002F192.168.0.147\u002Fhyvamagento\u002Fpub\u002Fswatches\u002Fajax\u002Fmedia\u002F",
+                    changeOption(optionId, value, skipUpdateGallery) {
+                        if (value === '') {
+                            this.selectedValues = this.removeAttrFromSelection(this.selectedValues, optionId)
+                        } else {
+                            this.selectedValues[optionId] = value;
+                        }
+                        this.findSimpleIndex();
+                        this.findAllowedAttributeOptions();
+                        this.updatePrices();
+                        !skipUpdateGallery && this.updateGallery();
+
+                        const candidates = this.findProductIdsForPartialSelection(this.selectedValues);
+
+                                                window.dispatchEvent(new CustomEvent('listing-configurable-selection-changed', {
+                            detail: {
+                                productId: this.productId,
+                                optionId,
+                                value,
+                                productIndex: this.productIndex,
+                                selectedValues: this.selectedValues,
+                                candidates: candidates,
+                                skuCandidates: Object.values(candidates).map(id => this.optionConfig.sku?.[id] ?? null).filter(Boolean),
+                            }
+                        }));
+                    },
+                    updateGallery() {
+                        if (!this.productIndex) {
+                            return;
+                        }
+
+                        fetch(`${this.mediaCallback}?product_id=${this.productIndex}&isAjax=true`, {
+                                method: 'GET',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'X-Requested-With': 'XMLHttpRequest'
+                                }
+                            }
+                        ).then(response => {
+                                return response.json()
+                            }
+                        ).then(data => {
+                            if (data.errors) {
+                                // non critical failure only console logged
+                                console.warn(data.errors);
+                            } else {
+                                data && window.dispatchEvent(
+                                    new CustomEvent(
+                                        "update-gallery-1796",
+                                        { detail: data }
+                                    )
+                                );
+                            }
+                        }).catch(error => {
+                            console.warn(error)
+                        });
+                    },
+                    preselectQuerystringItems() {
+                        // pre-select option like ?size=167
+                        const urlQueryParams = new URLSearchParams(window.location.search.replace('?', ''));
+                        Object.values(this.optionConfig.attributes).map(attribute => {
+                            // Don't update images on load, since PLPs already set the main image to the selected options
+                            const skipUpdateGallery = true;
+                            urlQueryParams.get(attribute.code) &&
+                            this.changeOption(attribute.id, urlQueryParams.get(attribute.code), skipUpdateGallery);
+                        });
+                    },
+                    mouseDown: false,
+                    startX: 0,
+                    maxScroll: 0,
+                    scrollLeft: null,
+                    slider: null,
+                    scrollEvents: {
+                        ['@mousedown'](e) {
+                            this.slider = e.target.closest('.snap');
+                            if (!this.slider) {
+                                return;
+                            }
+                            this.maxScroll = this.slider.scrollWidth - this.slider.offsetWidth;
+                            this.startX = e.pageX - this.slider.offsetLeft;
+                            this.scrollLeft = this.slider.scrollLeft;
+                            this.mouseDown = true;
+                        },
+                        ['@mouseout.self']() {
+                            this.mouseDown = false;
+                        },
+                        ['@mouseup']() {
+                            this.mouseDown = false;
+                        },
+                        ['@mousemove'](e) {
+                            e.preventDefault();
+                            if (!this.mouseDown) {
+                                return;
+                            }
+                            const x = e.pageX - this.slider.offsetLeft;
+                            const scroll = x - this.startX;
+                            const scrollLeft = this.scrollLeft - scroll;
+
+                            if (scrollLeft > this.maxScroll) {
+                                this.slider.scrollLeft = this.maxScroll;
+                                return
+                            }
+                            this.slider.scrollLeft = this.scrollLeft - scroll;
+                        },
+                        ['@onselectstart']() {
+                            return false;
+                        }
+                    },
+                    resizeEvent() {
+                        Array.from(this.$root.querySelectorAll('.snap')).forEach(slider => {
+                            slider.scrollLeft = 0;
+                        })
+                    }
+                }
+            );
+        }
+
+    </script>
+
+<div x-data="initConfigurableSwatchOptions_1796()"
+     x-defer="intersect"
+     x-init="findAllowedAttributeOptions()"
+     @private-content-loaded.window="onGetCartData($event.detail.data)"
+     @resize.window="resizeEvent()"
+     class="mb-2 relative"
+>
+    <div>
+                                
+                    <div class="swatch-attribute border-t last:border-b border-container
+            size"
+        >
+            <div class="w-full overflow-x-hidden swatch-attribute-options min-h-14">
+                <div class="flex flex-nowrap w-full overflow-auto snap items-center py-1"
+                    id="attribute-label-1796-144"
+                    role="radiogroup"
+                    x-bind="scrollEvents"
+                    aria-label="Size"
+                >
+                    <template x-for="(item, index) in optionConfig.attributes[144].options"
+                              :key="item.id"
+                    >
+                        
+<div x-id="['attribute-option-1796-'+item.id]">
+    <template x-if="optionIsEnabled(144, item.id) && optionIsActive(144, item.id)">
+        <label
+            :for="$id('attribute-option-1796-'+item.id)"
+            class="swatch-option relative shadow-sm cursor-pointer select-none bg-white product-option-value-label"
+            :class="{
+                'border-gray-100 ring ring-primary/50':
+                    (selectedValues[144] === item.id),
+                'border-gray-300':
+                    (selectedValues[144] !== item.id),
+                'w-6 h-6' : !isTextSwatch(144, item.id),
+                'border-gray-100 ring ring-primary/75' : focusedLabel === item.id
+            }"
+            :style="getSwatchBackgroundStyle('144',item.id)"
+                            @mouseenter.self="activeTooltipItem = {
+                    attribute: '144',
+                    item: item.id,
+                    index
+                }; tooltipPositionElement = $event.target;"
+                @mouseleave.self="activeTooltipItem = false"
+                    >
+            <input
+                :id="$id('attribute-option-1796-'+item.id)"
+                :value="item.id"
+                name="super_attribute[144]"
+                type="radio"
+                class="inline-block absolute p-0 border-0 focus:border-0 focus:ring-0 product-option-value-input"
+                style="z-index:-1"
+                x-on:focus="focusLabel(item.id)"
+                x-on:blur="blurLabel()"
+                x-on:change="changeOption(144, $event.target.value)"
+                x-on:click="clearOptionIfActive(144, item.id)"
+                x-model="selectedValues[144]"
+                :required="getAllowedAttributeOptions(144).filter(
+                    attributeOption => selectedValues[attributeOption]
+                ).length === 0"
+                :aria-label="getSwatchText(144, item.id)"
+                aria-describedby="attribute-label-1796-144"
+            >
+            <template x-if="isTextSwatch(144, item.id)">
+                <div
+                    x-html="getSwatchText(144, item.id)"
+                    class="pointer-events-none select-none whitespace-nowrap"
+                    aria-hidden="true"
+                ></div>
+            </template>
+        </label>
+    </template>
+
+    <template x-if="optionIsEnabled(144, item.id) && !optionIsActive(144, item.id)">
+        <div
+            class="relative border-2 shadow-sm opacity-50 cursor-pointer select-none border-gray-300 swatch-option bg-white"
+            :class="{
+                                                        'w-6 h-6' : !isTextSwatch(144, item.id),
+                                                    }"
+            :style="getSwatchBackgroundStyle('144',item.id)"
+        >
+            <div x-html="getSwatchText(144, item.id)"
+                 class="whitespace-nowrap"
+                 :class="{ 'sr-only' : !isTextSwatch(144, item.id) }"
+            ></div>
+            <svg class="absolute inset-0 w-full h-full text-gray-500 bg-white/25">
+                <line x1="0" y1="100%" x2="100%" y2="0" class="stroke-current stroke-1"></line>
+            </svg>
+        </div>
+    </template>
+</div>
+                    </template>
+                </div>
+            </div>
+        </div>
+                                
+                    <div class="swatch-attribute border-t last:border-b border-container
+            color"
+        >
+            <div class="w-full overflow-x-hidden swatch-attribute-options min-h-14">
+                <div class="flex flex-nowrap w-full overflow-auto snap items-center py-1"
+                    id="attribute-label-1796-93"
+                    role="radiogroup"
+                    x-bind="scrollEvents"
+                    aria-label="Color"
+                >
+                    <template x-for="(item, index) in optionConfig.attributes[93].options"
+                              :key="item.id"
+                    >
+                        
+<div x-id="['attribute-option-1796-'+item.id]">
+    <template x-if="optionIsEnabled(93, item.id) && optionIsActive(93, item.id)">
+        <label
+            :for="$id('attribute-option-1796-'+item.id)"
+            class="swatch-option relative shadow-sm cursor-pointer select-none bg-white product-option-value-label"
+            :class="{
+                'border-gray-100 ring ring-primary/50':
+                    (selectedValues[93] === item.id),
+                'border-gray-300':
+                    (selectedValues[93] !== item.id),
+                'w-6 h-6' : !isTextSwatch(93, item.id),
+                'border-gray-100 ring ring-primary/75' : focusedLabel === item.id
+            }"
+            :style="getSwatchBackgroundStyle('93',item.id)"
+                            @mouseenter.self="activeTooltipItem = {
+                    attribute: '93',
+                    item: item.id,
+                    index
+                }; tooltipPositionElement = $event.target;"
+                @mouseleave.self="activeTooltipItem = false"
+                    >
+            <input
+                :id="$id('attribute-option-1796-'+item.id)"
+                :value="item.id"
+                name="super_attribute[93]"
+                type="radio"
+                class="inline-block absolute p-0 border-0 focus:border-0 focus:ring-0 product-option-value-input"
+                style="z-index:-1"
+                x-on:focus="focusLabel(item.id)"
+                x-on:blur="blurLabel()"
+                x-on:change="changeOption(93, $event.target.value)"
+                x-on:click="clearOptionIfActive(93, item.id)"
+                x-model="selectedValues[93]"
+                :required="getAllowedAttributeOptions(93).filter(
+                    attributeOption => selectedValues[attributeOption]
+                ).length === 0"
+                :aria-label="getSwatchText(93, item.id)"
+                aria-describedby="attribute-label-1796-93"
+            >
+            <template x-if="isTextSwatch(93, item.id)">
+                <div
+                    x-html="getSwatchText(93, item.id)"
+                    class="pointer-events-none select-none whitespace-nowrap"
+                    aria-hidden="true"
+                ></div>
+            </template>
+        </label>
+    </template>
+
+    <template x-if="optionIsEnabled(93, item.id) && !optionIsActive(93, item.id)">
+        <div
+            class="relative border-2 shadow-sm opacity-50 cursor-pointer select-none border-gray-300 swatch-option bg-white"
+            :class="{
+                                                        'w-6 h-6' : !isTextSwatch(93, item.id),
+                                                    }"
+            :style="getSwatchBackgroundStyle('93',item.id)"
+        >
+            <div x-html="getSwatchText(93, item.id)"
+                 class="whitespace-nowrap"
+                 :class="{ 'sr-only' : !isTextSwatch(93, item.id) }"
+            ></div>
+            <svg class="absolute inset-0 w-full h-full text-gray-500 bg-white/25">
+                <line x1="0" y1="100%" x2="100%" y2="0" class="stroke-current stroke-1"></line>
+            </svg>
+        </div>
+    </template>
+</div>
+                    </template>
+                </div>
+            </div>
+        </div>
+            </div>
+            <template x-if="isTooltipVisible()">
+    <div class="absolute pointer-events-none select-none"
+         :style="getTooltipPosition()"
+    >
+        <div class="absolute top-0 left-0 z-10 min-w-20 p-2 -mt-6 text-sm leading-tight text-black
+                transform -translate-x-1/2 -translate-y-full bg-white rounded-lg shadow-lg text-center"
+                :class="{'-translate-x-5' : isFirstItemCol()}"
+        >
+        <template x-if="isVisualSwatch(activeTooltipItem.attribute, activeTooltipItem.item)">
+            <div class="inline-block border shadow-sm border-gray-300"
+                    :style="getTooltipImageStyle(activeTooltipItem.attribute, activeTooltipItem.item)"
+            ></div>
+        </template>
+            <span class="mx-2 text-lg font-semibold whitespace-nowrap subtitle"
+                    x-html="getTooltipLabel()"
+            ></span>
+        </div>
+        <div class="absolute z-10 w-3 h-3 bg-white origin-top-left rotate-45 translate-x-4 -translate-y-8 shadow-xl" aria-hidden="true"></div>
+    </div>
+</template>
+    </div>
