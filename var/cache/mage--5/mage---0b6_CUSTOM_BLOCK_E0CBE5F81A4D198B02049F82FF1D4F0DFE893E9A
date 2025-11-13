@@ -1,18 +1,18 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1762932780;s:6:"expire";i:1762936380;s:4:"tags";s:61:"0b6_CAT_P_828,0b6_CAT_P,0b6_BLOCK_HTML,0b6_CAT_P_238,0b6_MAGE";}
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1763017559;s:6:"expire";i:1763021159;s:4:"tags";s:47:"0b6_CAT_P_828,0b6_CAT_P,0b6_BLOCK_HTML,0b6_MAGE";}
 
 <form method="post"
-    action="http://192.168.0.147/hyvamagento/pub/checkout/cart/add/uenc/%25uenc%25/product/828/"
+    action="http://192.168.1.188/magento2hyva/pub/checkout/cart/add/uenc/%25uenc%25/product/828/"
     class="item product product-item product_addtocart_form card card-interactive grow flex flex-col w-full "
                                         data-sku="MP08"
             >
-    <input name="form_key" type="hidden" value="XApSMWVhLqi0Qee1" />    <input type="hidden" name="product" value="828">
-                    <a href="http://192.168.0.147/hyvamagento/pub/zeppelin-yoga-pant.html"
+    <input name="form_key" type="hidden" value="mX9zC19mBmJTclSb" />    <input type="hidden" name="product" value="828">
+                    <a href="http://192.168.1.188/magento2hyva/pub/zeppelin-yoga-pant.html"
             title="Zeppelin&#x20;Yoga&#x20;Pant"
             class="product photo product-item-photo block mx-auto mb-3 "
             tabindex="-1"
         >
             <img
-    src="http://192.168.0.147/hyvamagento/pub/media/catalog/product/cache/67ee89799642c567a71fc92f3699d937/m/p/mp08-green_main_1.jpg"
+    src="http://192.168.1.188/magento2hyva/pub/media/catalog/product/cache/67ee89799642c567a71fc92f3699d937/m/p/mp08-green_main_1.jpg"
     width="360"
     height="360"
     alt="Zeppelin&#x20;Yoga&#x20;Pant"
@@ -26,7 +26,7 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1762932780;s:6:"expire";i:1762936380;s:4:"t
         <div class="mt-2 mb-1 items-center justify-center font-semibold text-lg text-center ">
             <a
                 class="product-item-link"
-                href="http://192.168.0.147/hyvamagento/pub/zeppelin-yoga-pant.html"
+                href="http://192.168.1.188/magento2hyva/pub/zeppelin-yoga-pant.html"
             >
                 Zeppelin Yoga Pant            </a>
         </div>
@@ -57,7 +57,7 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1762932780;s:6:"expire";i:1762936380;s:4:"t
                 configurableOptionsComponent,
                 swatchOptionsComponent,
                 {
-                    mediaCallback: "http\u003A\u002F\u002F192.168.0.147\u002Fhyvamagento\u002Fpub\u002Fswatches\u002Fajax\u002Fmedia\u002F",
+                    mediaCallback: "http\u003A\u002F\u002F192.168.1.188\u002Fmagento2hyva\u002Fpub\u002Fswatches\u002Fajax\u002Fmedia\u002F",
                     changeOption(optionId, value, skipUpdateGallery) {
                         if (value === '') {
                             this.selectedValues = this.removeAttrFromSelection(this.selectedValues, optionId)
