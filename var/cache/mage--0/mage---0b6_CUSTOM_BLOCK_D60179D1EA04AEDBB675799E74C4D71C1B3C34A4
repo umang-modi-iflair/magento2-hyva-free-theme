@@ -1,18 +1,18 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1762932732;s:6:"expire";i:1762936332;s:4:"tags";s:48:"0b6_CAT_P_1748,0b6_CAT_P,0b6_BLOCK_HTML,0b6_MAGE";}
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1763017299;s:6:"expire";i:1763020899;s:4:"tags";s:48:"0b6_CAT_P_1748,0b6_CAT_P,0b6_BLOCK_HTML,0b6_MAGE";}
 
 <form method="post"
-    action="http://192.168.0.147/hyvamagento/pub/checkout/cart/add/uenc/%25uenc%25/product/1748/"
+    action="http://192.168.1.188/magento2hyva/pub/checkout/cart/add/uenc/%25uenc%25/product/1748/"
     class="item product product-item product_addtocart_form card card-interactive grow flex flex-col w-full "
                                         data-sku="WT05"
             >
-    <input name="form_key" type="hidden" value="1EnKqwPLKkbaYCj8" />    <input type="hidden" name="product" value="1748">
-                    <a href="http://192.168.0.147/hyvamagento/pub/leah-yoga-top.html"
+    <input name="form_key" type="hidden" value="U9bZsyC7KfsvDHnR" />    <input type="hidden" name="product" value="1748">
+                    <a href="http://192.168.1.188/magento2hyva/pub/leah-yoga-top.html"
             title="Leah&#x20;Yoga&#x20;Top"
             class="product photo product-item-photo block mx-auto mb-3 "
             tabindex="-1"
         >
             <img
-    src="http://192.168.0.147/hyvamagento/pub/media/catalog/product/cache/67ee89799642c567a71fc92f3699d937/w/t/wt05-purple_main_2.jpg"
+    src="http://192.168.1.188/magento2hyva/pub/media/catalog/product/cache/67ee89799642c567a71fc92f3699d937/w/t/wt05-purple_main_2.jpg"
     width="360"
     height="360"
     alt="Leah&#x20;Yoga&#x20;Top"
@@ -26,7 +26,7 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1762932732;s:6:"expire";i:1762936332;s:4:"t
         <div class="mt-2 mb-1 items-center justify-center font-semibold text-lg text-center ">
             <a
                 class="product-item-link"
-                href="http://192.168.0.147/hyvamagento/pub/leah-yoga-top.html"
+                href="http://192.168.1.188/magento2hyva/pub/leah-yoga-top.html"
             >
                 Leah Yoga Top            </a>
         </div>
@@ -57,7 +57,7 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1762932732;s:6:"expire";i:1762936332;s:4:"t
                 configurableOptionsComponent,
                 swatchOptionsComponent,
                 {
-                    mediaCallback: "http\u003A\u002F\u002F192.168.0.147\u002Fhyvamagento\u002Fpub\u002Fswatches\u002Fajax\u002Fmedia\u002F",
+                    mediaCallback: "http\u003A\u002F\u002F192.168.1.188\u002Fmagento2hyva\u002Fpub\u002Fswatches\u002Fajax\u002Fmedia\u002F",
                     changeOption(optionId, value, skipUpdateGallery) {
                         if (value === '') {
                             this.selectedValues = this.removeAttrFromSelection(this.selectedValues, optionId)

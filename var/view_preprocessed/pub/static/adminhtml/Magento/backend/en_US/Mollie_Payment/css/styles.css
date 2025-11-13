@@ -1,1 +1,198 @@
-.mm-comment-mollie{padding:1rem 0rem 0rem 1rem;font-size:1.2rem;line-height:2.5rem;border-left:4px solid #f8f8f8}.mollie-method img{width:30px;margin-right:10px;margin-left:10px;float:left;margin-top:-5px}.mollie-success{display:block;line-height:30px}.mollie-success:before{font-family:'Admin Icons';font-size:12px;font-style:normal;font-weight:400;padding:10px;color:#79A22E;content:'\e62d'}.mollie-success .enabled-methods-error{display:block;line-height:30px}.mollie-success .enabled-methods-error:before{font-family:'Admin Icons';font-size:12px;font-style:normal;font-weight:400;padding:10px;color:#EB5103;content:'\e610'}.mollie-success .enabled-methods{display:block;line-height:30px;margin-top:15px}.mollie-success .enabled-methods:before{font-family:'Admin Icons';font-size:12px;font-style:normal;font-weight:400;padding:11px;color:#78A230;content:'\e610'}.mollie-error{display:block;background-color:white;line-height:30px}.mollie-error:before{color:#EB5202;content:'\e623';font-family:'Admin Icons';font-size:12px;font-style:normal;font-weight:400;padding:10px}.mm-heading-mollie{color:#666;text-align:left;border:1px solid rgba(229,229,229,0.27);border-left:2px solid #EA4C00;font-size:14px;margin:20px 0 0;padding:5px 5px 5px 10px;background:#F8F8F8}.mm-block-mollie{background:#F8F8F8 no-repeat 8px;border:1px solid #E5E5E5;border-left:2px solid #EA4C00;font-size:12px;color:#303030;margin-bottom:0;padding:1.5rem 1.5rem 1.5rem 1.5rem;background-size:55px}.mm-block-mollie table{width:520px !important}.mm-block-mollie strong{font-weight:600;color:#514943}.mm-block-mollie p{font-size:12px;padding:0 0 .3em}.mm-block-mollie tr a{color:#6D6761;margin-top:3px;display:block}.mm-block-mollie tr td{padding:5px 0px 0 0 !important}.mm-block-mollie .accordion .form-inline .config td{padding:.8rem 1.5rem 0 0}.mm-block-mollie .helpbutton{padding:10px 15px;width:100px;height:31px;float:right;background:url(../images/icons.png) no-repeat scroll 0px -175px #F8F8F8}.mm-block-mollie .icon1{background:url(../images/icons.png) no-repeat scroll -20px -14px;width:45px;height:25px;float:left}.mm-block-mollie .icon2{background:url(../images/icons.png) no-repeat scroll -30px -70px;width:36px;height:25px;float:left}.mm-block-mollie .icon3{background:url(../images/icons.png) no-repeat scroll -20px -129px;width:47px;height:25px;float:left}a.mollie-tooltip span{display:none;padding:2px 3px;margin-left:30px;width:auto;margin-top:5px}a.mollie-tooltip:hover span{display:block;position:absolute;background:#F8F8F8;border:1px solid #CCCCCC;color:#6C6C6C;margin-right:0px;padding:10px;text-align:left;max-width:360px}.mollie-admin-method{padding:10px;margin:10px 0}@media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi){.mm-block-mollie .icon1{background:url(../images/icons@x2.png) no-repeat scroll 0px -7px;background-size:55px}.mm-block-mollie .icon2{background:url(../images/icons@x2.png) no-repeat scroll -4px -32px;background-size:45px}.mm-block-mollie .icon3{background:url(../images/icons@x2.png) no-repeat scroll 0px -75px;background-size:52px}.mm-block-mollie .helpbutton{background:url(../images/icons@x2.png) no-repeat scroll 0px -260px #F8F8F8;background-size:130px}}.mollie_methods_paymentlink_days_before_expire{text-indent:5px}.mollie-copy-url{cursor:pointer;font-size:175%;margin-top:-10px;display:inline-block}.admin__page-nav._collapsed.mollie-tab .title,.admin__page-nav._collapsed._show.mollie-tab .title{background-image:url('../images/mollie_logo_configuration_tab.png');background-position:10px center;background-position:15px center;background-repeat:no-repeat;background-size:auto 70%;text-indent:40px;background-size:auto 50%;text-indent:35px}.mollie-manual-capture-warning.message{margin-top:20px}
+.mm-comment-mollie {
+  padding: 1rem 0rem 0rem 1rem;
+  font-size: 1.2rem;
+  line-height: 2.5rem;
+  border-left: 4px solid #f8f8f8;
+}
+.mollie-method img {
+  width: 30px;
+  margin-right: 10px;
+  margin-left: 10px;
+  float: left;
+  margin-top: -5px;
+}
+.mollie-success {
+  display: block;
+  line-height: 30px;
+}
+.mollie-success:before {
+  font-family: 'Admin Icons';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  padding: 10px;
+  color: #79A22E;
+  content: '\e62d';
+}
+.mollie-success .enabled-methods-error {
+  display: block;
+  line-height: 30px;
+}
+.mollie-success .enabled-methods-error:before {
+  font-family: 'Admin Icons';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  padding: 10px;
+  color: #EB5103;
+  content: '\e610';
+}
+.mollie-success .enabled-methods {
+  display: block;
+  line-height: 30px;
+  margin-top: 15px;
+}
+.mollie-success .enabled-methods:before {
+  font-family: 'Admin Icons';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  padding: 11px;
+  color: #78A230;
+  content: '\e610';
+}
+.mollie-error {
+  display: block;
+  background-color: white;
+  line-height: 30px;
+}
+.mollie-error:before {
+  color: #EB5202;
+  content: '\e623';
+  font-family: 'Admin Icons';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  padding: 10px;
+}
+.mm-heading-mollie {
+  color: #666;
+  text-align: left;
+  border: 1px solid rgba(229, 229, 229, 0.27);
+  border-left: 2px solid #EA4C00;
+  font-size: 14px;
+  margin: 20px 0 0;
+  padding: 5px 5px 5px 10px;
+  background: #F8F8F8;
+}
+.mm-block-mollie {
+  background: #F8F8F8 no-repeat 8px;
+  border: 1px solid #E5E5E5;
+  border-left: 2px solid #EA4C00;
+  font-size: 12px;
+  color: #303030;
+  margin-bottom: 0;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  background-size: 55px;
+}
+.mm-block-mollie table {
+  width: 520px !important;
+}
+.mm-block-mollie strong {
+  font-weight: 600;
+  color: #514943;
+}
+.mm-block-mollie p {
+  font-size: 12px;
+  padding: 0 0 0.3em;
+}
+.mm-block-mollie tr a {
+  color: #6D6761;
+  margin-top: 3px;
+  display: block;
+}
+.mm-block-mollie tr td {
+  padding: 5px 0px 0 0 !important;
+}
+.mm-block-mollie .accordion .form-inline .config td {
+  padding: 0.8rem 1.5rem 0 0;
+}
+.mm-block-mollie .helpbutton {
+  padding: 10px 15px;
+  width: 100px;
+  height: 31px;
+  float: right;
+  background: url(../images/icons.png) no-repeat scroll 0px -175px #F8F8F8;
+}
+.mm-block-mollie .icon1 {
+  background: url(../images/icons.png) no-repeat scroll -20px -14px;
+  width: 45px;
+  height: 25px;
+  float: left;
+}
+.mm-block-mollie .icon2 {
+  background: url(../images/icons.png) no-repeat scroll -30px -70px;
+  width: 36px;
+  height: 25px;
+  float: left;
+}
+.mm-block-mollie .icon3 {
+  background: url(../images/icons.png) no-repeat scroll -20px -129px;
+  width: 47px;
+  height: 25px;
+  float: left;
+}
+a.mollie-tooltip span {
+  display: none;
+  padding: 2px 3px;
+  margin-left: 30px;
+  width: auto;
+  margin-top: 5px;
+}
+a.mollie-tooltip:hover span {
+  display: block;
+  position: absolute;
+  background: #F8F8F8;
+  border: 1px solid #CCCCCC;
+  color: #6C6C6C;
+  margin-right: 0px;
+  padding: 10px;
+  text-align: left;
+  max-width: 360px;
+}
+.mollie-admin-method {
+  padding: 10px;
+  margin: 10px 0;
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .mm-block-mollie .icon1 {
+    background: url(../images/icons@x2.png) no-repeat scroll 0px -7px;
+    background-size: 55px;
+  }
+  .mm-block-mollie .icon2 {
+    background: url(../images/icons@x2.png) no-repeat scroll -4px -32px;
+    background-size: 45px;
+  }
+  .mm-block-mollie .icon3 {
+    background: url(../images/icons@x2.png) no-repeat scroll 0px -75px;
+    background-size: 52px;
+  }
+  .mm-block-mollie .helpbutton {
+    background: url(../images/icons@x2.png) no-repeat scroll 0px -260px #F8F8F8;
+    background-size: 130px;
+  }
+}
+.mollie_methods_paymentlink_days_before_expire {
+  text-indent: 5px;
+}
+.mollie-copy-url {
+  cursor: pointer;
+  font-size: 175%;
+  margin-top: -10px;
+  display: inline-block;
+}
+.admin__page-nav._collapsed.mollie-tab .title,
+.admin__page-nav._collapsed._show.mollie-tab .title {
+  background-image: url('../images/mollie_logo_configuration_tab.png');
+  background-position: 10px center;
+  background-position: 15px center;
+  background-repeat: no-repeat;
+  background-size: auto 70%;
+  text-indent: 40px;
+  background-size: auto 50%;
+  text-indent: 35px;
+}
+.mollie-manual-capture-warning.message {
+  margin-top: 20px;
+}
+/*# sourceMappingURL=data:application/json,%7B%22version%22%3A3%2C%22sources%22%3A%5B%22%5C%2Fstatic%5C%2Fadminhtml%5C%2FMagento%5C%2Fbackend%5C%2Fen_US%5C%2FMollie_Payment%5C%2Fcss%5C%2Fstyles.less%22%5D%2C%22names%22%3A%5B%5D%2C%22mappings%22%3A%22AAAA%3BEACI%2C4BAAA%3BEACA%2CiBAAA%3BEACA%2CmBAAA%3BEACA%2C8BAAA%3B%3BAAGJ%2CcAAe%3BEACX%2CWAAA%3BEACA%2CkBAAA%3BEACA%2CiBAAA%3BEACA%2CWAAA%3BEACA%2CgBAAA%3B%3BAAGJ%3BEACI%2CcAAA%3BEACA%2CiBAAA%3B%3BAAGJ%2CeAAe%3BEACX%2CaAAa%2CaAAb%3BEACA%2CeAAA%3BEACA%2CkBAAA%3BEACA%2CgBAAA%3BEACA%2CaAAA%3BEACA%2CcAAA%3BEACA%2CSAAS%2COAAT%3B%3BAAGJ%2CeAAgB%3BEACZ%2CcAAA%3BEACA%2CiBAAA%3B%3BAAGJ%2CeAAgB%2CuBAAsB%3BEAClC%2CaAAa%2CaAAb%3BEACA%2CeAAA%3BEACA%2CkBAAA%3BEACA%2CgBAAA%3BEACA%2CaAAA%3BEACA%2CcAAA%3BEACA%2CSAAS%2COAAT%3B%3BAAGJ%2CeAAgB%3BEACZ%2CcAAA%3BEACA%2CiBAAA%3BEACA%2CgBAAA%3B%3BAAGJ%2CeAAgB%2CiBAAgB%3BEAC5B%2CaAAa%2CaAAb%3BEACA%2CeAAA%3BEACA%2CkBAAA%3BEACA%2CgBAAA%3BEACA%2CaAAA%3BEACA%2CcAAA%3BEACA%2CSAAS%2COAAT%3B%3BAAGJ%3BEACI%2CcAAA%3BEACA%2CuBAAA%3BEACA%2CiBAAA%3B%3BAAGJ%2CaAAa%3BEACT%2CcAAA%3BEACA%2CSAAS%2COAAT%3BEACA%2CaAAa%2CaAAb%3BEACA%2CeAAA%3BEACA%2CkBAAA%3BEACA%2CgBAAA%3BEACA%2CaAAA%3B%3BAAGJ%3BEACI%2CWAAA%3BEACA%2CgBAAA%3BEACA%2C2CAAA%3BEACA%2C8BAAA%3BEACA%2CeAAA%3BEACA%2CgBAAA%3BEACA%2CyBAAA%3BEACA%2CmBAAA%3B%3BAAGJ%3BEACI%2CiCAAA%3BEACA%2CyBAAA%3BEACA%2C8BAAA%3BEACA%2CeAAA%3BEACA%2CcAAA%3BEACA%2CgBAAA%3BEACA%2CoCAAA%3BEACA%2CqBAAA%3B%3BAAGJ%2CgBAAiB%3BEACb%2CuBAAA%3B%3BAAGJ%2CgBAAiB%3BEACb%2CgBAAA%3BEACA%2CcAAA%3B%3BAAGJ%2CgBAAiB%3BEACb%2CeAAA%3BEACA%2CkBAAA%3B%3BAAGJ%2CgBAAiB%2CGAAG%3BEAChB%2CcAAA%3BEACA%2CeAAA%3BEACA%2CcAAA%3B%3BAAGJ%2CgBAAiB%2CGAAG%3BEAChB%2C%2BBAAA%3B%3BAAGJ%2CgBAAiB%2CWAAW%2CaAAa%2CQAAQ%3BEAC7C%2C0BAAA%3B%3BAAGJ%2CgBAAiB%3BEACb%2CkBAAA%3BEACA%2CYAAA%3BEACA%2CYAAA%3BEACA%2CYAAA%3BEACA%2CwEAAA%3B%3BAAGJ%2CgBAAiB%3BEACb%2CiEAAA%3BEACA%2CWAAA%3BEACA%2CYAAA%3BEACA%2CWAAA%3B%3BAAGJ%2CgBAAiB%3BEACb%2CiEAAA%3BEACA%2CWAAA%3BEACA%2CYAAA%3BEACA%2CWAAA%3B%3BAAGJ%2CgBAAiB%3BEACb%2CkEAAA%3BEACA%2CWAAA%3BEACA%2CYAAA%3BEACA%2CWAAA%3B%3BAAGJ%2CCAAC%2CeAAgB%3BEACb%2CaAAA%3BEACA%2CgBAAA%3BEACA%2CiBAAA%3BEACA%2CWAAA%3BEACA%2CeAAA%3B%3BAAGJ%2CCAAC%2CeAAe%2CMAAO%3BEACnB%2CcAAA%3BEACA%2CkBAAA%3BEACA%2CmBAAA%3BEACA%2CyBAAA%3BEACA%2CcAAA%3BEACA%2CiBAAA%3BEACA%2CaAAA%3BEACA%2CgBAAA%3BEACA%2CgBAAA%3B%3BAAGJ%3BEACI%2CaAAA%3BEACA%2CcAAA%3B%3BAAyBJ%2CQAtB0C%2CqCAA2B%3BEACjE%2CgBAAiB%3BIACb%2CiEAAA%3BIACA%2CqBAAA%3B%3BEAGJ%2CgBAAiB%3BIACb%2CmEAAA%3BIACA%2CqBAAA%3B%3BEAGJ%2CgBAAiB%3BIACb%2CkEAAA%3BIACA%2CqBAAA%3B%3BEAGJ%2CgBAAiB%3BIACb%2C2EAAA%3BIACA%2CsBAAA%3B%3B%3BAAIR%3BEACI%2CgBAAA%3B%3BAAGJ%3BEACI%2CeAAA%3BEACA%2CeAAA%3BEACA%2CiBAAA%3BEACA%2CqBAAA%3B%3BAAGJ%2CgBAAgB%2CWAAW%2CWAAY%3BAACvC%2CgBAAgB%2CWAAW%2CMAAM%2CWAAY%3BEACzC%2CsBAAsB%2C8CAAtB%3BEACA%2CgCAAA%3BEACA%2CgCAAA%3BEACA%2C4BAAA%3BEACA%2CyBAAA%3BEACA%2CiBAAA%3BEACA%2CyBAAA%3BEACA%2CiBAAA%3B%3BAAGJ%2C8BAA8B%3BEAC1B%2CgBAAA%22%7D */
