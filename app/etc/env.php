@@ -34,7 +34,7 @@ return [
         'connection' => [
             'default' => [
                 'host' => 'localhost',
-                'dbname' => 'magento2hyva',
+                'dbname' => 'webshop',
                 'username' => 'root',
                 'password' => '',
                 'model' => 'mysql4',
