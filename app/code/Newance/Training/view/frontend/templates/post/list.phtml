@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use Districompany\App\ViewModel\Menu;
+//use Districompany\App\ViewModel\Menu;
 
 /** @var Menu $viewModelMenu */
-$viewModelMenu = $viewModels->require(Menu::class);
+//$viewModelMenu = $viewModels->require(Menu::class);
 ?>
 <div>
     <?php $categories = $block->getCategories(); ?>
@@ -98,7 +98,7 @@ $viewModelMenu = $viewModels->require(Menu::class);
 </div>
 
 <?php /* TODO: CREATE BLOCK OF THIS */ ?>
-<?php if (!$viewModelMenu->isIdisGlobal()): ?>
+<?php /*if (!$viewModelMenu->isIdisGlobal()): ?>
     <div class="trainingGallery my-12 p-5 md:p-8 lg:p-12 bg-gray-100">
         <h3 class="text-black text-xl lg:text-2xl font-bold text-center mb-6 lg:mb-10">
             <?php echo __('Opleidingsruimte voor praktijkgerichte trainingen') ?>
@@ -114,4 +114,4 @@ $viewModelMenu = $viewModels->require(Menu::class);
             </div>
         </div>
     </div>
-<?php endif; ?>
+<?php endif;*/ ?>
