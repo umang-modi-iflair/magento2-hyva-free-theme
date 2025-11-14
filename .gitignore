@@ -1,0 +1,9 @@
+vendor/
+var/
+lib/
+pub/
+dev/
+setup/
+bin/
+generated/
+webshop.sql
