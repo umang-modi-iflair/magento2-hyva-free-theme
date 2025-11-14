@@ -1,0 +1,13 @@
+{
+    "name": "newance/training",
+    "description": "",
+    "type": "magento2-module",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Newance\\Training\\": ""
+        }
+    }
+}

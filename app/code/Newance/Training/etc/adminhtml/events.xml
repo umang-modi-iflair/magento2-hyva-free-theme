@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="controller_action_postdispatch_training_post_save">
+        <observer name="newance_training_invalidate_cache" instance="Newance\Training\Observer\InvalidateCache" />
+    </event>
+    <event name="controller_action_postdispatch_training_category_save">
+        <observer name="newance_training_invalidate_cache" instance="Newance\Training\Observer\InvalidateCache" />
+    </event>
+</config>

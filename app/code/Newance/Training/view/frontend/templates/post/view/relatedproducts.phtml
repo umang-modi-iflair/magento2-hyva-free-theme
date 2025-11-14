@@ -1,0 +1,48 @@
+<?php
+/**
+ * Training related products template
+ *
+ * @var $block \Newance\Training\Block\Post\View\RelatedProducts
+ */
+?>
+
+<?php if ($block->getItems()->getSize() && $this->displayProducts()):?>
+    <?php
+        $_productCollection = $block->getItems();
+        $_helper = $this->helper('Magento\Catalog\Helper\Output');
+        $_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+    ?>
+
+    <div class="SectionTitle">
+        <h2 class="Kilo u-marginBn">
+            <span class="SectionTitle-inner"><?php echo __('Related Products'); ?></span>
+        </h2>
+    </div>
+
+    <div class="Grid Grid--withExtraSmallGutter u-marginBsm">
+        <?php foreach ($_productCollection as $_product): ?>
+            <div class="Grid-cell u-sm-size1of2 u-md-size1of2 u-lg-size1of3 u-marginBxs">
+                <div class="Box has-link u-textCenter">
+                    <a class="u-block u-marginBmd" href="<?php echo $_product->getProductUrl() ?>">
+                        <figure class="Box-media Box-media--product u-marginBmd">
+                            <img class="Box-image u-alignCenter" src="<?php echo $_imagehelper->init($_product, 'category_page_list')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(false)->resize(540, 400)->getUrl(); ?>">
+                        </figure>
+
+                        <div class="Box-body u-lastChildren">
+                            <h2 class="Box-title u-marginBsm" data-mh="productsList-title">
+                                <?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getName(), 'name'); ?>
+                            </h2>
+                            <div class="u-marginBmd" data-mh="productsList-text">
+                                <p><?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?></p>
+                            </div>
+                            <div class="Box-price">
+                                <?php /* @escapeNotVerified */ echo $block->getProductPrice($_product) ?>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        <?php endforeach; ?>
+    </div>
+<?php endif;?>

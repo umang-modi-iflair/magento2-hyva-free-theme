@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etcpage_configuration.xsd">
+    <update handle="editor"/>
+
+    <body>
+        <referenceContainer name="content">
+            <block class="Newance\Training\Block\Adminhtml\Subscriber\Edit" name="training.subscriber.edit" />
+        </referenceContainer>
+
+        <referenceContainer name="left">
+            <block class="Newance\Training\Block\Adminhtml\Subscriber\Edit\Tabs" name="training.subscriber.edit.tabs">
+                <block class="Newance\Training\Block\Adminhtml\Subscriber\Edit\Tab\Main" name="training.subscriber.edit.tab.main"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">training.subscriber.edit.tab.main</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

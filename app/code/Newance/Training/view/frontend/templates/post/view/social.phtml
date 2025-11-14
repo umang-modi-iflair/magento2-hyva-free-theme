@@ -1,0 +1,33 @@
+<?php
+
+$post = $this->getPost();
+$postUrl = $post->getPostUrl();
+$postName = $block->escapeHtml($post->getTitle(), null, true);
+
+$postNameTitle = urlencode($postName);
+$postNameTitleUrl = urlencode($postUrl);
+?>
+
+<div class="socialShareBox">
+    <h2 class="text-gray-900 text-xl title-font font-medium mb-2">
+        <span class="SectionTitle-inner"><?php echo __('Deel deze opleiding'); ?></span>
+    </h2>
+
+    <ul class="flex gap-8">
+        <li>
+            <a class="hover:underline" href="http://twitter.com/home?status=<?php echo $postNameTitle; ?>%20<?php echo $postNameTitleUrl; ?>" target="_blank">
+                Twitter
+            </a>
+        </li>
+        <li>
+            <a class="hover:underline" href="http://www.facebook.com/sharer.php?u=<?php echo $postNameTitleUrl; ?>" target="_blank">
+                Facebook
+            </a>
+        </li>
+        <li>
+            <a class="hover:underline" href="http://www.linkedin.com/shareArticle?mini=true&amp;ro=true&amp;url=<?php echo $postNameTitleUrl; ?>&amp;title=<?php echo $postNameTitle; ?>" target="_blank">
+                LinkedIn
+            </a>
+        </li>
+    </ul>
+</div>

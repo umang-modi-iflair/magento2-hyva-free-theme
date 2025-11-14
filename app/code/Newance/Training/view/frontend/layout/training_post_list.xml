@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="training.posts.list">
+            <block class="Newance\Training\Block\Post\PostList\Item" name="training.posts.list.item" template="Newance_Training::post/list/item.phtml" />
+
+            <block class="Newance\Training\Block\Post\PostList\Toolbar" name="post_list_toolbar" template="Newance_Training::post/list/toolbar.phtml">
+                <block class="Newance\Training\Block\Post\PostList\Toolbar\Pager" name="post_list_toolbar_pager" />
+            </block>
+            <action method="setToolbarBlockName">
+                <argument name="name" xsi:type="string">post_list_toolbar</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>
