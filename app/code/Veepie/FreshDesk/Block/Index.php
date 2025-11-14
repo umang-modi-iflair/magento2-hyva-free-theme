@@ -46,7 +46,7 @@ class Index extends Template
     /**
      * @var ContactPersonDataHelper
      */
-    protected $contactPersonDataHelper;
+  //  protected $contactPersonDataHelper;
 
     /**
      * @var ResponseFactory
@@ -69,7 +69,7 @@ class Index extends Template
      * @param Client $httpClient
      * @param ScopeConfigInterface $scopeConfig
      * @param Session $customerSession
-    // * @param ContactPersonDataHelper $contactPersonDataHelper
+   //  * @param ContactPersonDataHelper $contactPersonDataHelper
      * @param ResponseFactory $responseFactory
      * @param ManagerInterface $messageManager
      * @param UrlInterface $url
@@ -80,7 +80,7 @@ class Index extends Template
         Client $httpClient,
         ScopeConfigInterface $scopeConfig,
         Session $customerSession,
-       // ContactPersonDataHelper $contactPersonDataHelper,
+     //   ContactPersonDataHelper $contactPersonDataHelper,
         ResponseFactory $responseFactory,
         ManagerInterface $messageManager,
         UrlInterface $url,
@@ -90,7 +90,7 @@ class Index extends Template
         $this->httpClient = $httpClient;
         $this->scopeConfig = $scopeConfig;
         $this->customerSession = $customerSession;
-      //  $this->contactPersonDataHelper = $contactPersonDataHelper;
+       // $this->contactPersonDataHelper = $contactPersonDataHelper;
         $this->responseFactory = $responseFactory;
         $this->messageManager = $messageManager;
         $this->url = $url;
