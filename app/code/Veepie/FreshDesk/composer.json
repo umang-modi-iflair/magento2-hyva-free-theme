@@ -1,0 +1,15 @@
+{
+    "name": "veepie/freshdesk",
+    "description": "",
+    "type": "magento2-module",
+    "license": "OSL-3.0",
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Veepie\\FreshDesk\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}
