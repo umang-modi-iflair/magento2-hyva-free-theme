@@ -1,0 +1,88 @@
+<?php
+
+// For Heroicons Outline 
+/** @var Hyva\Theme\ViewModel\HeroiconsOutline $heroicons */
+$heroicons = $viewModels->require(\Hyva\Theme\ViewModel\HeroiconsOutline::class);
+
+
+//For Heroicons Solid
+/** @var Hyva\Theme\ViewModel\HeroiconsSolid $HeroiconsSolid */
+$heroiconsSolid = $viewModels->require(\Hyva\Theme\ViewModel\HeroiconsSolid::class);
+$descriptionMsg = __('Please enter the description.');
+?>
+<form action="<?php echo $block->getUrl('freshdesk/customer/save') ?>" id="create-form" class="form form-edit-account card" method="post" enctype="multipart/form-data">
+    <?= $block->getBlockHtml('formkey'); ?>
+    <fieldset class="fieldset info">
+        <div class="field mb-4 w-full">
+            <label class="label" for="subject"><span><?php echo __('Subject') ?>*</span></label>
+            <div class="control">
+                <input name="subject" id="subject" title="<?php echo __('Subject') ?>" class="form-input w-3/4" type="text" required />
+            </div>
+        </div>
+        <div class="field field-reserved select">
+            <label class="label" for="type"><span><?php echo __('Type') ?>*</span></label>
+            <select name="type" class="form-select w-3/4" required>
+                <option value="">--</option>
+                <option value="<?= __('Question'); ?>"><?= __('Question'); ?></option>
+                <option value="<?= __('Incident'); ?>"><?= __('Incident'); ?></option>
+                <option value="<?= __('Problem'); ?>"><?= __('Problem'); ?></option>
+                <option value="<?= __('Feature Request'); ?>"><?= __('Feature Request'); ?></option>
+                <option value="<?= __('Refund'); ?>"><?= __('Refund'); ?></option>
+            </select>
+        </div>
+        <div class="field mb-4 w-full">
+            <label class="label" for="description"><span><?php echo __('Description') ?>*</span></label>
+            <textarea name="description" id="description" rows="5" class="form-input w-3/4"></textarea>
+        </div>
+        <div class="field">
+            <label class="label" for="attachments"><span><?php echo __('Attachments') ?></span></label>
+            <div class="control">
+                <input name="attachments[]" id="attachments" type="file" class="input-text" multiple />
+            </div>
+            <div class="text-sm text-gray-600 mt-1">
+                <?php echo __('Allowed file types: jpg, png, pdf. Maximum size: 20 MB'); ?>
+            </div>
+        </div>
+        <div class="actions-toolbar">
+            <div class="secondary">
+                <a class="action back" href="<?php echo $this->getUrl('freshdesk/customer') ?>">
+                    <span><?php echo __('Go back') ?></span>
+                </a>
+            </div>
+            <div class="primary">
+                <button type="submit" class="action submit primary" title="<?php echo __('Create ticket') ?>">
+                    <span><?php echo __('Create ticket') ?></span>
+                </button>
+            </div>
+        </div>
+    </fieldset>
+</form>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    tinymce.init({
+        selector: '#description',
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+        ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+        setup: function (editor) {
+            editor.on('init', function () {
+                const firstDiv = document.querySelector('div[role="application"]');
+                if (firstDiv) {
+                    firstDiv.classList.add('w-3/4');
+                }
+            });
+        },
+    });
+
+    var descriptionMsg = "<?php echo $descriptionMsg; ?>";    
+    
+    document.getElementById('create-form').addEventListener('submit', function(event) {
+        const replyMessageContent = tinymce.get('description').getContent({ format: 'text' }).trim();
+        if (replyMessageContent === '') {
+            alert(descriptionMsg);
+            event.preventDefault();
+            tinymce.get('description').focus();
+        }
+    });
+});
+</script>

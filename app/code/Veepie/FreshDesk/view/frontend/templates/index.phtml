@@ -1,0 +1,238 @@
+<?php
+
+/**
+ * Hyvä Themes - https://hyva.io
+ * Copyright © Hyvä Themes 2020-present. All rights reserved.
+ * This product is licensed per Magento install
+ * See https://hyva.io/license
+ */
+
+declare(strict_types=1);
+
+use Hyva\Theme\Model\ViewModelRegistry;
+use Hyva\Theme\ViewModel\HeroiconsOutline;
+
+/** @var ViewModelRegistry $viewModels */
+/** @var HeroiconsOutline $iconViewModel */
+
+$iconViewModel = $viewModels->require(HeroiconsOutline::class);
+$freshdeskCompanyId = $block->getFreshdeskCompanyId();
+?>
+<?php if ($freshdeskCompanyId) : ?>
+    <div class="my-3">
+        <div>
+            <a href="<?php echo $block->getCreateUrl() ?>" class="btn btn-primary inline-block">
+                <span><?= __('Create ticket') ?></span>
+            </a>
+        </div>
+    </div>
+<?php endif; ?>
+<script>
+    const ticketData = <?= json_encode($block->getTickets(), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE); ?>;
+</script>
+
+<div class="block block-dashboard-orders card">
+    <div class="block-title order my-4 flex justify-between items-center">
+        <span class="text-2xl block"><?= $escaper->escapeHtml(__('My Tickets')) ?></span>
+    </div>
+
+    <div x-data="{
+        data: ticketData,
+        itemsPerPage: 10,
+        currentPage: 1,
+        searchTerms: {
+            id: '',
+            subject: '',
+            dueStart: '',
+            dueEnd: '',
+            status: '',
+        },
+        filteredData() {
+            return this.data.filter(item => {
+                const dueStartDate = this.searchTerms.dueStart ? new Date(this.searchTerms.dueStart) : null;
+                const dueEndDate = this.searchTerms.dueEnd ? new Date(this.searchTerms.dueEnd) : null;
+                const itemDueDate = new Date(item.updated_at.split('/').reverse().join('/'));
+
+                return (
+                    item.id.toLowerCase().includes(this.searchTerms.id.toLowerCase()) &&
+                    item.subject.toLowerCase().includes(this.searchTerms.subject.toLowerCase()) &&
+                    item.status.toLowerCase().includes(this.searchTerms.status.toLowerCase()) &&
+                    (!dueStartDate || itemDueDate >= dueStartDate) &&
+                    (!dueEndDate || itemDueDate <= dueEndDate)
+                );
+            });
+        },
+        updateFilters() {
+            this.currentPage = 1; // Reset page when filters change
+        },
+        paginatedData() {
+            const start = (this.currentPage - 1) * this.itemsPerPage;
+            const end = start + parseInt(this.itemsPerPage, 10);
+            return this.filteredData().slice(start, end);
+        },
+        totalItems() {
+            return this.filteredData().length;
+        },
+        pageItemCount() {
+            return this.itemsPerPage;
+        },
+        totalPages() {
+            return Math.ceil(this.filteredData().length / this.itemsPerPage);
+        },
+        nextButtonDisabled() {
+            return this.currentPage === this.totalPages();
+        },
+        prevButtonDisabled() {
+            return this.currentPage === 1;
+        },
+        setPage(page) {
+            this.currentPage = page;
+        }
+    }" class="relative overflow-auto">
+        <table class="w-full text-sm text-left">
+            <thead class="text-xs text-gray-700 uppercase border-b">
+                <tr>
+                    <th scope="col" class="pr-2 pb-4">
+                        <?= $escaper->escapeHtml(__('Id')) ?>
+                        <input type="text" x-model="searchTerms.id" @input="updateFilters" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full min-w-48 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                    </th>
+                    <th scope="col" class="pr-2 pb-4">
+                        <?= $escaper->escapeHtml(__('Subject')) ?>
+                        <input type="text" x-model="searchTerms.subject" @input="updateFilters" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                    </th>
+                    <th scope="col" class="pr-2 pb-4">
+                        <?= $escaper->escapeHtml(__('Updated At')) ?>
+                        <div class="date-range-picker relative max-w-sm">
+                            <div class="absolute inset-y-0 right-3 flex items-center ps-3 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"></path>
+                                </svg>
+                            </div>
+                            <input type="text" name="duedatefilter" value="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 min-w-48 w-full" />
+                            <input type="hidden" x-model="searchTerms.dueStart" x-on:input="updateFilters" class="form-input w-full fromduedate" placeholder="Due From" />
+                            <input type="hidden" x-model="searchTerms.dueEnd" x-on:input="updateFilters" class="form-input w-full toduedate" placeholder="Due To" />
+                        </div>
+                    </th>
+                    <th scope="col" class="pr-2 pb-4">
+                        <?= $escaper->escapeHtml(__('Status')) ?>
+                        <select x-model="searchTerms.status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option value=""></option>
+                            <option value="<?= $escaper->escapeHtml(__('Open')) ?>"><?= $escaper->escapeHtml(__('Open')) ?></option>
+                            <option value="<?= $escaper->escapeHtml(__('Pending')) ?>"><?= $escaper->escapeHtml(__('Pending')) ?></option>
+                            <option value="<?= $escaper->escapeHtml(__('Resolved')) ?>"><?= $escaper->escapeHtml(__('Resolved')) ?></option>
+                            <option value="<?= $escaper->escapeHtml(__('Closed')) ?>"><?= $escaper->escapeHtml(__('Closed')) ?></option>
+                        </select>
+                    </th>
+                    <th scope="col" class="pr-2 pb-4">
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <template x-if="filteredData().length > 0">
+                    <template x-for="(item, index) in paginatedData()" :key="index">
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                            <td class="px-3 py-4" x-text="item.id"></td>
+                            <td class="px-3 py-4" x-text="item.subject"></td>
+                            <td class="px-3 py-4" x-text="item.updated_at"></td>
+                            <td class="px-3 py-4" x-text="item.status"></td>
+                            <td class="px-3 py-4">
+                                <a :href="item.url" class="inline-block text-sm underline text-secondary-darker px-1" :title="'View Ticket'">
+                                    <?= $iconViewModel->eyeHtml('inline-block w-6 h-6 mr-1', 26, 26, ['title' => 'View Ticket']); ?>
+                                </a>
+                            </td>
+                        </tr>
+                    </template>
+                </template>
+                <template x-if="filteredData().length === 0">
+                    <tr>
+                        <td colspan="8" class="px-6 py-4 text-center"><?php echo __('No data found.') ?></td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+
+        <div class="flex items-center justify-between mt-4">
+            <div>
+                <span class="text-gray-600" x-text="`<?php echo __('Items'); ?> ${((currentPage - 1) * itemsPerPage) + 1} - ${Math.min(currentPage * itemsPerPage, totalItems())} of ${totalItems()}`"></span>
+            </div>
+
+            <div class="flex space-x-2">
+                <button @click="setPage(1)" :disabled="prevButtonDisabled()" class="page relative inline-flex items-center text-sm font-medium leading-5 bg-white border border-gray-300 transition duration-150 ease-in-out hover:text-gray-400 focus:z-10 focus:outline-none focus:border-primary-lighter focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 px-4 py-2 text-gray-700" x-text="`<?php echo __('First'); ?>`"></button>
+
+                <button @click="setPage(currentPage - 1)" :disabled="prevButtonDisabled()" class="page relative inline-flex items-center text-sm font-medium leading-5 bg-white border border-gray-300 transition duration-150 ease-in-out hover:text-gray-400 focus:z-10 focus:outline-none focus:border-primary-lighter focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 px-4 py-2 text-gray-700">
+                    <span aria-label="Previous">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                </button>
+
+                <div x-bind:class="{'hidden': totalPages() >= 1}">
+                    <template x-for="page in Array.from({length: totalPages()}, (_, i) => i + 1)">
+                        <button @click="setPage(page)" :class="{'bg-blue-600': currentPage === page, 'hover:bg-blue-700': currentPage !== page}" class="px-3 py-2 text-sm font-medium leading-5 text-black transition-colors duration-150 border border-transparent rounded-lg focus:outline-none focus:shadow-outline-blue">
+                            <span x-text="page"></span>
+                        </button>
+                    </template>
+                </div>
+
+                <button class="page relative inline-flex items-center text-sm font-medium leading-5 bg-white border border-gray-300 transition duration-150 ease-in-out hover:text-gray-400 focus:z-10 focus:outline-none focus:border-primary-lighter focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 px-4 py-2 text-gray-700" x-text="currentPage"></button>
+                <button @click="setPage(currentPage + 1)" class="action  next relative inline-flex items-center text-sm font-medium leading-5 bg-white border border-gray-300 transition duration-150 ease-in-out hover:text-gray-400 focus:z-10 focus:outline-none focus:border-primary-lighter focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 rounded-r-md px-3 py-2 text-gray-500" :disabled="nextButtonDisabled()">
+                    <span aria-label="Next">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                </button>
+
+                <button @click="setPage(totalPages())" :disabled="nextButtonDisabled()" class="action  next relative inline-flex items-center text-sm font-medium leading-5 bg-white border border-gray-300 transition duration-150 ease-in-out hover:text-gray-400 focus:z-10 focus:outline-none focus:border-primary-lighter focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 rounded-r-md px-3 py-2 text-gray-500" x-text="`<?php echo __('Last'); ?>`"></button>
+            </div>
+
+            <div class="field limiter flex items-center order-3 sm:order-2 md:order-3 lg:order-2 col-span-2 justify-end">
+                <div class="control">
+                    <label class="text-sm label">
+                        <span x-text="`<?php echo __('Show'); ?>`"></span>
+                        <select x-model="itemsPerPage" @change="itemsPerPage = $event.target.value" class="form-select limiter-options">
+                            <option :value="10">10</option>
+                            <option :value="20">20</option>
+                            <option :value="30">30</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function() {
+        $('input[name="duedatefilter"]').daterangepicker({
+            autoUpdateInput: false,
+            locale: {
+                firstDay: 1,
+                cancelLabel: '<?= $escaper->escapeHtml(__('Clear')) ?>',
+                applyLabel: '<?= $escaper->escapeHtml(__('Apply')) ?>'
+            }
+        });
+
+        $('input[name="duedatefilter"]').on('apply.daterangepicker', function(ev, picker) {
+            $(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
+            $("input.fromduedate").val(picker.startDate.format('YYYY-MM-DD'));
+            $("input.toduedate").val(picker.endDate.format('YYYY-MM-DD'));
+            document.querySelector('.fromduedate').dispatchEvent(new Event('input'));
+            document.querySelector('.toduedate').dispatchEvent(new Event('input'));
+        });
+
+        $('input[name="duedatefilter"]').on('cancel.daterangepicker', function(ev, picker) {
+            $(this).val('');
+            $("input.fromduedate").val('');
+            $("input.toduedate").val('');
+            document.querySelector('.fromduedate').dispatchEvent(new Event('input'));
+            document.querySelector('.toduedate').dispatchEvent(new Event('input'));
+        });
+
+    });
+</script>
+<style type="text/css">
+    button.cancelBtn.btn.btn-sm.btn-default,
+    button.applyBtn.btn.btn-sm.btn-primary {
+        display: inline-block;
+    }
+</style>
