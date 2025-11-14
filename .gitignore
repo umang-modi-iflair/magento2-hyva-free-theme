@@ -1,9 +1,1 @@
-vendor/
-var/
-lib/
-pub/
-dev/
-setup/
-bin/
-generated/
 phpserver/
