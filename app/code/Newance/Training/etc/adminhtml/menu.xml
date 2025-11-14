@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Newance_Training::elements" title="Training" module="Newance_Training" parent="Magento_Backend::content" sortOrder="10" resource="Newance_Training::elements"/>
+        <add id="Newance_Training::post" title="Posts" module="Newance_Training" parent="Newance_Training::elements" sortOrder="10" action="training/post/" resource="Newance_Training::post"/>
+        <add id="Newance_Training::category" title="Categories" module="Newance_Training" parent="Newance_Training::elements" sortOrder="20" action="training/category/" resource="Newance_Training::category"/>
+        <add id="Newance_Training::brand" title="Brands" module="Newance_Training" parent="Newance_Training::elements" sortOrder="30" action="training/brand/" resource="Newance_Training::brand"/>
+        <add id="Newance_Training::subscriber" title="Subscribers" module="Newance_Training" parent="Newance_Training::elements" sortOrder="40" action="training/subscriber/" resource="Newance_Training::subscriber"/>
+        <add id="Newance_Training::config_training" title="Configuration" module="Newance_Training" parent="Newance_Training::elements" sortOrder="50" action="adminhtml/system_config/edit/section/newance_training/" resource="Newance_Training::config_training"/>
+    </menu>
+</config>

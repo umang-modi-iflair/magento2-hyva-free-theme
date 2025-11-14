@@ -1,0 +1,117 @@
+<?php
+
+declare(strict_types=1);
+
+use Districompany\App\ViewModel\Menu;
+
+/** @var Menu $viewModelMenu */
+$viewModelMenu = $viewModels->require(Menu::class);
+?>
+<div>
+    <?php $categories = $block->getCategories(); ?>
+    <?php if ($categories->getSize() > 0) : ?>
+        <div class="mb-6 relative z-10">
+            <form method="get" action="" class="form contact filterBox">
+                <div class="field name flex flex-col lg:flex-row gap-5 lg:gap-8 items-center flex-nowrap">
+                    <label for="category" class="label">
+                        <?php echo __('Welke opleiding zoekt u?'); ?>
+                    </label>
+
+                    <?php $categoryText = null; ?>
+                    <?php if (isset($_REQUEST['category']) != null) {
+                        $categoryID = $_REQUEST['category'];
+                        $categories1 = $block->getCategories()->addFieldToFilter('category_id', $categoryID);
+                        foreach ($categories1 as $item) {
+                            $categoryText = $item['title'];
+                        }
+                    }
+                    ?>
+
+                    <div x-data="{ selectedText: '<?php echo $categoryText; ?>', selectedId: null, showDropdown: false }" class="relative z-0">
+                        <button type="button" @click="showDropdown = !showDropdown" class="relative bg-white pl-5 pr-14 pt-2 pb-1.5 border border-gray-300 italic flex items-center justify-center min-w-[265px]">
+                            <!-- <span x-text="selectedText ? selectedText : 'choose...'"></span><input type="hidden" name="category" :value="selectedId"> -->
+                            <span class="block" x-text="selectedText || '<?php echo __('Selecteer productcategorie') ?>'"></span>
+                            <input type="hidden" name="category" :value="selectedId">
+                            <!-- <input type="hidden" name="categoryText" :value="selectedText"> -->
+                            <span class="dropdownIcon" :class="showDropdown ? 'iconUp' : 'iconDown'"></span>
+                        </button>
+
+                        <ul x-show="showDropdown" @click="showDropdown = false" @click.away="showDropdown = false" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90" class="dropdown-menu absolute z-100">
+                            <li id="0">
+                                <a href="javascript:void(0)" :class="{ 'active': selectedText === '<?php echo __('Selecteer productcategorie') ?>' }" @click="selectedText = null; selectedId = null">
+                                    <?php echo __('Selecteer productcategorie') ?>
+                                </a>
+                            </li>
+                            <?php foreach ($categories as $category) : ?>
+                                <li id="<?php echo $category->getId(); ?>">
+                                    <a href="javascript:void(0)" :class="{ 'active': selectedText === '<?php echo $category->getTitle(); ?>' }" @click="selectedText = '<?php echo $category->getTitle(); ?>'; selectedId = '<?php echo $category->getId(); ?>'">
+                                        <?php echo $category->getTitle(); ?>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                    <div class="buttonBox">
+                        <button class="btn btn-primary uppercase" type="submit" onclick="this.form.submit()"><?php echo __('Bevestig') ?></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    <?php endif; ?>
+
+    <?php $brandCollection = $block->getBrands(); ?>
+    <?php if (!$brandCollection->count()) : ?>
+        <div class="message info empty">
+            <div><?php echo __('No brands found.') ?></div>
+        </div>
+    <?php else : ?>
+        <div class="trainingBlocks grid grid-cols-1 md:grid-cols-2 gap-5 py-10">
+            <?php foreach ($brandCollection as $brand) : ?>
+                <div class="singleBox flex flex-col">
+                    <a href="<?php echo $brand->getBrandUrl() ?>" class="group flex flex-col h-full">
+                        <div class="imageBlock h-[130px] md:h-[200px] overflow-hidden bg-gray-200 group-hover:bg-gray-300 transition-all">
+                            <?php if ($bannerImage = $brand->getBannerImage()) : ?>
+                                <img src="<?php echo $bannerImage ?>" class="w-full h-full object-cover object-center">
+                            <?php endif; ?>
+                        </div>
+                        <div class="trainingTitle flex items-center justify-center flex-col flex-1 text-white bg-districompany text-center px-5 py-2 group-hover:bg-distriblue transition-all">
+                            <h4 class="text-lg"><?php echo __('Bekijk de opleidingen') ?></h4>
+                            <h3 class="font-bold text-xl"><?php echo $block->escapeHtml($brand->getTitle(), null, true); ?></h3>
+                        </div>
+                    </a>
+                </div>
+            <?php endforeach; ?>
+
+            <!-- Last Static Box -->
+            <div class="singleBox flex flex-col">
+                <a href="<?php echo $this->getUrl() . 'trainings/request' ?>" class="group flex flex-col h-full">
+                    <div class="imageBlock h-[130px] md:h-[200px] overflow-hidden bg-gray-200 group-hover:bg-gray-300 transition-all">
+                        <img src="/media/wysiwyg/todo/opleiding-op-maat.png" class="w-full h-full object-cover object-center">
+                    </div>
+                    <div class="trainingTitle flex items-center justify-center flex-col flex-1 text-white bg-distriblue text-center px-5 py-2 group-hover:bg-districompany transition-all">
+                        <h3 class="font-bold text-xl"><?php echo __('Vraag hier uw opleiding op maat aan') ?></h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    <?php endif; ?>
+</div>
+
+<?php /* TODO: CREATE BLOCK OF THIS */ ?>
+<?php if (!$viewModelMenu->isIdisGlobal()): ?>
+    <div class="trainingGallery my-12 p-5 md:p-8 lg:p-12 bg-gray-100">
+        <h3 class="text-black text-xl lg:text-2xl font-bold text-center mb-6 lg:mb-10">
+            <?php echo __('Opleidingsruimte voor praktijkgerichte trainingen') ?>
+        </h3>
+
+        <div class="galleryImgs md:flex md:gap-5">
+            <div class="md:w-7/12 pb-5 md:pb-0">
+                <img src="/media/wysiwyg/todo/training1.png">
+            </div>
+            <div class="md:w-5/12 flex flex-col gap-5">
+                <img src="/media/wysiwyg/todo/training2.png">
+                <img src="/media/wysiwyg/todo/training3.png">
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

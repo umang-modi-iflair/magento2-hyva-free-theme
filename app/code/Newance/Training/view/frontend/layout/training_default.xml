@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="sidebar.additional">
+            <container name="training.sidebar" htmlTag="div" htmlClass="TrainingCategorie">
+                <block class="Newance\Training\Block\Sidebar" name="training.sidebar.container">
+                    <block class="Newance\Training\Block\Sidebar\Search" name="training.sidebar.container.search" template="Newance_Training::sidebar/search.phtml" />
+                    <block class="Newance\Training\Block\Sidebar\Categories" name="training.sidebar.container.category" template="Newance_Training::sidebar/categories.phtml" />
+                    <block class="Newance\Training\Block\Sidebar\Recent" name="training.sidebar.container.recent" template="Newance_Training::sidebar/recent.phtml" />
+                </block>
+            </container>
+
+            <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+            <referenceBlock name="wishlist_sidebar" remove="true"/>
+        </referenceContainer>
+    </body>
+</page>

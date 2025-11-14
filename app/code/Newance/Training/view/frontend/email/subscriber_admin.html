@@ -1,0 +1,50 @@
+<!--@subject {{trans "New subscription at your training"}} @-->
+<!--@vars {
+"var subscriber_name":"Subscriber Name",
+"var subscriber_email":"Subscriber E-mail",
+"var subscriber_phone":"Subscriber Phone",
+"var subscriber_company":"Subscriber Company",
+"var subscriber_vat":"Subscriber VAT",
+"var subscriber_message|raw":"Subscriber Message",
+"var post_title":"Post Title",
+"var post_url":"Post URL",
+"template config_path=\"design\/email\/footer_template\"":"Email Footer Template",
+"template config_path=\"design\/email\/header_template\"":"Email Header Template"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<h1>{{trans "New subscription at your training"}}</h1>
+
+<table class="email-subscriber">
+    <tr>
+        <td width="100"><strong>{{trans "TrainingSingle"}}</strong></td>
+        <td><a href="{{var post_url}}">{{var post_title}}</a></td>
+    </tr>
+    <tr>
+        <td><strong>{{trans "Name"}}</strong></td>
+        <td>{{var subscriber_name}}</td>
+    </tr>
+    <tr>
+        <td><strong>{{trans "Email"}}</strong></td>
+        <td><a href="mailto:{{var subscriber_email}}">{{var subscriber_email}}</a></td>
+    </tr>
+    <tr>
+        <td><strong>{{trans "Phone"}}</strong></td>
+        <td>{{var subscriber_phone}}</td>
+    </tr>
+    <tr>
+        <td><strong>{{trans "Company"}}</strong></td>
+        <td>{{var subscriber_company}}</td>
+    </tr>
+    <tr>
+        <td><strong>{{trans "VAT Number"}}</strong></td>
+        <td>{{var subscriber_vat}}</td>
+    </tr>
+    <tr>
+        <td><strong>{{trans "Message"}}</strong></td>
+        <td>{{var subscriber_message|raw}}</td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

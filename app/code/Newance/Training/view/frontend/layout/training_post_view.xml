@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Newance\Training\Block\Post\View" name="training.post" template="Newance_Training::post/view.phtml">
+                <block class="Magento\Framework\View\Element\Text\ListText" name="training.post.bottom">
+                    <block class="Newance\Training\Block\Post\View\Subscriber" name="training.post.bottom.subscriber" template="Newance_Training::post/view/subscriber.phtml" />
+                    <block class="Newance\Training\Block\Post\View" name="training.post.bottom.social" template="Newance_Training::post/view/social.phtml" />
+                    <block class="Newance\Training\Block\Post\View\RelatedPosts" name="training.post.bottom.relatedposts" template="Newance_Training::post/view/relatedposts.phtml" />
+                    <block class="Newance\Training\Block\Post\View\RelatedProducts" name="training.post.bottom.relatedproducts" template="Newance_Training::post/view/relatedproducts.phtml" />
+                </block>
+            </block>
+        </referenceContainer>
+
+        <move element="recaptcha_validation_recaptcha" destination="training.post.bottom.subscriber" as="recaptcha_validation"/>
+    </body>
+</page>

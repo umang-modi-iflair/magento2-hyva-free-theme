@@ -5,5 +5,8 @@ pub/
 dev/
 setup/
 bin/
+<<<<<<< HEAD
 generated/
+=======
+>>>>>>> e57feeb7828679974b098312c5cd41bb17005263
 webshop.sql
