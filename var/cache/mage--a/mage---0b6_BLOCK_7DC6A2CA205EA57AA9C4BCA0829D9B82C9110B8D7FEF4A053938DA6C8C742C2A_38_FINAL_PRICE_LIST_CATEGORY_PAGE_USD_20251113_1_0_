@@ -1,0 +1,12 @@
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1763014202;s:6:"expire";i:1763100602;s:4:"tags";s:46:"0b6_BLOCK_HTML,0b6_CAT_P_38,0b6_CAT_P,0b6_MAGE";}
+<div class="price-box price-final_price" data-role="priceBox" data-product-id="38" data-price-box="product-id-38">
+    <span
+    x-data x-id="['product\u002Dprice\u002D38']"    class="price-container price-final_price&#x20;tax&#x20;weee"
+        >
+        <span  :id="$id('product\u002Dprice\u002D38')"                data-price-amount="54"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">$54.00</span></span>
+        </span>
+
+</div>

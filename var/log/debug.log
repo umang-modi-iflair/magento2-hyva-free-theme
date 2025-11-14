@@ -14945,3 +14945,383 @@ Did you mean one of these?
 #2 /opt/lampp/htdocs/hyvamagento/vendor/symfony/console/Application.php(175): Magento\Framework\Console\Cli->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #3 /opt/lampp/htdocs/hyvamagento/bin/magento(23): Symfony\Component\Console\Application->run()
 #4 {main} [] []
+[2025-11-12T12:59:11.485105+00:00] main.DEBUG: Request validation failed for action "Magento\Checkout\Controller\Cart\Add\Interceptor" {"exception":"[object] (Magento\\Framework\\App\\Request\\InvalidRequestException(code: 0): Invalid request received at /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/App/Request/CsrfValidator.php:105)"} []
+[2025-11-13T06:00:57.156176+00:00] main.CRITICAL: OpenSearch\Common\Exceptions\BadRequest400Exception: {"error":{"root_cause":[{"type":"query_shard_exception","reason":"No mapping found for [position_category_4] in order to sort on","index_uuid":"D0W2wmQlTVavVQ7VdjlM6w","index":"magento2_product_1_v1329"}],"type":"search_phase_execution_exception","reason":"all shards failed","phase":"query","grouped":true,"failed_shards":[{"shard":0,"index":"magento2_product_1_v1329","node":"2aP9wENLRWGyIfStIpUsHw","reason":{"type":"query_shard_exception","reason":"No mapping found for [position_category_4] in order to sort on","index_uuid":"D0W2wmQlTVavVQ7VdjlM6w","index":"magento2_product_1_v1329"}}]},"status":400} in /opt/lampp/htdocs/hyvamagento/vendor/opensearch-project/opensearch-php/src/OpenSearch/Connections/Connection.php:680
+Stack trace:
+#0 /opt/lampp/htdocs/hyvamagento/vendor/opensearch-project/opensearch-php/src/OpenSearch/Connections/Connection.php(338): OpenSearch\Connections\Connection->process4xxError(Array, Array, Array)
+#1 /opt/lampp/htdocs/hyvamagento/vendor/react/promise/src/Internal/FulfilledPromise.php(47): OpenSearch\Connections\Connection->OpenSearch\Connections\{closure}(Array)
+#2 /opt/lampp/htdocs/hyvamagento/vendor/ezimuel/ringphp/src/Future/CompletedFutureValue.php(66): React\Promise\Internal\FulfilledPromise->then(Object(Closure), NULL)
+#3 /opt/lampp/htdocs/hyvamagento/vendor/ezimuel/ringphp/src/Core.php(341): GuzzleHttp\Ring\Future\CompletedFutureValue->then(Object(Closure), NULL, NULL)
+#4 /opt/lampp/htdocs/hyvamagento/vendor/opensearch-project/opensearch-php/src/OpenSearch/Connections/Connection.php(270): GuzzleHttp\Ring\Core::proxy(Object(GuzzleHttp\Ring\Future\CompletedFutureArray), Object(Closure))
+#5 /opt/lampp/htdocs/hyvamagento/vendor/opensearch-project/opensearch-php/src/OpenSearch/Connections/Connection.php(248): OpenSearch\Connections\Connection->OpenSearch\Connections\{closure}(Array, Object(OpenSearch\Connections\Connection), Object(OpenSearch\Transport), Array)
+#6 /opt/lampp/htdocs/hyvamagento/vendor/opensearch-project/opensearch-php/src/OpenSearch/Transport.php(117): OpenSearch\Connections\Connection->performRequest('POST', '/magento2_produ...', Array, '{"from":12,"siz...', Array, Object(OpenSearch\Transport))
+#7 /opt/lampp/htdocs/hyvamagento/vendor/opensearch-project/opensearch-php/src/OpenSearch/LegacyTransportWrapper.php(34): OpenSearch\Transport->performRequest('POST', '/magento2_produ...', Array, Array, Array)
+#8 /opt/lampp/htdocs/hyvamagento/vendor/opensearch-project/opensearch-php/src/OpenSearch/Client.php(2285): OpenSearch\LegacyTransportWrapper->sendRequest('POST', '/magento2_produ...', Array, Array, Array)
+#9 /opt/lampp/htdocs/hyvamagento/vendor/opensearch-project/opensearch-php/src/OpenSearch/Client.php(1622): OpenSearch\Client->performRequest(Object(OpenSearch\Endpoints\Search))
+#10 /opt/lampp/htdocs/hyvamagento/vendor/magento/module-open-search/Model/OpenSearch.php(51): OpenSearch\Client->search(Array)
+#11 /opt/lampp/htdocs/hyvamagento/vendor/magento/module-open-search/SearchAdapter/Adapter.php(144): Magento\OpenSearch\Model\OpenSearch->query(Array)
+#12 /opt/lampp/htdocs/hyvamagento/vendor/magento/module-search/Model/SearchEngine.php(42): Magento\OpenSearch\SearchAdapter\Adapter->query(Object(Magento\Framework\Search\Request))
+#13 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/Search/Search.php(85): Magento\Search\Model\SearchEngine->search(Object(Magento\Framework\Search\Request))
+#14 /opt/lampp/htdocs/hyvamagento/vendor/magento/module-catalog-search/Model/ResourceModel/Fulltext/Collection.php(478): Magento\Framework\Search\Search->search(Object(Magento\Framework\Api\Search\SearchCriteria))
+#15 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/Data/Collection/AbstractDb.php(567): Magento\CatalogSearch\Model\ResourceModel\Fulltext\Collection->_renderFiltersBefore()
+#16 /opt/lampp/htdocs/hyvamagento/vendor/magento/module-catalog-search/Model/ResourceModel/Fulltext/Collection.php(596): Magento\Framework\Data\Collection\AbstractDb->_renderFilters()
+#17 /opt/lampp/htdocs/hyvamagento/vendor/magento/module-catalog-search/Model/ResourceModel/Fulltext/Collection.php(618): Magento\CatalogSearch\Model\ResourceModel\Fulltext\Collection->_renderFilters()
+#18 /opt/lampp/htdocs/hyvamagento/vendor/magento/module-catalog-search/Model/Layer/Filter/Category.php(126): Magento\CatalogSearch\Model\ResourceModel\Fulltext\Collection->getFacetedData('category')
+#19 /opt/lampp/htdocs/hyvamagento/vendor/magento/module-catalog/Model/Layer/Filter/AbstractFilter.php(202): Magento\CatalogSearch\Model\Layer\Filter\Category->_getItemsData()
+#20 /opt/lampp/htdocs/hyvamagento/vendor/magento/module-catalog/Model/Layer/Filter/AbstractFilter.php(159): Magento\Catalog\Model\Layer\Filter\AbstractFilter->_initItems()
+#21 /opt/lampp/htdocs/hyvamagento/vendor/magento/module-catalog/Model/Layer/Filter/AbstractFilter.php(148): Magento\Catalog\Model\Layer\Filter\AbstractFilter->getItems()
+#22 /opt/lampp/htdocs/hyvamagento/vendor/magento/module-catalog/Model/Layer/Category/AvailabilityFlag.php(33): Magento\Catalog\Model\Layer\Filter\AbstractFilter->getItemsCount()
+#23 /opt/lampp/htdocs/hyvamagento/vendor/magento/module-catalog/Model/Layer/Category/AvailabilityFlag.php(23): Magento\Catalog\Model\Layer\Category\AvailabilityFlag->canShowOptions(Array)
+#24 /opt/lampp/htdocs/hyvamagento/vendor/magento/module-layered-navigation/Block/Navigation.php(126): Magento\Catalog\Model\Layer\Category\AvailabilityFlag->isEnabled(Object(Magento\Catalog\Model\Layer\Category), Array)
+#25 /opt/lampp/htdocs/hyvamagento/vendor/hyva-themes/magento2-default-theme/Magento_LayeredNavigation/templates/layer/view.phtml(24): Magento\LayeredNavigation\Block\Navigation->canShowBlock()
+#26 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/TemplateEngine/Php.php(67): include('/opt/lampp/htdo...')
+#27 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/Interception/Interceptor.php(58): Magento\Framework\View\TemplateEngine\Php->render(Object(Magento\LayeredNavigation\Block\Navigation), '/opt/lampp/htdo...', Array)
+#28 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/Interception/Interceptor.php(138): Magento\Framework\View\TemplateEngine\Php\Interceptor->___callParent('render', Array)
+#29 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/Interception/Interceptor.php(153): Magento\Framework\View\TemplateEngine\Php\Interceptor->Magento\Framework\Interception\{closure}(Object(Magento\LayeredNavigation\Block\Navigation), '/opt/lampp/htdo...', Array)
+#30 /opt/lampp/htdocs/hyvamagento/generated/code/Magento/Framework/View/TemplateEngine/Php/Interceptor.php(23): Magento\Framework\View\TemplateEngine\Php\Interceptor->___callPlugins('render', Array, Array)
+#31 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Element/Template.php(263): Magento\Framework\View\TemplateEngine\Php\Interceptor->render(Object(Magento\LayeredNavigation\Block\Navigation), '/opt/lampp/htdo...', Array)
+#32 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Element/Template.php(293): Magento\Framework\View\Element\Template->fetchView('/opt/lampp/htdo...')
+#33 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Element/AbstractBlock.php(1128): Magento\Framework\View\Element\Template->_toHtml()
+#34 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Element/AbstractBlock.php(1132): Magento\Framework\View\Element\AbstractBlock->Magento\Framework\View\Element\{closure}()
+#35 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Element/AbstractBlock.php(676): Magento\Framework\View\Element\AbstractBlock->_loadCache()
+#36 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Layout.php(578): Magento\Framework\View\Element\AbstractBlock->toHtml()
+#37 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Layout.php(555): Magento\Framework\View\Layout->_renderBlock('catalog.leftnav')
+#38 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Layout.php(510): Magento\Framework\View\Layout->renderNonCachedElement('catalog.leftnav')
+#39 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Layout.php(606): Magento\Framework\View\Layout->renderElement('catalog.leftnav', false)
+#40 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Layout.php(557): Magento\Framework\View\Layout->_renderContainer('sidebar.main', false)
+#41 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Layout.php(510): Magento\Framework\View\Layout->renderNonCachedElement('sidebar.main')
+#42 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Layout.php(606): Magento\Framework\View\Layout->renderElement('sidebar.main', false)
+#43 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Layout.php(557): Magento\Framework\View\Layout->_renderContainer('div.sidebar.mai...', false)
+#44 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Layout.php(510): Magento\Framework\View\Layout->renderNonCachedElement('div.sidebar.mai...')
+#45 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Layout.php(606): Magento\Framework\View\Layout->renderElement('div.sidebar.mai...', false)
+#46 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Layout.php(557): Magento\Framework\View\Layout->_renderContainer('columns', false)
+#47 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Layout.php(510): Magento\Framework\View\Layout->renderNonCachedElement('columns')
+#48 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Layout.php(606): Magento\Framework\View\Layout->renderElement('columns', false)
+#49 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Layout.php(557): Magento\Framework\View\Layout->_renderContainer('main.content', false)
+#50 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Layout.php(510): Magento\Framework\View\Layout->renderNonCachedElement('main.content')
+#51 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Layout.php(606): Magento\Framework\View\Layout->renderElement('main.content', false)
+#52 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Layout.php(557): Magento\Framework\View\Layout->_renderContainer('page.wrapper', false)
+#53 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Layout.php(510): Magento\Framework\View\Layout->renderNonCachedElement('page.wrapper')
+#54 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Layout.php(606): Magento\Framework\View\Layout->renderElement('page.wrapper', false)
+#55 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Layout.php(557): Magento\Framework\View\Layout->_renderContainer('root', false)
+#56 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Layout.php(510): Magento\Framework\View\Layout->renderNonCachedElement('root')
+#57 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Layout.php(978): Magento\Framework\View\Layout->renderElement('root')
+#58 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/Interception/Interceptor.php(58): Magento\Framework\View\Layout->getOutput()
+#59 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/Interception/Interceptor.php(138): Magento\Framework\View\Layout\Interceptor->___callParent('getOutput', Array)
+#60 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/Interception/Interceptor.php(153): Magento\Framework\View\Layout\Interceptor->Magento\Framework\Interception\{closure}()
+#61 /opt/lampp/htdocs/hyvamagento/generated/code/Magento/Framework/View/Layout/Interceptor.php(50): Magento\Framework\View\Layout\Interceptor->___callPlugins('getOutput', Array, Array)
+#62 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Result/Page.php(284): Magento\Framework\View\Layout\Interceptor->getOutput()
+#63 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/View/Result/Layout.php(171): Magento\Framework\View\Result\Page->render(Object(Magento\Framework\App\Response\Http\Interceptor))
+#64 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/Interception/Interceptor.php(58): Magento\Framework\View\Result\Layout->renderResult(Object(Magento\Framework\App\Response\Http\Interceptor))
+#65 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/Interception/Interceptor.php(138): Magento\Framework\View\Result\Page\Interceptor->___callParent('renderResult', Array)
+#66 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/Interception/Interceptor.php(153): Magento\Framework\View\Result\Page\Interceptor->Magento\Framework\Interception\{closure}(Object(Magento\Framework\App\Response\Http\Interceptor))
+#67 /opt/lampp/htdocs/hyvamagento/generated/code/Magento/Framework/View/Result/Page/Interceptor.php(32): Magento\Framework\View\Result\Page\Interceptor->___callPlugins('renderResult', Array, Array)
+#68 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/App/Http.php(120): Magento\Framework\View\Result\Page\Interceptor->renderResult(Object(Magento\Framework\App\Response\Http\Interceptor))
+#69 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/Interception/Interceptor.php(58): Magento\Framework\App\Http->launch()
+#70 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/Interception/Interceptor.php(138): Magento\Framework\App\Http\Interceptor->___callParent('launch', Array)
+#71 /opt/lampp/htdocs/hyvamagento/vendor/magento/module-application-performance-monitor/Plugin/ApplicationPerformanceMonitor.php(38): Magento\Framework\App\Http\Interceptor->Magento\Framework\Interception\{closure}()
+#72 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/Interception/Interceptor.php(135): Magento\ApplicationPerformanceMonitor\Plugin\ApplicationPerformanceMonitor->aroundLaunch(Object(Magento\Framework\App\Http\Interceptor), Object(Closure))
+#73 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/Interception/Interceptor.php(153): Magento\Framework\App\Http\Interceptor->Magento\Framework\Interception\{closure}()
+#74 /opt/lampp/htdocs/hyvamagento/generated/code/Magento/Framework/App/Http/Interceptor.php(23): Magento\Framework\App\Http\Interceptor->___callPlugins('launch', Array, NULL)
+#75 /opt/lampp/htdocs/hyvamagento/vendor/magento/framework/App/Bootstrap.php(264): Magento\Framework\App\Http\Interceptor->launch()
+#76 /opt/lampp/htdocs/hyvamagento/pub/index.php(30): Magento\Framework\App\Bootstrap->run(Object(Magento\Framework\App\Http\Interceptor))
+#77 {main} {"exception":"[object] (OpenSearch\\Common\\Exceptions\\BadRequest400Exception(code: 0): {\"error\":{\"root_cause\":[{\"type\":\"query_shard_exception\",\"reason\":\"No mapping found for [position_category_4] in order to sort on\",\"index_uuid\":\"D0W2wmQlTVavVQ7VdjlM6w\",\"index\":\"magento2_product_1_v1329\"}],\"type\":\"search_phase_execution_exception\",\"reason\":\"all shards failed\",\"phase\":\"query\",\"grouped\":true,\"failed_shards\":[{\"shard\":0,\"index\":\"magento2_product_1_v1329\",\"node\":\"2aP9wENLRWGyIfStIpUsHw\",\"reason\":{\"type\":\"query_shard_exception\",\"reason\":\"No mapping found for [position_category_4] in order to sort on\",\"index_uuid\":\"D0W2wmQlTVavVQ7VdjlM6w\",\"index\":\"magento2_product_1_v1329\"}}]},\"status\":400} at /opt/lampp/htdocs/hyvamagento/vendor/opensearch-project/opensearch-php/src/OpenSearch/Connections/Connection.php:680)"} []
+[2025-11-13T06:06:17.893914+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_cataloginventory_stock_status_1"}} []
+[2025-11-13T06:06:17.896711+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_cataloginventory_stock_status_2"}} []
+[2025-11-13T06:06:17.897539+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_cataloginventory_stock_status_3"}} []
+[2025-11-13T06:06:17.898727+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_cataloginventory_stock_status_4"}} []
+[2025-11-13T06:06:17.899742+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_cataloginventory_stock_status_5"}} []
+[2025-11-13T06:06:17.901088+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_cataloginventory_stock_status_outdated_1"}} []
+[2025-11-13T06:06:17.901821+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_cataloginventory_stock_status_outdated_2"}} []
+[2025-11-13T06:06:17.902346+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_cataloginventory_stock_status_outdated_3"}} []
+[2025-11-13T06:06:17.902784+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_cataloginventory_stock_status_outdated_4"}} []
+[2025-11-13T06:06:17.903181+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_cataloginventory_stock_status_outdated_5"}} []
+[2025-11-13T06:06:17.903617+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_cataloginventory_stock_status_replica_1"}} []
+[2025-11-13T06:06:17.904079+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_cataloginventory_stock_status_replica_2"}} []
+[2025-11-13T06:06:17.904504+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_cataloginventory_stock_status_replica_3"}} []
+[2025-11-13T06:06:17.905319+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_cataloginventory_stock_status_replica_4"}} []
+[2025-11-13T06:06:17.915582+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_cataloginventory_stock_status_replica_5"}} []
+[2025-11-13T06:06:17.930371+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:17.945481+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_p","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:18.005047+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c","cat_p"],"mode":"matchingAnyTag"}} []
+[2025-11-13T06:06:18.163399+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_customer_grid_flat_1"}} []
+[2025-11-13T06:06:18.163605+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_customer_grid_flat_2"}} []
+[2025-11-13T06:06:18.163870+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_customer_grid_flat_3"}} []
+[2025-11-13T06:06:18.163964+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_customer_grid_flat_4"}} []
+[2025-11-13T06:06:18.165389+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_customer_grid_flat_5"}} []
+[2025-11-13T06:06:18.288050+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_customer_grid_flat_1"}} []
+[2025-11-13T06:06:18.288732+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_customer_grid_flat_2"}} []
+[2025-11-13T06:06:18.289260+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_customer_grid_flat_3"}} []
+[2025-11-13T06:06:18.289773+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_customer_grid_flat_4"}} []
+[2025-11-13T06:06:18.290309+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_customer_grid_flat_5"}} []
+[2025-11-13T06:06:18.438076+00:00] main.WARNING: Memory size allocated for the temporary table is more than 20% of innodb_buffer_pool_size. Please update innodb_buffer_pool_size or decrease batch size value (which decreases memory usages for the temporary table). Current batch size: 100000; Allocated memory size: 50000000 bytes; InnoDB buffer pool size: 16777216 bytes. [] []
+[2025-11-13T06:06:18.551189+00:00] main.WARNING: Memory size allocated for the temporary table is more than 20% of innodb_buffer_pool_size. Please update innodb_buffer_pool_size or decrease batch size value (which decreases memory usages for the temporary table). Current batch size: 100000; Allocated memory size: 50000000 bytes; InnoDB buffer pool size: 16777216 bytes. [] []
+[2025-11-13T06:06:21.039846+00:00] main.WARNING: Memory size allocated for the temporary table is more than 20% of innodb_buffer_pool_size. Please update innodb_buffer_pool_size or decrease batch size value (which decreases memory usages for the temporary table). Current batch size: 100000; Allocated memory size: 50000000 bytes; InnoDB buffer pool size: 16777216 bytes. [] []
+[2025-11-13T06:06:29.099149+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_category_product_index_store1_1"}} []
+[2025-11-13T06:06:29.099352+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_category_product_index_store1_2"}} []
+[2025-11-13T06:06:29.099456+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_category_product_index_store1_3"}} []
+[2025-11-13T06:06:29.099546+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_category_product_index_store1_4"}} []
+[2025-11-13T06:06:29.100369+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_category_product_index_store1_5"}} []
+[2025-11-13T06:06:29.100539+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_category_product_index_store1_outdated_1"}} []
+[2025-11-13T06:06:29.100641+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_category_product_index_store1_outdated_2"}} []
+[2025-11-13T06:06:29.100704+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_category_product_index_store1_outdated_3"}} []
+[2025-11-13T06:06:29.100754+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_category_product_index_store1_outdated_4"}} []
+[2025-11-13T06:06:29.100804+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_category_product_index_store1_outdated_5"}} []
+[2025-11-13T06:06:29.101393+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_category_product_index_store1_replica_1"}} []
+[2025-11-13T06:06:29.101501+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_category_product_index_store1_replica_2"}} []
+[2025-11-13T06:06:29.101581+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_category_product_index_store1_replica_3"}} []
+[2025-11-13T06:06:29.101657+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_category_product_index_store1_replica_4"}} []
+[2025-11-13T06:06:29.102252+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_category_product_index_store1_replica_5"}} []
+[2025-11-13T06:06:29.104584+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:29.104778+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c"],"mode":"matchingAnyTag"}} []
+[2025-11-13T06:06:30.123821+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_1"}} []
+[2025-11-13T06:06:30.123993+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_2"}} []
+[2025-11-13T06:06:30.124103+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_3"}} []
+[2025-11-13T06:06:30.124196+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_4"}} []
+[2025-11-13T06:06:30.124311+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_5"}} []
+[2025-11-13T06:06:30.124425+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product8c2d540c_1"}} []
+[2025-11-13T06:06:30.124496+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product8c2d540c_2"}} []
+[2025-11-13T06:06:30.124548+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product8c2d540c_3"}} []
+[2025-11-13T06:06:30.124596+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product8c2d540c_4"}} []
+[2025-11-13T06:06:30.124644+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product8c2d540c_5"}} []
+[2025-11-13T06:06:30.124693+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product__temp339b7536_1"}} []
+[2025-11-13T06:06:30.124742+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product__temp339b7536_2"}} []
+[2025-11-13T06:06:30.124790+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product__temp339b7536_3"}} []
+[2025-11-13T06:06:30.124838+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product__temp339b7536_4"}} []
+[2025-11-13T06:06:30.124889+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product__temp339b7536_5"}} []
+[2025-11-13T06:06:30.124964+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_price_1"}} []
+[2025-11-13T06:06:30.125041+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_price_2"}} []
+[2025-11-13T06:06:30.125114+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_price_3"}} []
+[2025-11-13T06:06:30.125195+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_price_4"}} []
+[2025-11-13T06:06:30.125266+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_price_5"}} []
+[2025-11-13T06:06:30.125316+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_price7e756293_1"}} []
+[2025-11-13T06:06:30.125363+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_price7e756293_2"}} []
+[2025-11-13T06:06:30.125412+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_price7e756293_3"}} []
+[2025-11-13T06:06:30.125458+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_price7e756293_4"}} []
+[2025-11-13T06:06:30.125504+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_price7e756293_5"}} []
+[2025-11-13T06:06:30.125551+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_price__tempaf354812_1"}} []
+[2025-11-13T06:06:30.125604+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_price__tempaf354812_2"}} []
+[2025-11-13T06:06:30.125652+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_price__tempaf354812_3"}} []
+[2025-11-13T06:06:30.125698+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_price__tempaf354812_4"}} []
+[2025-11-13T06:06:30.125746+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_price__tempaf354812_5"}} []
+[2025-11-13T06:06:30.125794+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_group_website_1"}} []
+[2025-11-13T06:06:30.125840+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_group_website_2"}} []
+[2025-11-13T06:06:30.125887+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_group_website_3"}} []
+[2025-11-13T06:06:30.125933+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_group_website_4"}} []
+[2025-11-13T06:06:30.125978+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_group_website_5"}} []
+[2025-11-13T06:06:30.126026+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_group_website7d350f49_1"}} []
+[2025-11-13T06:06:30.126074+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_group_website7d350f49_2"}} []
+[2025-11-13T06:06:30.126120+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_group_website7d350f49_3"}} []
+[2025-11-13T06:06:30.126166+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_group_website7d350f49_4"}} []
+[2025-11-13T06:06:30.126218+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_group_website7d350f49_5"}} []
+[2025-11-13T06:06:30.126272+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_group_website__tempf235b4ab_1"}} []
+[2025-11-13T06:06:30.126319+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_group_website__tempf235b4ab_2"}} []
+[2025-11-13T06:06:30.126365+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_group_website__tempf235b4ab_3"}} []
+[2025-11-13T06:06:30.126412+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_group_website__tempf235b4ab_4"}} []
+[2025-11-13T06:06:30.126459+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_group_website__tempf235b4ab_5"}} []
+[2025-11-13T06:06:30.139685+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product8c2d540c_1"}} []
+[2025-11-13T06:06:30.139879+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product8c2d540c_2"}} []
+[2025-11-13T06:06:30.139977+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product8c2d540c_3"}} []
+[2025-11-13T06:06:30.140079+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product8c2d540c_4"}} []
+[2025-11-13T06:06:30.140157+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product8c2d540c_5"}} []
+[2025-11-13T06:06:30.147856+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_price7e756293_1"}} []
+[2025-11-13T06:06:30.148024+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_price7e756293_2"}} []
+[2025-11-13T06:06:30.148116+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_price7e756293_3"}} []
+[2025-11-13T06:06:30.148193+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_price7e756293_4"}} []
+[2025-11-13T06:06:30.148274+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_product_price7e756293_5"}} []
+[2025-11-13T06:06:30.155919+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_group_website7d350f49_1"}} []
+[2025-11-13T06:06:30.156110+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_group_website7d350f49_2"}} []
+[2025-11-13T06:06:30.156207+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_group_website7d350f49_3"}} []
+[2025-11-13T06:06:30.156321+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_group_website7d350f49_4"}} []
+[2025-11-13T06:06:30.156403+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalogrule_group_website7d350f49_5"}} []
+[2025-11-13T06:06:30.170389+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:30.170667+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_p","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:30.170807+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["BLOCK_HTML","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:30.173291+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c","cat_p","BLOCK_HTML"],"mode":"matchingAnyTag"}} []
+[2025-11-13T06:06:30.274973+00:00] main.WARNING: Memory size allocated for the temporary table is more than 20% of innodb_buffer_pool_size. Please update innodb_buffer_pool_size or decrease batch size value (which decreases memory usages for the temporary table). Current batch size: 1000; Allocated memory size: 4500000 bytes; InnoDB buffer pool size: 16777216 bytes. [] []
+[2025-11-13T06:06:30.768875+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_1"}} []
+[2025-11-13T06:06:30.769067+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_2"}} []
+[2025-11-13T06:06:30.769171+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_3"}} []
+[2025-11-13T06:06:30.769275+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_4"}} []
+[2025-11-13T06:06:30.769355+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_5"}} []
+[2025-11-13T06:06:30.769449+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_outdated_1"}} []
+[2025-11-13T06:06:30.769527+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_outdated_2"}} []
+[2025-11-13T06:06:30.769592+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_outdated_3"}} []
+[2025-11-13T06:06:30.769658+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_outdated_4"}} []
+[2025-11-13T06:06:30.769735+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_outdated_5"}} []
+[2025-11-13T06:06:30.774047+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_replica_1"}} []
+[2025-11-13T06:06:30.774448+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_replica_2"}} []
+[2025-11-13T06:06:30.774832+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_replica_3"}} []
+[2025-11-13T06:06:30.774954+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_replica_4"}} []
+[2025-11-13T06:06:30.776447+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_replica_5"}} []
+[2025-11-13T06:06:30.870201+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_decimal_1"}} []
+[2025-11-13T06:06:30.870394+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_decimal_2"}} []
+[2025-11-13T06:06:30.870488+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_decimal_3"}} []
+[2025-11-13T06:06:30.870573+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_decimal_4"}} []
+[2025-11-13T06:06:30.870653+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_decimal_5"}} []
+[2025-11-13T06:06:30.870733+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_decimal_outdated_1"}} []
+[2025-11-13T06:06:30.870810+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_decimal_outdated_2"}} []
+[2025-11-13T06:06:30.870884+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_decimal_outdated_3"}} []
+[2025-11-13T06:06:30.870959+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_decimal_outdated_4"}} []
+[2025-11-13T06:06:30.871032+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_decimal_outdated_5"}} []
+[2025-11-13T06:06:30.871861+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_decimal_replica_1"}} []
+[2025-11-13T06:06:30.872039+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_decimal_replica_2"}} []
+[2025-11-13T06:06:30.872134+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_decimal_replica_3"}} []
+[2025-11-13T06:06:30.872239+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_decimal_replica_4"}} []
+[2025-11-13T06:06:30.875006+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_eav_decimal_replica_5"}} []
+[2025-11-13T06:06:30.875410+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:30.875570+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_p","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:30.876010+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c","cat_p"],"mode":"matchingAnyTag"}} []
+[2025-11-13T06:06:31.022883+00:00] main.WARNING: Memory size allocated for the temporary table is more than 20% of innodb_buffer_pool_size. Please update innodb_buffer_pool_size or decrease batch size value (which decreases memory usages for the temporary table). Current batch size: 5000; Allocated memory size: 4000000 bytes; InnoDB buffer pool size: 16777216 bytes. [] []
+[2025-11-13T06:06:31.026615+00:00] main.WARNING: Memory size allocated for the temporary table is more than 20% of innodb_buffer_pool_size. Please update innodb_buffer_pool_size or decrease batch size value (which decreases memory usages for the temporary table). Current batch size: 5000; Allocated memory size: 4000000 bytes; InnoDB buffer pool size: 16777216 bytes. [] []
+[2025-11-13T06:06:31.540768+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_temp_1"}} []
+[2025-11-13T06:06:31.540991+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_temp_2"}} []
+[2025-11-13T06:06:31.541128+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_temp_3"}} []
+[2025-11-13T06:06:31.541264+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_temp_4"}} []
+[2025-11-13T06:06:31.541330+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_temp_5"}} []
+[2025-11-13T06:06:31.543056+00:00] main.WARNING: Memory size allocated for the temporary table is more than 20% of innodb_buffer_pool_size. Please update innodb_buffer_pool_size or decrease batch size value (which decreases memory usages for the temporary table). Current batch size: 5000; Allocated memory size: 4000000 bytes; InnoDB buffer pool size: 16777216 bytes. [] []
+[2025-11-13T06:06:31.550840+00:00] main.WARNING: Memory size allocated for the temporary table is more than 20% of innodb_buffer_pool_size. Please update innodb_buffer_pool_size or decrease batch size value (which decreases memory usages for the temporary table). Current batch size: 3334; Allocated memory size: 40008000 bytes; InnoDB buffer pool size: 16777216 bytes. [] []
+[2025-11-13T06:06:33.295577+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_temp_1"}} []
+[2025-11-13T06:06:33.295818+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_temp_2"}} []
+[2025-11-13T06:06:33.295970+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_temp_3"}} []
+[2025-11-13T06:06:33.296094+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_temp_4"}} []
+[2025-11-13T06:06:33.296237+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_temp_5"}} []
+[2025-11-13T06:06:33.302290+00:00] main.WARNING: Memory size allocated for the temporary table is more than 20% of innodb_buffer_pool_size. Please update innodb_buffer_pool_size or decrease batch size value (which decreases memory usages for the temporary table). Current batch size: 334; Allocated memory size: 4008000 bytes; InnoDB buffer pool size: 16777216 bytes. [] []
+[2025-11-13T06:06:33.367926+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_temp_1"}} []
+[2025-11-13T06:06:33.368524+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_temp_2"}} []
+[2025-11-13T06:06:33.368926+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_temp_3"}} []
+[2025-11-13T06:06:33.369379+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_temp_4"}} []
+[2025-11-13T06:06:33.369754+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_temp_5"}} []
+[2025-11-13T06:06:33.388661+00:00] main.WARNING: Memory size allocated for the temporary table is more than 20% of innodb_buffer_pool_size. Please update innodb_buffer_pool_size or decrease batch size value (which decreases memory usages for the temporary table). Current batch size: 334; Allocated memory size: 4008000 bytes; InnoDB buffer pool size: 16777216 bytes. [] []
+[2025-11-13T06:06:33.422415+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_temp_1"}} []
+[2025-11-13T06:06:33.422832+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_temp_2"}} []
+[2025-11-13T06:06:33.423061+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_temp_3"}} []
+[2025-11-13T06:06:33.423250+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_temp_4"}} []
+[2025-11-13T06:06:33.423418+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_temp_5"}} []
+[2025-11-13T06:06:33.466306+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_1"}} []
+[2025-11-13T06:06:33.466643+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_2"}} []
+[2025-11-13T06:06:33.466836+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_3"}} []
+[2025-11-13T06:06:33.466999+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_4"}} []
+[2025-11-13T06:06:33.467173+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_5"}} []
+[2025-11-13T06:06:33.467386+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_outdated_1"}} []
+[2025-11-13T06:06:33.467531+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_outdated_2"}} []
+[2025-11-13T06:06:33.467661+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_outdated_3"}} []
+[2025-11-13T06:06:33.467790+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_outdated_4"}} []
+[2025-11-13T06:06:33.467921+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_outdated_5"}} []
+[2025-11-13T06:06:33.469303+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_replica_1"}} []
+[2025-11-13T06:06:33.469556+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_replica_2"}} []
+[2025-11-13T06:06:33.469710+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_replica_3"}} []
+[2025-11-13T06:06:33.469854+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_replica_4"}} []
+[2025-11-13T06:06:33.470974+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_catalog_product_index_price_replica_5"}} []
+[2025-11-13T06:06:33.471443+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:33.471692+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_p","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:33.472146+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c","cat_p"],"mode":"matchingAnyTag"}} []
+[2025-11-13T06:06:44.377875+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_2","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.378809+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_3","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.379288+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_4","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.379445+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_8","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.379767+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_5","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.380032+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_6","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.380346+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_12","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.380585+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_15","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.380661+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_36","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.380886+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_14","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.381128+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_16","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.381360+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_17","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.381596+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_13","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.381817+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_18","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.381886+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_32","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.381941+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_35","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.381993+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_34","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.382216+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_19","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.382314+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_31","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.382727+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_21","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.383139+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_24","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.383351+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_30","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.383724+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_23","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.384132+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_25","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.384344+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_33","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.384784+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_26","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.385421+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_22","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.385795+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_27","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.386147+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_28","FPC"],"mode":"matchingTag"}} []
+[2025-11-13T06:06:44.394873+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["cat_c_2","cat_c_3","cat_c_4","cat_c_8","cat_c_5","cat_c_6","cat_c_12","cat_c_15","cat_c_36","cat_c_14","cat_c_16","cat_c_17","cat_c_13","cat_c_18","cat_c_32","cat_c_35","cat_c_34","cat_c_19","cat_c_31","cat_c_21","cat_c_24","cat_c_30","cat_c_23","cat_c_25","cat_c_33","cat_c_26","cat_c_22","cat_c_27","cat_c_28"],"mode":"matchingAnyTag"}} []
+[2025-11-13T06:06:44.497384+00:00] main.INFO: {"feed":"salesOrders","operation":"full reindex(legacy)","status":"Initialize","elapsed":"00:00:00 984 ms","pid":"17020","caller":"bin\/magento ind:reind"} [] []
+[2025-11-13T06:06:44.534764+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_orders_index_sequence_1"}} []
+[2025-11-13T06:06:44.535449+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_orders_index_sequence_2"}} []
+[2025-11-13T06:06:44.535693+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_orders_index_sequence_3"}} []
+[2025-11-13T06:06:44.535821+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_orders_index_sequence_4"}} []
+[2025-11-13T06:06:44.535915+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_orders_index_sequence_5"}} []
+[2025-11-13T06:06:44.546200+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_orders_index_sequence_1"}} []
+[2025-11-13T06:06:44.546369+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_orders_index_sequence_2"}} []
+[2025-11-13T06:06:44.546454+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_orders_index_sequence_3"}} []
+[2025-11-13T06:06:44.546529+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_orders_index_sequence_4"}} []
+[2025-11-13T06:06:44.546601+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_orders_index_sequence_5"}} []
+[2025-11-13T06:06:44.551434+00:00] main.INFO: {"feed":"salesOrders","operation":"full reindex(legacy)","status":"Creating batch table `sales_data_exporter_orders_index_batches`. Start position: 0","elapsed":"00:00:01 38 ms","pid":"17020","caller":"bin\/magento ind:reind"} [] []
+[2025-11-13T06:06:44.559474+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_orders_index_batches_1"}} []
+[2025-11-13T06:06:44.559651+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_orders_index_batches_2"}} []
+[2025-11-13T06:06:44.559756+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_orders_index_batches_3"}} []
+[2025-11-13T06:06:44.559851+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_orders_index_batches_4"}} []
+[2025-11-13T06:06:44.559939+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_orders_index_batches_5"}} []
+[2025-11-13T06:06:44.572420+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_orders_index_batches_1"}} []
+[2025-11-13T06:06:44.572636+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_orders_index_batches_2"}} []
+[2025-11-13T06:06:44.572743+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_orders_index_batches_3"}} []
+[2025-11-13T06:06:44.572833+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_orders_index_batches_4"}} []
+[2025-11-13T06:06:44.572949+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_orders_index_batches_5"}} []
+[2025-11-13T06:06:44.597175+00:00] main.INFO: {"feed":"salesOrders","operation":"full reindex(legacy)","status":"Batch table `sales_data_exporter_orders_index_batches` created. Total Items: 2, batches: ~0","elapsed":"00:00:01 84 ms","pid":"17020","caller":"bin\/magento ind:reind"} [] []
+[2025-11-13T06:06:44.597432+00:00] main.INFO: {"feed":"salesOrders","operation":"full reindex(legacy)","status":"start processing `2` items in `1` threads with `100` batch size","elapsed":"00:00:01 84 ms","pid":"17020","caller":"bin\/magento ind:reind"} [] []
+[2025-11-13T06:06:44.650796+00:00] main.INFO: {"feed":"salesOrders","operation":"full reindex(legacy)","status":"Progress 1\/1, processed 2, synced 0","elapsed":"00:00:01 138 ms","pid":"17020","caller":"bin\/magento ind:reind"} [] []
+[2025-11-13T06:06:44.659363+00:00] main.INFO: {"feed":"salesOrders","operation":"full reindex(legacy)","status":"Complete","elapsed":"00:00:01 146 ms","pid":"17020","caller":"bin\/magento ind:reind"} [] []
+[2025-11-13T06:06:44.691252+00:00] main.INFO: {"feed":"salesOrderStatuses","operation":"full reindex(legacy)","status":"Initialize","elapsed":"372 ms","pid":"17020","caller":"bin\/magento ind:reind"} [] []
+[2025-11-13T06:06:44.724492+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_order_statuses_index_sequence_1"}} []
+[2025-11-13T06:06:44.724697+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_order_statuses_index_sequence_2"}} []
+[2025-11-13T06:06:44.724813+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_order_statuses_index_sequence_3"}} []
+[2025-11-13T06:06:44.724910+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_order_statuses_index_sequence_4"}} []
+[2025-11-13T06:06:44.724996+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_order_statuses_index_sequence_5"}} []
+[2025-11-13T06:06:44.738509+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_order_statuses_index_sequence_1"}} []
+[2025-11-13T06:06:44.738691+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_order_statuses_index_sequence_2"}} []
+[2025-11-13T06:06:44.738797+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_order_statuses_index_sequence_3"}} []
+[2025-11-13T06:06:44.738890+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_order_statuses_index_sequence_4"}} []
+[2025-11-13T06:06:44.738976+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_order_statuses_index_sequence_5"}} []
+[2025-11-13T06:06:44.739696+00:00] main.INFO: {"feed":"salesOrderStatuses","operation":"full reindex(legacy)","status":"Creating batch table `sales_data_exporter_order_statuses_index_batches`. Start position: ","elapsed":"420 ms","pid":"17020","caller":"bin\/magento ind:reind"} [] []
+[2025-11-13T06:06:44.747413+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_order_statuses_index_batches_1"}} []
+[2025-11-13T06:06:44.747583+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_order_statuses_index_batches_2"}} []
+[2025-11-13T06:06:44.747684+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_order_statuses_index_batches_3"}} []
+[2025-11-13T06:06:44.747775+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_order_statuses_index_batches_4"}} []
+[2025-11-13T06:06:44.747873+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_order_statuses_index_batches_5"}} []
+[2025-11-13T06:06:44.762195+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_order_statuses_index_batches_1"}} []
+[2025-11-13T06:06:44.762407+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_order_statuses_index_batches_2"}} []
+[2025-11-13T06:06:44.762512+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_order_statuses_index_batches_3"}} []
+[2025-11-13T06:06:44.762595+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_order_statuses_index_batches_4"}} []
+[2025-11-13T06:06:44.762674+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_sales_data_exporter_order_statuses_index_batches_5"}} []
+[2025-11-13T06:06:44.776487+00:00] main.INFO: {"feed":"salesOrderStatuses","operation":"full reindex(legacy)","status":"Batch table `sales_data_exporter_order_statuses_index_batches` created. Total Items: 12, batches: ~0","elapsed":"457 ms","pid":"17020","caller":"bin\/magento ind:reind"} [] []
+[2025-11-13T06:06:44.776695+00:00] main.INFO: {"feed":"salesOrderStatuses","operation":"full reindex(legacy)","status":"start processing `12` items in `1` threads with `100` batch size","elapsed":"457 ms","pid":"17020","caller":"bin\/magento ind:reind"} [] []
+[2025-11-13T06:06:44.786336+00:00] main.INFO: {"feed":"salesOrderStatuses","operation":"full reindex(legacy)","status":"Progress 1\/1, processed 12, synced 12","elapsed":"467 ms","pid":"17020","caller":"bin\/magento ind:reind"} [] []
+[2025-11-13T06:06:44.790545+00:00] main.INFO: {"feed":"salesOrderStatuses","operation":"full reindex(legacy)","status":"Complete","elapsed":"471 ms","pid":"17020","caller":"bin\/magento ind:reind"} [] []
+[2025-11-13T06:06:44.814093+00:00] main.INFO: {"feed":"stores","operation":"full reindex(legacy)","status":"Initialize","elapsed":"618 ms","pid":"17020","caller":"bin\/magento ind:reind"} [] []
+[2025-11-13T06:06:44.855346+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_stores_data_exporter_index_sequence_1"}} []
+[2025-11-13T06:06:44.855613+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_stores_data_exporter_index_sequence_2"}} []
+[2025-11-13T06:06:44.855726+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_stores_data_exporter_index_sequence_3"}} []
+[2025-11-13T06:06:44.855817+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_stores_data_exporter_index_sequence_4"}} []
+[2025-11-13T06:06:44.855913+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_stores_data_exporter_index_sequence_5"}} []
+[2025-11-13T06:06:44.871986+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_stores_data_exporter_index_sequence_1"}} []
+[2025-11-13T06:06:44.872173+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_stores_data_exporter_index_sequence_2"}} []
+[2025-11-13T06:06:44.872287+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_stores_data_exporter_index_sequence_3"}} []
+[2025-11-13T06:06:44.872380+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_stores_data_exporter_index_sequence_4"}} []
+[2025-11-13T06:06:44.872483+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_stores_data_exporter_index_sequence_5"}} []
+[2025-11-13T06:06:44.879727+00:00] main.INFO: {"feed":"stores","operation":"full reindex(legacy)","status":"Creating batch table `stores_data_exporter_index_batches`. Start position: 0","elapsed":"683 ms","pid":"17020","caller":"bin\/magento ind:reind"} [] []
+[2025-11-13T06:06:44.890965+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_stores_data_exporter_index_batches_1"}} []
+[2025-11-13T06:06:44.891168+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_stores_data_exporter_index_batches_2"}} []
+[2025-11-13T06:06:44.891303+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_stores_data_exporter_index_batches_3"}} []
+[2025-11-13T06:06:44.891402+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_stores_data_exporter_index_batches_4"}} []
+[2025-11-13T06:06:44.891491+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_stores_data_exporter_index_batches_5"}} []
+[2025-11-13T06:06:44.904388+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_stores_data_exporter_index_batches_1"}} []
+[2025-11-13T06:06:44.904582+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_stores_data_exporter_index_batches_2"}} []
+[2025-11-13T06:06:44.904680+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_stores_data_exporter_index_batches_3"}} []
+[2025-11-13T06:06:44.904764+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_stores_data_exporter_index_batches_4"}} []
+[2025-11-13T06:06:44.904847+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_stores_data_exporter_index_batches_5"}} []
+[2025-11-13T06:06:44.919789+00:00] main.INFO: {"feed":"stores","operation":"full reindex(legacy)","status":"Batch table `stores_data_exporter_index_batches` created. Total Items: 1, batches: ~0","elapsed":"723 ms","pid":"17020","caller":"bin\/magento ind:reind"} [] []
+[2025-11-13T06:06:44.920202+00:00] main.INFO: {"feed":"stores","operation":"full reindex(legacy)","status":"start processing `1` items in `1` threads with `100` batch size","elapsed":"724 ms","pid":"17020","caller":"bin\/magento ind:reind"} [] []
+[2025-11-13T06:06:44.934253+00:00] main.INFO: {"feed":"stores","operation":"full reindex(legacy)","status":"Progress 1\/1, processed 1, synced 1","elapsed":"738 ms","pid":"17020","caller":"bin\/magento ind:reind"} [] []
+[2025-11-13T06:06:44.937462+00:00] main.INFO: {"feed":"stores","operation":"full reindex(legacy)","status":"Complete","elapsed":"741 ms","pid":"17020","caller":"bin\/magento ind:reind"} [] []
+[2025-11-13T06:07:09.128114+00:00] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["FPC"],"mode":"matchingTag"}} []
