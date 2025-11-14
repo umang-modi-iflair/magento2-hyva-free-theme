@@ -1,0 +1,36 @@
+<?php $_post = $this->getPost(); ?>
+
+<div class="training-item-container">
+    <div class="training-item">
+        <a href="<?php echo $_post->getPostUrl() ?>">
+            <div class="training-item-media">
+                <?php if ($featuredImage = $_post->getFeaturedImage()) : ?>
+                    <img src="<?php echo $featuredImage ?>">
+                <?php endif; ?>
+            </div>
+
+            <div class="training-item-wrapper">
+                <div class="training-item-text">
+                    <div class="training-item-title">
+                        <h3 class="training-item-heading"><?php echo $block->escapeHtml($_post->getTitle(), null, true); ?></h3>
+                    </div>
+
+                    <div class="training-item-intro">
+                        <?php echo $block->getShortContent() ?>
+                    </div>
+                </div>
+
+                <div class="training-item-details">
+                    <span><i class="fas fa-calendar-alt"></i><?php echo $_post->getPublishDate('d/m/Y') ?> </span>
+                    <span> <i class="far fa-clock"></i><?php echo $_post->getHour(); ?></span>
+                    <span><i class="fas fa-map-marker-alt"></i><?php echo $_post->getLocation(); ?></span>
+                    <span><i class="fas fa-users"></i><?php echo __('Nog %1 plaatsen vrij', $_post->getRemainingPlaces()); ?></span>
+                </div>
+
+                <div class="training-item-button">
+                    <span class="fakelink-primary"><?php echo __('Nu inschrijven'); ?></span>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

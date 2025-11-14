@@ -1,0 +1,91 @@
+<?php
+
+declare(strict_types=1);
+
+use Hyva\Theme\ViewModel\ReCaptcha;
+
+?>
+
+<div class="training-detail">
+    <div class="postContentSectionRequest grid lg:grid-cols-2 gap-7 lg:gap-10 xl:gap-20">
+        <div class="postContent">
+            <div class="prose">
+                <?= $block->getChildHtml('training_request_text_container') ?>
+            </div>
+        </div>
+
+        <div id="postFormSection" class="postFormSection w-full">
+            <a id="anchorSubscribe"></a>
+
+            <div class="subscriberForm bg-container-darker p-8 mt-10 mb-10">
+                <h2 class="text-gray-900 text-xl title-font font-medium mb-4">
+                    <?php echo __('Vraag uw opleiding op maat aan via onderstaand formulier') ?>
+                </h2>
+
+                <form action="<?php echo $this->getUrl('training/request/form') ?>" id="subscriber_form" method="post" x-data="initMyForm()" @submit.prevent="submitForm()">
+                    <?= $block->getBlockHtml('formkey') ?>
+
+                    <div style="display: none;">
+                        <label for="website">Website</label>
+                        <input name="website" id="website" type="text" tabindex="-1" autocomplete="off" />
+                    </div>
+
+                    <div class="mt-2">
+                        <label for="name"><?php echo __('Name') ?>*</label>
+                        <input name="name" id="name" title="<?php echo __('Name') ?>" value="<?php echo $block->escapeHtml($this->helper('Newance\Training\Helper\Data')->getUserName()) ?>" class="input input-light w-full" type="text" required />
+                    </div>
+
+                    <div class="mt-2">
+                        <label for="email"><?php echo __('Email') ?>*</label>
+                        <input name="email" id="email" title="<?php echo __('Email') ?>" value="<?php echo $block->escapeHtml($this->helper('Newance\Training\Helper\Data')->getUserEmail()) ?>" class="input input-light w-full" type="email" required />
+                    </div>
+
+                    <div class="mt-2">
+                        <label for="phone"><?php echo __('Phone') ?>*</label>
+                        <input name="phone" id="phone" title="<?php echo __('Phone') ?>" class="input input-light w-full" type="text" required />
+                    </div>
+
+                    <div class="mt-2">
+                        <label for="company"><?php echo __('Company') ?>*</label>
+                        <input name="company" id="company" title="<?php echo __('Company') ?>" class="input input-light w-full" type="text" />
+                    </div>
+
+                    <div class="mt-2">
+                        <label for="vat"><?php echo __('VAT Number') ?>*</label>
+                        <input name="vat" id="vat" title="<?php echo __('VAT Number') ?>" class="input input-light w-full" type="text" />
+                    </div>
+
+                    <div class="mt-2">
+                        <label for="message"><?php echo __('Message') ?></label>
+                        <textarea name="message" id="message" title="<?php echo __('Message') ?>" rows="5" class="input input-light w-full"></textarea>
+                    </div>
+
+                    <div class="mt-2">
+                        <?= $block->getBlockHtml('recaptcha_input_field_recaptcha') ?>
+                    </div>
+
+                    <div class="mt-2">
+                        <button type="submit" title="<?php echo __('Subscribe') ?>" class="btn">
+                            <?php echo __('Subscribe') ?>
+                        </button>
+                    </div>
+                </form>
+
+                <script>
+                    function initMyForm() {
+                        return {
+                            submitForm() {
+                                const $form = document.getElementById('subscriber_form');
+                                <?= $block->getChildHtml('recaptcha_validation'); ?>
+
+                                if (this.errors === 0) {
+                                    $form.submit();
+                                }
+                            }
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+</div>

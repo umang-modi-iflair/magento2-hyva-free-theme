@@ -1,0 +1,29 @@
+<!--@subject {{trans "U bent ingeschreven voor de opleiding (%name)" name=$store_title}} @-->
+<!--@vars {
+"var naam":"customer Name",
+"var email":"email",
+"var telefoonnummer":"telephone",
+"var bedrijf":"company",
+"var btw-nummer":"vat number",
+"var bericht":"customer comment",
+"template config_path=\"design\/email\/footer_template\"":"Email Footer Template",
+"template config_path=\"design\/email\/header_template\"":"Email Header Template"
+} @-->
+{{template config_path="design/email/header_template"}}
+
+<div class="ayakil-email-template">
+    <div class="ayakil-email-container">
+        <p class="ayakil-title">
+            {{trans "Hello"}} <strong>{{trans "Admin"}}</strong>,
+        </p>
+        <p>{{trans "Please check the new request"}}</p>
+        <p><strong>{{trans "Name"}}:</strong> {{var naam}}</p>
+        <p><strong>{{trans "Email"}}:</strong> {{var email}}</p>
+        <p><strong>{{trans "Telephone"}}:</strong> {{var telefoonnummer}}</p>
+        <p><strong>{{trans "Company"}}:</strong> {{var bedrijf}}</p>
+        <p><strong>{{trans "VAT Number"}}:</strong> {{var btw-nummer}}</p>
+        <p><strong>{{trans "Message"}}:</strong> {{var bericht}}</p>
+    </div>
+</div>
+
+{{template config_path="design/email/footer_template"}}

@@ -1,0 +1,154 @@
+<?php
+
+use Hyva\Theme\ViewModel\HeroiconsOutline;
+use Hyva\Theme\Model\ViewModelRegistry;
+
+/** @var ViewModelRegistry $viewModels */
+$heroicons = $viewModels->require(HeroiconsOutline::class);
+
+/** @var Post $post */
+$post = $this->getPost();
+
+// Get the post title
+$postTitle = $block->getLayout()->getBlock('page.main.title')->getPageTitle();
+
+// Get the brand logo
+$brandImg = $block->getLayout()->createBlock('Newance\Training\Block\Brand\Brandlogo');
+$brandImgData = $brandImg->getBrandImageData();
+
+$brandImgUrl = '';
+$brandTitle = '';
+if ($brandImgData) {
+    $brandTitle = $brandImgData['title'];
+    $brandImgUrl = $brandImgData->getBrandImage();
+}
+
+// Get the featured image
+$featuredImage = '';
+if ($post->getFeaturedImage()) {
+    $featuredImage = $post->getFeaturedImage();
+}
+?>
+
+<div class="training-detail">
+    <div class="postBanner pb-5">
+        <div class="postBannerBg" style="background-image: url('<?php echo $featuredImage ?>')">
+            <img src="<?php echo $featuredImage ?>" alt="" class="max-[1023px]:block hidden mb-5">
+            <div class="postBannerContent bg-white p-0 lg:px-5 lg:py-3.5 max-w-[420px]">
+                <img class="brandLogo" src="<?= $brandImgUrl ?>" alt="<?= $brandTitle ?>">
+                <h4 class="text-xl font-bold"><?php echo $post->getTitle() ?></h4>
+                <p><?php echo $post->getShortContent() ?></p>
+            </div>
+        </div>
+        <div class="postBannerDetail pt-5">
+            <ul class="flex flex-col gap-1.5">
+                <li>
+                    <span class="dates">
+                        <svg id="Laag_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 283.46 283.46" class="h-6 w-6 border-current inline">
+                            <path class="cls-2" fill="#1d1d1b" d="m14.17,242.63c0,3.83,3.1,6.93,6.93,6.93h241.25c3.83,0,6.93-3.1,6.93-6.93V90.81H14.17v151.82Z" />
+                            <path class="cls-2" fill="#1d1d1b" d="m262.36,45.74h-27.38v14.73h-16.64v-14.73H65.13v14.73h-16.64v-14.73h-27.38c-3.83,0-6.93,3.1-6.93,6.93v33.28h255.12v-33.28c0-3.83-3.1-6.93-6.93-6.93Z" />
+                            <rect class="cls-2" fill="#1d1d1b" x="51.16" y="33.9" width="10.98" height="23.68" />
+                            <rect class="cls-2" fill="#1d1d1b" x="221.08" y="33.9" width="10.98" height="23.68" />
+                            <rect class="cls-1" fill="#fff" x="161.43" y="113.34" width="20.8" height="20.8" />
+                            <rect class="cls-1" fill="#fff" x="194.93" y="113.34" width="20.8" height="20.8" />
+                            <rect class="cls-1" fill="#fff" x="228.42" y="113.34" width="20.8" height="20.8" />
+                            <rect class="cls-1" fill="#fff" x="161.43" y="143.1" width="20.8" height="20.8" />
+                            <rect class="cls-1" fill="#fff" x="194.93" y="143.1" width="20.8" height="20.8" />
+                            <rect class="cls-1" fill="#fff" x="228.42" y="143.1" width="20.8" height="20.8" />
+                            <rect class="cls-1" fill="#fff" x="161.43" y="172.87" width="20.8" height="20.8" />
+                            <rect class="cls-1" fill="#fff" x="194.93" y="172.87" width="20.8" height="20.8" />
+                            <rect class="cls-1" fill="#fff" x="228.42" y="172.87" width="20.8" height="20.8" />
+                            <rect class="cls-1" fill="#fff" x="161.43" y="202.64" width="20.8" height="20.8" />
+                            <rect class="cls-1" fill="#fff" x="194.93" y="202.64" width="20.8" height="20.8" />
+                            <rect class="cls-1" fill="#fff" x="228.42" y="202.64" width="20.8" height="20.8" />
+                            <rect class="cls-1" fill="#fff" x="62.14" y="143.1" width="20.8" height="20.8" />
+                            <rect class="cls-1" fill="#fff" x="95.63" y="143.1" width="20.8" height="20.8" />
+                            <rect class="cls-1" fill="#fff" x="129.12" y="143.1" width="20.8" height="20.8" />
+                            <rect class="cls-1" fill="#fff" x="62.14" y="172.87" width="20.8" height="20.8" />
+                            <rect class="cls-1" fill="#fff" x="95.63" y="172.87" width="20.8" height="20.8" />
+                            <rect class="cls-1" fill="#fff" x="129.12" y="172.87" width="20.8" height="20.8" />
+                            <rect class="cls-1" fill="#fff" x="62.14" y="202.64" width="20.8" height="20.8" />
+                            <rect class="cls-1" fill="#fff" x="95.63" y="202.64" width="20.8" height="20.8" />
+                            <rect class="cls-1" fill="#fff" x="129.12" y="202.64" width="20.8" height="20.8" />
+                            <rect class="cls-1" fill="#fff" x="30.36" y="143.1" width="20.8" height="20.8" />
+                            <rect class="cls-1" fill="#fff" x="30.36" y="172.87" width="20.8" height="20.8" />
+                            <rect class="cls-1" fill="#fff" x="30.36" y="202.64" width="20.8" height="20.8" />
+                        </svg>
+                    </span>
+                    <span>
+                        <?php echo $post->getPublishDate('d/m/Y') ?>
+                    </span>
+                </li>
+                <li>
+                    <span class="hours">
+                        <svg id="Laag_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 283.46 283.46" class="h-6 w-6 border-current inline">
+                            <circle class="cls-1" fill="transparent" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="15.55" cx="141.73" cy="141.73" r="113.39" />
+                            <line class="cls-2" fill="transparent" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="15.55" stroke-linecap="round" x1="92.22" y1="187.27" x2="141.73" y2="141.73" />
+                            <line class="cls-2" fill="transparent" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="15.55" stroke-linecap="round" x1="220.74" y1="116.55" x2="141.73" y2="141.73" />
+                        </svg>
+                    </span>
+                    <span>
+                        <?php echo $post->getHour(); ?>
+                    </span>
+                </li>
+                <li>
+                    <span class="location">
+                        <svg id="Laag_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 283.46 283.46" class="h-7 w-7 border-current inline">
+                            <path class="cls-1" fill="#1d1d1b" d="m141.73,28.35c-45.69,0-82.73,37.04-82.73,82.73,0,18.67,6.26,35.83,16.69,49.68l63.93,94.36,64.52-89.83c12.63-14.53,20.33-33.45,20.33-54.21,0-45.69-37.04-82.73-82.73-82.73Zm0,108.25c-17.7,0-32.04-14.35-32.04-32.04s14.35-32.04,32.04-32.04,32.04,14.35,32.04,32.04-14.35,32.04-32.04,32.04Z" />
+                        </svg>
+                    </span>
+                    <span>
+                        <?php echo $post->getLocation(); ?>
+                    </span>
+                </li>
+                <li>
+                    <span class="price">
+                        <?= $heroicons->currencyEuroHtml("h-6 w-6 border-current inline", 25, 25) ?>
+                    </span>
+                    <span>
+                        <?php echo $post->getAmount(); ?>
+                    </span>
+                </li>
+                <?php if ($post->getSubscriptionForm()) : ?>
+                    <li>
+                        <span class="participants">
+                            <svg id="Laag_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 283.46 283.46" class="h-8 w-8 border-current inline">
+                                <path class="cls-1" fill="#1d1d1b" stroke="#fff" stroke-miterlimit="10" stroke-width="5.24" d="m82.39,129.82c-29.85,0-54.05,24.2-54.05,54.05h108.09c0-29.85-24.2-54.05-54.05-54.05Z" />
+                                <circle class="cls-1" fill="#1d1d1b" stroke="#fff" stroke-miterlimit="10" stroke-width="5.24" cx="82.39" cy="102.76" r="24.6" />
+                                <path class="cls-1" fill="#1d1d1b" stroke="#fff" stroke-miterlimit="10" stroke-width="5.24" d="m201.07,128.63c-29.85,0-54.05,24.2-54.05,54.05h108.09c0-29.85-24.2-54.05-54.05-54.05Z" />
+                                <circle class="cls-1" fill="#1d1d1b" stroke="#fff" stroke-miterlimit="10" stroke-width="5.24" cx="201.07" cy="101.56" r="24.6" />
+                                <path class="cls-1" fill="#1d1d1b" stroke="#fff" stroke-miterlimit="10" stroke-width="5.24" d="m141.99,152.45c-29.85,0-54.05,24.2-54.05,54.05h108.09c0-29.85-24.2-54.05-54.05-54.05Z" />
+                                <circle class="cls-1" fill="#1d1d1b" stroke="#fff" stroke-miterlimit="10" stroke-width="5.24" cx="141.99" cy="125.38" r="24.6" />
+                            </svg>
+                        </span>
+                        <span>
+                            <?php echo __('Nog %1 plaatsen vrij', $post->getRemainingPlaces()); ?>
+                        </span>
+                    </li>
+                <?php endif ?>
+            </ul>
+        </div>
+    </div>
+    <div class="postContentSection grid lg:grid-cols-2 gap-7 lg:gap-10 xl:gap-20">
+        <div class="postContent w-full">
+            <h3 class="text-2xl font-bold"><?php echo $post->getTitle() ?></h3>
+            <div class="prose w-full mt-10">
+                <?php echo $block->getContent() ?>
+            </div>
+        </div>
+
+        <div id="postFormSection" class="postFormSection w-full">
+            <?php echo $this->getChildHtml('training.post.bottom') ?>
+        </div>
+    </div>
+</div>
+
+<style>
+    .page-main {
+        margin-top: 0;
+    }
+
+    .page-title {
+        display: none;
+    }
+</style>

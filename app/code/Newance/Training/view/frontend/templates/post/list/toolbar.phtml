@@ -1,0 +1,11 @@
+<?php
+/**
+ * Training post list toolbar template
+ *
+ * @var $block \Newance\Training\Block\Post\PostList\Toolbar
+ */
+?>
+
+<?php if ($block->getCollection()->getSize()): ?>
+    <?php echo $block->getPagerHtml() ?>
+<?php endif; ?>
