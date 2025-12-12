@@ -1,1 +1,10 @@
 phpserver/
+bin/
+dev/
+generated/
+lib/
+pub/
+setup/
+var/
+vendor/
+
