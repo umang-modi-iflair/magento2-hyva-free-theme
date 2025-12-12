@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">countdown_add.countdown_add_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Countdown Widget</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+
+
+    <settings>
+        <buttons>
+            <button name="save">
+                <url path="*/*/save"/>
+                <class>primary</class>
+                <label translate="true">Save Widget</label>
+            </button>
+        </buttons>
+
+        <namespace>countdown_add</namespace>
+        <dataScope>data</dataScope>
+
+        <deps>
+            <dep>countdown_add.countdown_add_data_source</dep>
+        </deps>
+    </settings>
+
+    <!-- DATA SOURCE -->
+    <dataSource name="countdown_add_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+
+        <settings>
+            <submitUrl path="countdowntimer/countdowntimer/save"/>
+        </settings>
+
+        <dataProvider name="countdown_add_data_source"
+            class="Iflair\CountDownTimer\Ui\DataProvider\ListingDataProvider">
+            <settings>
+                <requestFieldName>widget_id</requestFieldName>
+                <primaryFieldName>widget_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <!-- FORM FIELDS -->
+    <fieldset name="general">
+        <settings>
+            <label translate="true">General Information</label>
+            <collapsible>true</collapsible>
+            <opened>true</opened>
+        </settings>
+
+
+        <!-- Hidden primary key -->
+        <field name="widget_id" formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <visible>false</visible>
+                <dataScope>widget_id</dataScope>
+            </settings>
+        </field>
+
+
+        <!-- Status -->
+        <field name="status" sortOrder="10" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="number">1</item>
+                </item>
+            </argument>
+
+            <settings>
+                <dataType>boolean</dataType>
+                <label translate="true">Enable Widget</label>
+                <dataScope>status</dataScope>
+            </settings>
+
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="number">0</map>
+                            <map name="true" xsi:type="number">1</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+
+
+        <!-- Widget Name -->
+        <field name="name" sortOrder="20" formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Widget Name</label>
+                <dataScope>name</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+
+    <field name="start_time" formElement="date">
+        <settings>
+            <dataType>date</dataType> 
+            <label translate="true">Start Time</label>
+            <dataScope>start_time</dataScope>
+        </settings>
+        <formElements>
+            <date>
+                <settings>
+                    <storeTimeZone>true</storeTimeZone>
+                    <inputDateFormat>yyyy-MM-dd HH:mm:ss</inputDateFormat>
+                    <outputDateFormat>yyyy-MM-dd HH:mm:ss</outputDateFormat>
+                    <pickerDateTimeFormat>yyyy-MM-dd HH:mm:ss</pickerDateTimeFormat>
+                    <shiftedValue>true</shiftedValue> 
+                </settings>
+            </date>
+        </formElements>
+    </field>
+
+    <field name="end_time" formElement="date">
+        <settings>
+            <dataType>date</dataType>
+            <label translate="true">End Time</label>
+            <dataScope>end_time</dataScope>
+        </settings>
+        <formElements>
+            <date>
+                <settings>
+                    <storeTimeZone>true</storeTimeZone>
+                    <inputDateFormat>yyyy-MM-dd HH:mm:ss</inputDateFormat>
+                    <outputDateFormat>yyyy-MM-dd HH:mm:ss</outputDateFormat>
+                    <pickerDateTimeFormat>yyyy-MM-dd HH:mm:ss</pickerDateTimeFormat>
+                    <shiftedValue>true</shiftedValue>
+                </settings>
+            </date>
+        </formElements>
+    </field>
+
+    <field name="product_id" sortOrder="35" formElement="select">
+    <settings>
+        <dataType>int</dataType>
+        <label translate="true">Product</label>
+        <dataScope>product_id</dataScope>
+    </settings>
+    <formElements>
+        <select>
+            <settings>
+                <options class="Iflair\CountDownTimer\Model\Config\Source\ProductOptions"/>
+            </settings>
+        </select>
+    </formElements>
+    </field>
+
+        <field name="category_ids" sortOrder="45" formElement="multiselect">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Categories</label>
+                <dataScope>category_ids</dataScope>
+                <!-- <notice translate="true">Leave empty to show on every allowed page.</notice> -->
+            </settings>
+            <formElements>
+                <multiselect>
+                    <settings>
+                       <options class="Iflair\CountDownTimer\Model\Config\Source\AllCategories"/>
+                    </settings>
+                </multiselect>
+            </formElements>
+        </field>
+
+          <field name="display_on" sortOrder="46" formElement="multiselect">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Display On</label>
+                <dataScope>display_on</dataScope>
+           </settings>
+            <formElements>
+                <multiselect>
+                    <settings>
+                       <options class="Iflair\CountDownTimer\Model\Config\Source\DisplayOn"/>
+                    </settings>
+                </multiselect>
+            </formElements>
+        </field>
+
+        <field name="is_active" sortOrder="50" formElement="select">
+            <settings>
+                <dataType>int</dataType>
+                <label translate="true">Is Active?</label>
+                <dataScope>is_active</dataScope>
+            </settings>
+
+            <formElements>
+                <select>
+                    <settings>
+                        <options>
+                            <option name="enabled" xsi:type="array">
+                                <item name="value" xsi:type="string">1</item>
+                                <item name="label" xsi:type="string">Yes</item>
+                            </option>
+
+                            <option name="disabled" xsi:type="array">
+                                <item name="value" xsi:type="string">0</item>
+                                <item name="label" xsi:type="string">No</item>
+                            </option>
+                        </options>
+                    </settings>
+                </select>
+            </formElements>
+
+        </field>
+
+
+    </fieldset>
+
+</form>

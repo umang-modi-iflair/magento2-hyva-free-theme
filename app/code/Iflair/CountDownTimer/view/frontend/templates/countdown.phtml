@@ -1,0 +1,158 @@
+<?php
+/** @var \Iflair\CountDownTimer\ViewModel\Countdown $viewModel */
+$viewModel = $block->getData('viewModel');
+
+$activeWidgets = [];
+if (method_exists($viewModel, 'getActiveCountdownWidgets')) {
+    $activeWidgets = $viewModel->getActiveCountdownWidgets();
+} else {
+    $singleWidget = $viewModel->getActiveCountdownWidget();
+    if ($singleWidget) {
+        $activeWidgets = [$singleWidget];
+    }
+}
+
+// Detect current product and current category
+$currentProduct = null;
+$currentProductId = null;
+$currentCategory = null;
+if (isset($block) && method_exists($block, 'getLayout')) {
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $registry = $objectManager->get(\Magento\Framework\Registry::class);
+    $currentProduct = $registry->registry('current_product');
+    if ($currentProduct && method_exists($currentProduct, 'getId')) {
+        $currentProductId = $currentProduct->getId();
+    }
+    $currentCategory = $registry->registry('current_category');
+}
+
+$timeComponents = [
+    'days' => 'Days',
+    'hours' => 'Hours',
+    'minutes' => 'Minutes',
+    'seconds' => 'Seconds'
+];
+
+$hasActiveWidget = false;
+
+foreach ($activeWidgets as $activeWidget) {
+    if (!$activeWidget || !method_exists($activeWidget, 'getData')) {
+        continue;
+    }
+
+    // Get widget's product_id and category_id
+    $productId = $activeWidget->getData('product_id');
+    $categoryId = $activeWidget->getData('category_id');
+
+    // Logic to only show category countdowns if on a product page (not on category page)
+    // Or, only show product countdowns on product page
+    // If we're on category page and the widget is only for category (and not for product), SKIP showing it
+    if ($categoryId && !$productId) {
+        if ($currentCategory && !$currentProductId) {
+            // We are on a category page, but we do NOT want to show countdown for category
+            continue;
+        }
+    }
+
+    // If the widget has a product_id, ensure we're on the correct product page
+    if ($productId) {
+        if (!$currentProductId || (int)$currentProductId !== (int)$productId) {
+            continue;
+        }
+    }
+
+    $endTimeIso = null;
+    $initialSeconds = 0;
+    $widgetName = '';
+
+    if (method_exists($viewModel, 'getEndTimeIsoForWidget')) {
+        $endTimeIso = $viewModel->getEndTimeIsoForWidget($activeWidget);
+    } else {
+        $endTimeIso = $activeWidget->getEndTime() ?? null;
+    }
+
+    if (method_exists($viewModel, 'getInitialSecondsForWidget')) {
+        $initialSeconds = $viewModel->getInitialSecondsForWidget($activeWidget);
+    } else {
+        try {
+            $widgetEnd = strtotime($activeWidget->getEndTime());
+            $now = time();
+            $initialSeconds = max(0, $widgetEnd - $now);
+        } catch (\Exception $e) {
+            $initialSeconds = 0;
+        }
+    }
+
+    if (method_exists($viewModel, 'getWidgetNameForWidget')) {
+        $widgetName = $viewModel->getWidgetNameForWidget($activeWidget);
+    } else {
+        $widgetName = $activeWidget->getName();
+    }
+
+    if (!$endTimeIso || $initialSeconds <= 0) {
+        continue;
+    }
+
+    $hasActiveWidget = true;
+?>
+    <div
+        x-data="{
+            secondsLeft: <?= (int)$initialSeconds ?>,
+            days: 0,
+            hours: 0,
+            minutes: 0,
+            seconds: 0,
+            timer: null,
+
+            calculateTime() {
+                if (this.secondsLeft <= 0) {
+                    clearInterval(this.timer);
+                    this.secondsLeft = 0;
+                    return;
+                }
+
+                let s = this.secondsLeft;
+                this.days = Math.floor(s / (3600 * 24));
+                s %= (3600 * 24);
+                this.hours = Math.floor(s / 3600);
+                s %= 3600;
+                this.minutes = Math.floor(s / 60);
+                this.seconds = s % 60;
+                this.secondsLeft--;
+            }
+        }"
+        x-init="
+            calculateTime();
+            timer = setInterval(() => { calculateTime() }, 1000);
+        "
+        x-cloak
+        x-show="secondsLeft > 0"
+        class="w-full bg-white border border-gray-150 shadow-xl py-6 my-6"
+    >
+        <div class="max-w-5xl mx-auto flex flex-col items-center space-y-4">
+
+            <h3 class="text-2xl font-bold text-gray-900 tracking-wide uppercase">
+                <?= $block->escapeHtml($widgetName) ?>
+            </h3>
+
+            <div class="flex space-x-4">
+                <?php foreach ($timeComponents as $alpineVar => $label): ?>
+                <div class="bg-gray-100 border border-gray-300 rounded-lg px-4 py-3 shadow-md flex flex-col items-center w-20">
+                    <span class="text-3xl font-extrabold text-gray-900"
+                        x-text="<?= $alpineVar ?>.toString().padStart(2, '0')">00</span>
+                    <span class="text-xs uppercase text-gray-600 mt-1"><?= $label ?></span>
+                </div>
+                <?php endforeach; ?>
+            </div>
+
+            <p class="text-gray-700 text-sm font-semibold">Hurry! Offer ends soon.</p>
+        </div>
+    </div>
+<?php
+    break;
+}
+
+if (!$hasActiveWidget) {
+    // Nothing to show
+}
+?>

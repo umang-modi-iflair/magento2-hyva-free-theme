@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Iflair_CustomerBought::main_menu" title="Customer Bought" sortOrder="10">
+                    <resource id="Iflair_CustomerBought::customer_bought" title="Customer Bundle Packs" sortOrder="20"/>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

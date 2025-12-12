@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+    <table name="iflair_countdown_widget" resource="default" engine="innodb" comment="Countdown Widgets">
+
+        <column xsi:type="int"
+                name="widget_id"
+                padding="10"
+                unsigned="true"
+                nullable="false"
+                identity="true"
+                comment="Widget ID"/>
+
+        <column xsi:type="varchar"
+                name="name"
+                length="255"
+                nullable="false"
+                comment="Widget Name"/>
+
+        <column xsi:type="varchar"
+                name="status"
+                length="20"
+                nullable="false"
+                comment="Status"/>
+
+        <column xsi:type="text"
+                name="category_ids"
+                nullable="true"
+                comment="Comma separated category ids"/>
+
+        <column xsi:type="int"
+                name="product_id"
+                nullable="true"
+                comment="Product ID"/>
+
+        <column xsi:type="datetime"
+                name="start_time"
+                nullable="false"
+                comment="Start Time"/>
+
+        <column xsi:type="datetime"
+                name="end_time"
+                nullable="false"
+                comment="End Time"/>
+
+        <column xsi:type="smallint"
+                name="is_active"
+                default="1"
+                nullable="false"
+                comment="Is Active"/>
+        
+        <column xsi:type="text"
+                name="display_on"
+                nullable="true"
+                comment="Display On pages"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="widget_id"/>
+        </constraint>
+
+    </table>
+
+</schema>

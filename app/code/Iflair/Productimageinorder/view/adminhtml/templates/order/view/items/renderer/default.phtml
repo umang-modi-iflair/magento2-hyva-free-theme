@@ -1,0 +1,36 @@
+<?php
+    $_item = $block->getItem();
+    $viewModel = $block->getViewModel();
+    $block->setPriceDataObject($_item);
+?>
+
+<tr>
+    <?php
+    $i = 0;
+    $columns = $block->getColumns();
+    $lastItemNumber = count($columns);
+
+    $product = $_item->getProduct();
+    $image_url = $viewModel->getImageUrl($product);
+
+    
+
+    $order = $block->getOrder();
+
+    if ($viewModel->isOn($order)) {
+        if (str_contains($image_url, 'en_US/Magento_Catalog/images/product')) {
+            $image_url =  'Iflair_Productimageinorder::images/thumbnail.jpg';
+            $image_url = $block->getViewFileUrl($image_url);
+        } ?>
+        <td>
+            <img src="<?php /* @noEscape */ echo $image_url; ?>" alt=" Product Image" />
+        </td>
+    <?php } ?>
+
+    <?php foreach ($columns as $columnName => $columnClass) : ?>
+        <?php $i++; ?>
+        <td class="<?= /* @noEscape */ $columnClass ?><?= /* @noEscape */ ($i === $lastItemNumber ? ' last' : '') ?>">
+            <?= /* @escapeNotVerified */ $block->getColumnHtml($_item, $columnName) ?>
+        </td>
+    <?php endforeach; ?>
+</tr>

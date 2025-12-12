@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <body>
+
+        <referenceContainer name="content">
+
+            <block class="Iflair\Faq\Block\FaqForm"
+                   name="faq.form"
+                   template="Iflair_Faq::faq_form.phtml"
+                   after="product.info.review">
+            </block>
+
+             <block class="Iflair\Faq\Block\FaqList"
+                name="product.faq.list"
+                template="Iflair_Faq::faq_list.phtml" >
+            </block>
+
+        </referenceContainer>
+
+    </body>
+
+</page>

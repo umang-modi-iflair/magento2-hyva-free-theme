@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <!-- Top-level menu -->
+        <add id="BluethinkInc_AddCustomTab::popup"
+             title="BluethinkInc"
+             translate="title"
+             module="BluethinkInc_AddCustomTab"
+             sortOrder="15"
+             resource="BluethinkInc_AddCustomTab::popup"/>
+
+        <!-- Sub-menu -->
+        <add id="BluethinkInc_AddCustomTab::grid"
+             title="Grid Tabs"
+             translate="title"
+             module="BluethinkInc_AddCustomTab"
+             parent="BluethinkInc_AddCustomTab::popup"
+             sortOrder="10"
+             resource="BluethinkInc_AddCustomTab::grid"
+             action="addcustomtab/index/gridtab"/>
+    </menu>
+</config>

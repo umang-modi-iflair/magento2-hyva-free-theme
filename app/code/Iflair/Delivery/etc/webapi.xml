@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi/etc/webapi.xsd">
+
+    <!-- POST: -->
+    <route url="/V1/delivery/pincode" method="POST">
+        <service class="Iflair\Delivery\Api\PincodeInterface" method="getPincodeInfo"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <!-- GET:  -->
+    <route url="/V1/delivery/pincode/get" method="GET">
+        <service class="Iflair\Delivery\Api\PincodeInterface" method="getAllPincodes"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+</routes>

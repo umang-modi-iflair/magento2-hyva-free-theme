@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">faq_add.faq_add_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Add Question</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+
+    <settings>
+            <buttons>
+            <button name="back">
+                <url path="*/*/index"/> 
+                <class>back</class>
+                <label translate="true">Back</label>
+            </button>
+
+            <button name="save">
+                <url path="*/*/save"/>
+                <class>primary</class>
+                <label translate="true">Save Question</label>
+            </button>
+        </buttons>
+
+        <namespace>faq_add</namespace>
+        <dataScope>data</dataScope>
+
+        <deps>
+            <dep>faq_add.faq_add_data_source</dep>
+        </deps>
+    </settings>
+
+    <dataSource name="faq_add_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="faq/faq/save"/>
+        </settings>
+        <dataProvider name="faq_add_data_source"
+            class="Iflair\Faq\Ui\DataProvider\FaqDataProvider">
+            <settings>
+                <requestFieldName>faq_id</requestFieldName>
+                <primaryFieldName>faq_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <fieldset name="general">
+        <settings>
+            <label>General</label>
+            <collapsible>true</collapsible>
+            <opened>true</opened> 
+        </settings>
+
+        <field name="faq_id" formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <visible>false</visible>
+                <dataScope>faq_id</dataScope>
+            </settings>
+        </field>       
+        
+        <field name="status" sortOrder="10" formElement="select">
+            <settings>
+                <dataType>int</dataType>
+                <label translate="true">Status</label>
+                <dataScope>status</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Iflair\Faq\Model\Source\StatusOptions"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+
+        <field name="visibility" sortOrder="20" formElement="select">
+            <settings>
+                <dataType>int</dataType>
+                <label translate="true">Visibility</label>
+                <dataScope>visibility</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Iflair\Faq\Model\Source\VisibilityOptions"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+
+        <field name="question" sortOrder="30">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Question</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="required" xsi:type="boolean">true</item>
+                </item>
+            </argument>
+        </field>
+
+        <!-- <field name="url_key" sortOrder="40">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">URL Key</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                        <item name="validate-url-key" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field> -->
+         </fieldset>
+
+</form>

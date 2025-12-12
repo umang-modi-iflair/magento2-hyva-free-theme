@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/menu.xsd">
+
+    <menu>
+        <add id="Iflair_CountDownTimer::main_menu"
+             title="Iflair"
+             module="Iflair_CountDownTimer"
+             sortOrder="10"
+             resource="Iflair_CountDownTimer::main_menu"/>
+
+        <add id="Iflair_CountDownTimer::count_down_timer"
+             title="Count Down Timer Widget List"
+             module="Iflair_CountDownTimer"
+             sortOrder="50"
+             action="countdowntimer/countdowntimer/index"
+             resource="Iflair_CountDownTimer::count_down_timer"
+             parent="Iflair_CountDownTimer::main_menu"/>
+    </menu>
+
+</config>
+                                                                                                        

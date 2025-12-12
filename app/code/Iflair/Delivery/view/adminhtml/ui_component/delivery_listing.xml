@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">delivery_listing.delivery_listing_data_source</item>
+        </item>
+    </argument>
+
+    <settings>
+        <spinner>delivery_columns</spinner>
+        <deps>
+            <dep>delivery_listing.delivery_listing_data_source</dep>
+        </deps>
+    </settings>
+
+    <dataSource name="delivery_listing_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Iflair\Delivery\Ui\DataProvider\DeliveryDataProvider</argument>
+            <argument name="name" xsi:type="string">delivery_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">id</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
+
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+
+    <listingToolbar name="listing_top">
+        <massaction name="listing_massaction">
+            <argument name="data" xsi:type="array">
+                <item name="selectProvider" xsi:type="string">
+                    delivery_listing.delivery_listing.delivery_columns.ids
+                </item>
+                <item name="displayArea" xsi:type="string">bottom</item>
+                <item name="indexField" xsi:type="string">id</item>
+            </argument>
+
+            <action name="massDelete">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">delete</item>
+                        <item name="label" xsi:type="string" translate="true">Delete</item>
+                        <item name="url" xsi:type="url" path="delivery/delivery/massDelete"/>
+                        <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Delete Delivery?</item>
+                            <item name="message" xsi:type="string" translate="true">Are you sure you want to delete the selected Delivery(s)?</item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
+        </massaction>
+
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filterSearch name="fulltext"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+
+    <columns name="delivery_columns">
+
+        <selectionsColumn name="ids">
+            <settings>
+                <indexField>id</indexField>
+            </settings>
+        </selectionsColumn>
+
+        <!-- <column name="serial_number">
+            <settings>
+                <label>Serial No.</label>
+                <filter>text</filter>
+                <sorting>asc</sorting>
+            </settings>
+        </column> -->
+
+        <column name="id">
+            <settings>
+                <label>ID</label>
+                <filter>text</filter>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+
+        <column name="pincode">
+            <settings>
+                <label>Pincode</label>
+                <filter>text</filter>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+
+        <column name="state">
+            <settings>
+                <label>State</label>
+                <filter>text</filter>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+
+        <column name="district">
+            <settings>
+                <label>District</label>
+            </settings>
+        </column>
+
+        <column name="country">
+            <settings>
+                <label>Country</label>
+                <filter>text</filter>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+
+        <column name="region">
+            <settings>
+                <label>Region</label>
+                <filter>text</filter>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+
+       <column name="is_serviceable" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <label>Serviceable</label>
+                <dataType>select</dataType>
+                <filter>select</filter>
+                <options class="Iflair\Delivery\Model\Source\ServiceableOptions"/>
+            </settings>
+        </column>
+
+
+        <column name="cod_available" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <label>COD Available</label>
+                <dataType>select</dataType>
+                <filter>select</filter>
+                <options class="Iflair\Delivery\Model\Source\CodOptions"/>
+            </settings>
+        </column>
+
+        <column name="min_delivery_date">
+            <settings>
+                <label>Min Delivery Date</label>
+                <filter>text</filter>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+
+        <column name="max_delivery_date">
+            <settings>
+                <label>Max Delivery Date</label>
+                <filter>text</filter>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+
+        <column name="message">
+            <settings>
+                <label>Message</label>
+                <filter>text</filter>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+
+    </columns>
+
+</listing>
