@@ -1,9 +1,4 @@
-bin/
-dev/
-generated/
-lib/
-pub/
-setup/
-var/
-vendor/
 phpserver/
+app/code/BluethinkInc/
+app/code/Newance/
+app/code/Veepie/
