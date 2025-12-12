@@ -1,4 +1,3 @@
-phpserver/
 bin/
 dev/
 generated/
@@ -7,4 +6,4 @@ pub/
 setup/
 var/
 vendor/
-
+phpserver/
