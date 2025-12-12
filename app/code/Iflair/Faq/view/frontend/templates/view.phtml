@@ -1,0 +1,50 @@
+<?php
+/** @var \Iflair\Faq\Block\FaqList $block */
+$faqCollection = $block->getFaqCollection();
+?>
+
+<div class="max-w-3xl mx-auto p-6">
+
+    <!-- Breadcrumb -->
+    <nav class="text-gray-600 text-sm mb-6" aria-label="Breadcrumb">
+        <ol class="flex items-center space-x-2">
+            <li><a href="/hyvamagento" class="hover:text-blue-600">Home</a></li>
+            <li class="text-gray-500">/</li>
+            <li><a href="/faq/show/index" class="hover:text-blue-600 font-medium">FAQ</a></li>
+        </ol>
+    </nav>
+
+    <h2 class="text-3xl font-bold mb-6 text-center">Frequently Asked Question</h2>
+
+    <div class="space-y-4">
+        <?php if ($faqCollection->getSize()): ?>
+            <?php foreach ($faqCollection as $faq): ?>
+                <?php $answer = $faq->getAnswer() ?? ''; ?>
+
+                <div class="border border-gray-200 rounded-xl shadow-sm bg-white overflow-hidden">
+
+                    <button type="button"
+                        class="w-full flex justify-between items-center px-5 py-4 text-left 
+                               bg-white hover:bg-gray-50 transition-all"
+                        onclick="this.parentElement.querySelector('.faq-content').classList.toggle('hidden');
+                                 this.querySelector('.icon').classList.toggle('rotate-180')">
+
+                        <span class="text-lg font-semibold text-gray-800">
+                            <?= $block->escapeHtml($faq->getQuestion()) ?>
+                        </span>
+
+                    </button>
+
+                    <div class="faq-content hidden px-5 pb-4 text-gray-700 leading-relaxed text-base">
+                        <?= nl2br($block->escapeHtml(strip_tags($answer))) ?>
+                    </div>
+
+                </div>
+
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p class="text-gray-500 text-center">No FAQ items found.</p>
+        <?php endif; ?>
+    </div>
+
+</div>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Email/etc/email_templates.xsd">
+
+    <template id="iflair_faq_email_template"
+              label="FAQ Email Template"
+              file="faq_email_template.html"
+              type="html"
+              module="Iflair_Faq"
+              area="frontend"/>
+</config>

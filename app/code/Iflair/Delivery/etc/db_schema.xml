@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+<table name="pincode_delivery_info" resource="default" engine="innodb" comment="Pincode Delivery Serviceability Table">
+
+    <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+        <column name="id"/>
+    </constraint>
+
+    <column xsi:type="varchar" name="pincode" length="10" nullable="false" comment="Pincode"/>
+    <column xsi:type="varchar" name="state" length="100" nullable="true" comment="State Name"/>
+    <column xsi:type="varchar" name="district" length="100" nullable="true" comment="District Name"/>
+    <column xsi:type="varchar" name="country" length="5" nullable="true" comment="Country Code"/>
+    <column xsi:type="varchar" name="region" length="100" nullable="true" comment="Region Name"/>
+
+    <column xsi:type="smallint" name="is_serviceable" nullable="true" default="0" comment="Is Serviceable"/>
+    <column xsi:type="smallint" name="cod_available" nullable="true" default="0" comment="COD Available"/>
+    <column xsi:type="date" name="min_delivery_date" nullable="true" comment="Minimum Delivery Date"/>
+    <column xsi:type="date" name="max_delivery_date" nullable="true" comment="Maximum Delivery Date"/>
+    <column xsi:type="text" name="message" nullable="true" comment="API Message"/>
+
+    <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+    <column xsi:type="timestamp" name="updated_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="true" comment="Updated At"/>
+
+    <index referenceId="PINCODE_IDX">
+        <column name="pincode"/>
+    </index>
+
+</table>
+
+</schema>

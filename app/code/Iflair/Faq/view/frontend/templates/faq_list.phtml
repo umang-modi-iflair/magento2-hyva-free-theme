@@ -1,0 +1,80 @@
+<?php 
+$faqs = $block->getFaqs();
+$faqsToShowInitially = 2;
+?>
+
+<div class="my-10">
+
+    <?php if (count($faqs) === 0): ?>
+        <p>No FAQ found for this product.</p>
+    <?php else: ?>
+
+        <div id="faq-list-container">
+            <?php $faqCounter = 0; ?>
+            <?php foreach ($faqs as $faq): ?>
+
+                <?php
+                    $displayClass = $faqCounter >= $faqsToShowInitially ? 'hidden' : '';
+                ?>
+
+                <div class="border border-black p-4 rounded-lg mb-4 bg-white shadow-sm faq-item <?= $displayClass ?>">
+
+                    <div class="flex justify-between items-start flex-wrap gap-2">
+
+                        <p class="font-semibold text-lg text-gray-800 flex-1 min-w-0">
+                            <?= $faq->getQuestion() ?>
+                        </p>
+
+                        <?php if ($faq->getCustomerName()): ?>
+                            <div class="border border-gray-200 px-3 py-1 rounded bg-gray-50 text-xs text-gray-600 shadow-sm w-fit whitespace-nowrap">
+                                <strong>Author:</strong> <?= $faq->getCustomerName() ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+
+                    <?php if ($faq->getAnswer()): ?>
+                        <div class="text-gray-700 mt-3 pt-3 border-t border-gray-100 text-base">
+                            <?= $faq->getAnswer() ?>
+                        </div>
+                    <?php endif; ?>
+
+                </div>
+                <?php $faqCounter++; ?>
+            <?php endforeach; ?>
+        </div>
+
+        <?php if (count($faqs) > $faqsToShowInitially): ?>
+            <div class="text-center mt-6">
+                <button id="load-more-faqs"
+                        type="button"
+                        class="px-6 py-2 border border-blue-600 text-blue-600 font-medium text-sm rounded-full transition-colors duration-200 hover:bg-blue-50 hover:text-blue-700">
+                    Read More
+                </button>
+            </div>
+        <?php endif; ?>
+
+    <?php endif ?>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const loadMoreButton = document.getElementById('load-more-faqs');
+        const faqsPerLoad = 2; 
+
+        if (loadMoreButton) {
+            loadMoreButton.addEventListener('click', function () {
+                const currentlyHidden = document.querySelectorAll('#faq-list-container .faq-item.hidden');
+
+                for (let i = 0; i < faqsPerLoad && i < currentlyHidden.length; i++) {
+                    currentlyHidden[i].classList.remove('hidden');
+                }
+
+                const remainingHidden = document.querySelectorAll('#faq-list-container .faq-item.hidden');
+
+                if (remainingHidden.length === 0) {
+                    loadMoreButton.classList.add('hidden');
+                }
+            });
+        }
+    });
+</script>

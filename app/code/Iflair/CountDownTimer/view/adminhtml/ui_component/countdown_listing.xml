@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<listing name="countdown_listing"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">countdown_listing.countdown_listing_data_source</item>
+        </item>
+    </argument>
+
+    <settings>
+        <spinner>countdown_columns</spinner>
+        <deps>
+            <dep>countdown_listing.countdown_listing_data_source</dep>
+        </deps>
+        <buttons>
+            <button name="add">
+                 <url path="*/*/add"/>
+                <class>primary</class>
+                <label translate="true">Add New Widget</label>
+            </button>
+        </buttons>
+    </settings>
+
+    <dataSource name="countdown_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">widget_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Iflair_CountDownTimer::count_down_timer</aclResource>
+
+        <dataProvider name="countdown_listing_data_source" class="Iflair\CountDownTimer\Ui\DataProvider\AddDataProvider">
+            <settings>
+                <requestFieldName>widget_id</requestFieldName>
+                <primaryFieldName>widget_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <listingToolbar name="listing_top">
+        
+        <massaction name="listing_massaction">
+            <argument name="data" xsi:type="array">
+                <item name="selectProvider" xsi:type="string">
+                    countdown_listing.countdown_listing.countdown_columns.ids
+                </item>
+                <item name="displayArea" xsi:type="string">bottom</item>
+                <item name="indexField" xsi:type="string">widget_id</item>
+            </argument>
+
+             <action name="massDelete">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">delete</item>
+                        <item name="label" xsi:type="string" translate="true">Delete</item>
+                        <item name="url" xsi:type="url" path="countdowntimer/countdowntimer/massDelete"/>
+                        <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Delete Widget?</item>
+                            <item name="message" xsi:type="string" translate="true">Are you sure you want to delete the selected widget(s)?</item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
+
+        </massaction>
+
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filterSearch name="fulltext"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+
+    <columns name="countdown_columns">
+
+        <selectionsColumn name="ids" sortOrder="0">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="indexField" xsi:type="string">widget_id</item>
+                </item>
+            </argument>
+        </selectionsColumn>
+
+        <column name="sr_no" sortOrder="10">
+            <settings>
+                <label translate="true">Serial No</label>
+                <sortable>false</sortable>
+                <filter>false</filter>
+            </settings>
+        </column>
+
+        <column name="widget_id" sortOrder="20">
+            <settings>
+                <label translate="true">Widget ID</label>
+            </settings>
+        </column>
+
+        <column name="name" sortOrder="30">
+            <settings>
+                <label translate="true">Widget Name</label>
+            </settings>
+        </column>
+
+        <column name="category_ids" sortOrder="80">
+    <settings>
+        <label translate="true">Categories</label>
+        <filter>select</filter>
+        <options class="Iflair\CountDownTimer\Model\Config\Source\AllCategories"/>
+    </settings>
+    </column>
+
+
+    <column name="product_id" sortOrder="35">
+    <settings>
+        <label translate="true">Product</label>
+        <dataType>text</dataType>
+    </settings>
+    </column>
+
+        <column name="status" sortOrder="40">
+            <settings>
+                <label translate="true">Status</label>
+            </settings>
+        </column>
+
+    <column name="start_time" class="Iflair\CountDownTimer\Ui\Component\Listing\Column\DateTimeColumn" sortOrder="50">
+        <settings>
+            <label translate="true">Start Time</label>
+            <dataType>date</dataType>
+        </settings>
+    </column>
+
+    <column name="end_time" class="Iflair\CountDownTimer\Ui\Component\Listing\Column\DateTimeColumn" sortOrder="60">
+        <settings>
+            <label translate="true">End Time</label>
+            <dataType>date</dataType>
+        </settings>
+    </column>
+
+        <column name="is_active" sortOrder="70">
+            <settings>
+                <label translate="true">Active</label>
+            </settings>
+        </column>
+        
+
+        <actionsColumn name="actions" class="Iflair\CountDownTimer\Ui\Component\Listing\Column\EditAction" sortOrder="200">
+            <settings>
+                <indexField>widget_id</indexField>
+            </settings>
+        </actionsColumn>
+
+    </columns>
+
+</listing>

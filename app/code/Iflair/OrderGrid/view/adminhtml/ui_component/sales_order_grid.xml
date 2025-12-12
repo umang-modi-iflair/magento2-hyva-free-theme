@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+
+    <columns name="sales_order_columns">
+
+    <column name="items" class="Iflair\OrderGrid\Ui\Component\Listing\Column\Items">
+        <settings>
+            <label translate="true">Product Details</label>
+            <filter>false</filter>
+            <sorting>false</sorting>
+            <visible>true</visible>
+            <bodyTmpl>ui/grid/cells/html</bodyTmpl>
+        </settings>
+    </column>
+
+
+    </columns>
+</listing>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="order_items">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Iflair_Productimageinorder::order/view/items.phtml</argument>
+            </action>
+
+            <arguments>
+                <argument name="show_part" xsi:type="string">logo</argument>
+                <argument name="logo_image_src" xsi:type="string">images/magento-icon.svg</argument>
+                <argument name="view_model" xsi:type="object">Iflair\Productimageinorder\ViewModel\Imageinorder</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="default_order_items_renderer">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Iflair_Productimageinorder::order/view/items/renderer/default.phtml</argument>
+            </action>
+            <arguments>
+                <argument name="show_part" xsi:type="string">logo</argument>
+                <argument name="logo_image_src" xsi:type="string">images/magento-icon.svg</argument>
+                <argument name="columns" xsi:type="array">
+                    <item name="product_img" xsi:type="string" translate="true">product_img</item>
+                </argument>
+                <argument name="view_model" xsi:type="object">Iflair\Productimageinorder\ViewModel\Imageinorder</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="order_items.bundle" remove="true" />
+
+    </body>
+</page>

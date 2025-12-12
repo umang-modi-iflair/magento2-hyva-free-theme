@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<listing 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">customerbought_listing.customerbought_listing_data_source</item>
+        </item>
+    </argument>
+
+    <settings>
+        <spinner>customerbought_columns</spinner>
+        <deps>
+            <dep>customerbought_listing.customerbought_listing_data_source</dep>
+        </deps>
+        <buttons>
+            <button name="add">
+                 <url path="*/*/add"/>
+                <class>primary</class>
+                <label translate="true">Add New Pack</label>
+            </button>
+        </buttons>
+    </settings>
+
+    <dataSource name="customerbought_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">pack_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+
+        <dataProvider name="customerbought_listing_data_source" class="Iflair\CustomerBought\Ui\DataProvider\ListingDataProvider">
+            <settings>
+                <requestFieldName>pack_id</requestFieldName>
+                <primaryFieldName>pack_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <listingToolbar name="listing_top">
+        
+        <massaction name="listing_massaction">
+            <argument name="data" xsi:type="array">
+                <item name="selectProvider" xsi:type="string">
+                    customerbought_listing.customerbought_listing.customerbought_columns.ids
+                </item>
+                <item name="displayArea" xsi:type="string">bottom</item>
+                <item name="indexField" xsi:type="string">pack_id</item>
+            </argument>
+
+             <action name="massDelete">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">delete</item>
+                        <item name="label" xsi:type="string" translate="true">Delete</item>
+                        <item name="url" xsi:type="url" path="customerbought/customerbought/massDelete"/>
+                        <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Delete Pack?</item>
+                            <item name="message" xsi:type="string" translate="true">Are you sure you want to delete the selected pack(s)?</item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
+
+        </massaction>
+
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filterSearch name="fulltext"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+
+     <columns name="customerbought_columns">
+
+        <column name="pack_id">
+            <settings>
+                <label>ID</label>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+
+        <column name="name">
+            <settings>
+                <label>Pack Name</label>
+            </settings>
+        </column>
+
+        <column name="store_ids">
+            <settings><label>Store View</label></settings>
+        </column>
+
+        <column name="status">
+            <settings>
+                <label>Status</label>
+                <filter>select</filter>
+                <options>
+                    <option name="0" xsi:type="array"><item name="label" xsi:type="string">Inactive</item></option>
+                    <option name="1" xsi:type="array"><item name="label" xsi:type="string">Active</item></option>
+                </options>
+            </settings>
+        </column>
+
+        <column name="main_products">
+            <settings><label>Main Products</label></settings>
+        </column>
+
+        <column name="bundle_products">
+            <settings><label>Bundle Pack Products</label></settings>
+        </column>
+
+        <column name="priority">
+            <settings><label>Priority</label></settings>
+        </column>
+
+        <column name="discount_type">
+            <settings><label>Discount Type</label></settings>
+        </column>
+
+        <column name="discount_amount">
+            <settings><label>Discount Amount</label></settings>
+        </column>
+
+        <column name="created_at">
+            <settings><label>Created At</label></settings>
+        </column>
+
+        <column name="qty_ordered">
+            <settings><label>Qty Ordered</label></settings>
+        </column>
+
+        <actionsColumn name="actions" class="Iflair\CustomerBought\Ui\Component\Listing\Column\Actions">
+            <settings>
+                <indexField>pack_id</indexField>
+            </settings>
+        </actionsColumn>
+
+    </columns>
+
+</listing>

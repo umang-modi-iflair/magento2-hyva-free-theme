@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+
+            <resource id="Magento_Backend::admin">
+                <resource id="Iflair_CountDownTimer::main_menu" title="IFlair" sortOrder="20">
+                    <resource id="Iflair_CountDownTimer::count_down_timer" title="Count Down Widget List" sortOrder="10"/>
+                </resource>
+            </resource>
+<!-- 
+            <resource id="Magento_Backend::admin">
+                <resource id="Iflair_CountDownTimer::config" title="Countdown Config" sortOrder="10"/>
+            </resource> -->
+
+
+            <!-- <resource id="Magento_Backend::admin">
+                <resource id="Iflair_CountDownTimer::config" title="Countdown Timer Configuration" sortOrder="90"/>
+            </resource> -->
+
+        </resources>
+    </acl>
+</config>

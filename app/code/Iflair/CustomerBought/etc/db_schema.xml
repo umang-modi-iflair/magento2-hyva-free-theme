@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+
+<!-- Table 1: iflair_bundle_packs (MAIN TABLE) -->
+<table name="iflair_bundle_packs" resource="default" engine="innodb" comment="Bundle Packs">
+    <column xsi:type="int" name="pack_id" nullable="false" identity="true" unsigned="true" comment="Pack ID"/>
+    <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Pack Name"/>
+    <column xsi:type="tinyint" name="status" nullable="false" default="1" comment="Status"/>
+    <column xsi:type="int" name="priority" nullable="true" comment="Sorting Priority"/>
+    <column xsi:type="text" name="title" nullable="true" comment="Front Title"/>
+    <column xsi:type="varchar" name="discount_type" length="50" nullable="true" comment="Discount Type"/>
+    <column xsi:type="tinyint" name="apply_to_main_product" default="0" nullable="false" comment="Apply To Main Product"/>
+    <column xsi:type="datetime" name="enable_from" nullable="true" comment="Enable From"/>
+    <column xsi:type="datetime" name="enable_to" nullable="true" comment="Enable To"/>
+
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+        <column name="pack_id"/>
+    </constraint>
+</table>
+
+<!-- Table 2: iflair_bundle_pack_main_products -->
+<table name="iflair_bundle_pack_main_products" resource="default" engine="innodb" comment="Bundle Packs - Store &amp; Customer Group Mapping">
+    <column xsi:type="int" name="id" nullable="false" identity="true" unsigned="true" comment="ID"/>
+    <column xsi:type="int" name="pack_id" nullable="false" unsigned="true" comment="Pack ID"/>
+    <column xsi:type="text" name="store_ids" nullable="true" comment="Store IDs"/>
+    <column xsi:type="text" name="customer_group_ids" nullable="true" comment="Customer Group IDs"/>
+
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+        <column name="id"/>
+    </constraint>
+
+    <!-- Foreign key -->
+    <constraint xsi:type="foreign" referenceId="FK_BUNDLE_PACK_MAIN_PACK_ID"
+                table="iflair_bundle_pack_main_products" column="pack_id"
+                referenceTable="iflair_bundle_packs" referenceColumn="pack_id"
+                onDelete="CASCADE"/>
+</table>
+
+<!-- Table 3: iflair_bundle_pack_products -->
+<table name="iflair_bundle_pack_products" resource="default" engine="innodb" comment="Bundle Packs - Products">
+    <column xsi:type="int" name="id" nullable="false" identity="true" unsigned="true" comment="ID"/>
+    <column xsi:type="int" name="pack_id" nullable="false" unsigned="true" comment="Pack ID"/>
+    <column xsi:type="varchar" name="product_sku" nullable="false" length="255" comment="Product SKU"/>
+    <column xsi:type="decimal" name="qty" nullable="false" scale="4" precision="12" default="1" comment="Qty"/>
+
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+        <column name="id"/>
+    </constraint>
+
+    <constraint xsi:type="foreign" referenceId="FK_BUNDLE_PACK_PRODUCTS_PACK_ID"
+                table="iflair_bundle_pack_products" column="pack_id"
+                referenceTable="iflair_bundle_packs" referenceColumn="pack_id"
+                onDelete="CASCADE"/>
+</table>
+
+<!-- Table 4: iflair_bundle_pack_discounts -->
+<table name="iflair_bundle_pack_discounts" resource="default" engine="innodb" comment="Bundle Pack Conditional Discounts">
+    <column xsi:type="int" name="id" nullable="false" identity="true" unsigned="true" comment="ID"/>
+    <column xsi:type="int" name="pack_id" nullable="false" unsigned="true" comment="Pack ID"/>
+    <column xsi:type="int" name="items_count" nullable="false" comment="Items Count"/>
+    <column xsi:type="decimal" name="discount_amount" scale="4" precision="12" nullable="false" comment="Discount Amount"/>
+
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+        <column name="id"/>
+    </constraint>
+
+    <constraint xsi:type="foreign" referenceId="FK_BUNDLE_PACK_DISCOUNT_PACK_ID"
+                table="iflair_bundle_pack_discounts" column="pack_id"
+                referenceTable="iflair_bundle_packs" referenceColumn="pack_id"
+                onDelete="CASCADE"/>
+</table>
+
+</schema>

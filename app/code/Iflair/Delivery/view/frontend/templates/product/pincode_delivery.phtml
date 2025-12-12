@@ -1,0 +1,87 @@
+<div x-data="pincodeChecker()" class="p-4 border rounded-md ml-4" style="max-width: 400px;">
+
+    <label class="font-semibold mb-1 block">Deliver to:</label>
+
+    <div class="flex gap-2">
+        <input type="text" x-model="pincode"
+               class="w-full p-2 border rounded-md"
+               placeholder="Enter your pincode">
+
+      <button @click="checkPincode()" class="btn btn-primary">
+            Check
+      </button>
+
+    </div>
+
+    <div x-show="message"
+         x-text="message"
+         class="mt-3 p-2 rounded-md text-sm"
+         :class="isError ? 'bg-red-100 text-red-700 border border-red-300'
+                         : 'bg-green-100 text-green-700 border border-green-300'">
+    </div>
+</div>
+
+<script>
+function pincodeChecker() {
+    return {
+        pincode: "",
+        message: "",
+        isError: false,
+
+        async checkPincode() {
+            if (this.pincode.length !== 6 || isNaN(this.pincode)) {
+                this.message = "Please enter a valid 6-digit pincode";
+                this.isError = true;
+                return;
+            }
+
+            try {
+                const response = await fetch(
+                    "http://192.168.0.147/hyvamagento/pub/rest/V1/delivery/pincode",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": "Bearer eyJraWQiOiIxIiwiYWxnIjoiSFMyNTYifQ.eyJ1aWQiOjEsInV0eXBpZCI6MiwiaWF0IjoxNzY1NDM5MjQ0LCJleHAiOjE3NjU0NDI4NDR9.tmXN88r6vaQWoks-FNMyq0YC3h--B06MlUhus8s6t-U"
+                        },
+                        body: JSON.stringify({ pincode: this.pincode })
+                    }
+                );
+
+                const result = await response.json();
+
+                if (!Array.isArray(result) || !result[3]) {
+                    this.message = "Pincode not serviceable";
+                    this.isError = true;
+                    return;
+                }
+
+                const textMessage = result[1];
+                const locationData = result[2];
+                const deliveryData = result[3];
+
+                let formattedDate = this.formatDate(deliveryData.max_delivery_date);
+
+                this.message = `
+                    ${locationData.district}, ${this.pincode} -
+                    Delivery by ${formattedDate}
+                `;
+
+                this.isError = false;
+            } catch (e) {
+                this.messages;
+                this.isError = true;
+            }
+        },
+
+        formatDate(dateString) {
+            if (!dateString) return "";
+
+            const [year, month, day] = dateString.split("-");
+            const date = new Date(year, month - 1, day);
+
+            return `${date.getDate()} ${date.toLocaleString('en-US', { month: 'short' })}, ${date.toLocaleString('en-US', { weekday: 'long' })}`;
+        }
+    }
+}
+</script>
