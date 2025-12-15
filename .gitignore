@@ -1,4 +1,13 @@
 phpserver/
+bin/
+dev/
+generated/
+lib/
+pub/
+setup/
+var/
+vendor/
+
 app/code/BluethinkInc/
 app/code/Newance/
 app/code/Veepie/
