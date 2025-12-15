@@ -78,5 +78,5 @@ interface PincodeDataInterface
      */
     public function setMessage($value);
 
-    // All declared variable
+    // All declared variables
 }
