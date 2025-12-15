@@ -9,3 +9,16 @@ var/
 vendor/
 
 app/code/BluethinkInc/
+
+.editorconfig
+.htaccess.sample
+.php-cs-fixer.dist.php
+.user.ini
+CHANGELOG.md
+COPYING.txt
+Gruntfile.js.sample
+LICENSE.txt
+LICENSE_AFL.txt
+SECURITY.md
+grunt-config.json.sample
+nginx.conf.sample
