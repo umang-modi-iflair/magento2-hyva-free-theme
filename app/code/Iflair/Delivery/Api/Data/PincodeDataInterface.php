@@ -77,4 +77,6 @@ interface PincodeDataInterface
      * @return $this
      */
     public function setMessage($value);
+
+    // All declared variable
 }
