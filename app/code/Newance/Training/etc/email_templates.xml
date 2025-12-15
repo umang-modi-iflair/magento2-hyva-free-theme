@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
-    <template id="newance_training_post_view_subscribers_sender_email_template" label="Training Subscriber" file="subscriber.html" type="html" module="Newance_Training" area="frontend" />
-    <template id="newance_training_post_view_subscribers_sender_email_template_admin" label="Training Subscriber Admin" file="subscriber_admin.html" type="html" module="Newance_Training" area="frontend" />
-    <template id="newance_training_request_form_request_email_template" label="Training Request Admin" file="request_admin.html" type="html" module="Newance_Training" area="frontend" />
-</config>
