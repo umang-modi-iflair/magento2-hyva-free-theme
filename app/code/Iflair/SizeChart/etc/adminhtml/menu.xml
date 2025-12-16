@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/menu.xsd">
+
+    <menu>
+        <add id="Iflair_SizeChart::main_menu"
+             title="Size Chart Details"
+             module="Iflair_SizeChart"
+             sortOrder="10"
+             resource="Iflair_SizeChart::main_menu"/>
+
+        <add id="Iflair_SizeChart::size_chart"
+             title="Size Chart Units List"
+             module="Iflair_SizeChart"
+             sortOrder="50"
+             action="sizechart/sizechart/index"
+             resource="Iflair_SizeChart::size_chart"
+             parent="Iflair_SizeChart::main_menu"/>
+    </menu>
+
+</config>
