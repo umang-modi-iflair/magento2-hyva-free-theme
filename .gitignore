@@ -22,3 +22,4 @@ LICENSE_AFL.txt
 SECURITY.md
 grunt-config.json.sample
 nginx.conf.sample
+.gitignore
