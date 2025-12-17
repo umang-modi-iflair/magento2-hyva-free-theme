@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd"
+         name="template_list">
+
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">
+                template_list.template_list_data_source
+            </item>
+        </item>
+    </argument>
+
+    <settings>
+        <spinner>sizechart_columns</spinner>
+        <deps>
+            <dep>template_list.template_list_data_source</dep>
+        </deps>
+
+        <buttons>
+            <button name="add">
+                <class>primary</class>
+                <label translate="true">Add New Templates</label>
+                <url path="*/*/add"/>
+            </button>
+        </buttons>
+    </settings>
+
+    <dataSource name="template_list_data_source"
+                component="Magento_Ui/js/grid/provider">
+
+        <settings>
+            <updateUrl path="mui/index/render"/>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">template_id</param>
+            </storageConfig>
+        </settings>
+
+        <aclResource>Iflair_SizeChart::template_list</aclResource>
+
+        <dataProvider name="template_list_data_source"
+                      class="Iflair\SizeChart\Ui\DataProvider\TemplateDataProvider">
+            <settings>
+                <primaryFieldName>template_id</primaryFieldName>
+                <requestFieldName>template_id</requestFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <listingToolbar name="listing_top">
+
+        <massaction name="listing_massaction">
+            <argument name="data" xsi:type="array">
+                <item name="selectProvider" xsi:type="string">
+                    template_list.sizechart_columns.ids
+                </item>
+                <item name="indexField" xsi:type="string">template_id</item>
+                <item name="displayArea" xsi:type="string">bottom</item>
+            </argument>
+
+            <action name="massDelete">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">delete</item>
+                        <item name="label" xsi:type="string" translate="true">Delete</item>
+                        <item name="url" xsi:type="url" path="sizechart/measurement/massDelete"/>
+                        <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">
+                                Delete Template
+                            </item>
+                            <item name="message" xsi:type="string" translate="true">
+                                Are you sure you want to delete the selected record(s)?
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
+        </massaction>
+
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filterSearch name="fulltext"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+
+    <columns name="sizechart_columns">
+
+        <selectionsColumn name="ids" sortOrder="0">
+            <settings>
+                <indexField>template_id</indexField>
+            </settings>
+        </selectionsColumn>
+
+        <column name="template_id" sortOrder="10">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">ID</label>
+            </settings>
+        </column>
+
+        <column name="template_name" sortOrder="20">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Template Name</label>
+            </settings>
+        </column>
+
+        <column name="template_code" sortOrder="20">
+            <settings>
+                <filter>smallint</filter>
+                <label translate="true">Template Code</label>
+            </settings>
+        </column>
+
+        <column name="status" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <label>Status</label>
+                <dataType>select</dataType>
+                <filter>select</filter>
+                <options class="Iflair\SizeChart\Model\Source\StatusOption"/>
+            </settings>
+        </column>
+
+        <column name="created_at"
+                class="Magento\Ui\Component\Listing\Columns\Date"
+                sortOrder="40">
+            <settings>
+                <filter>dateRange</filter>
+                <dataType>date</dataType>
+                <label translate="true">Created At</label>
+            </settings>
+        </column>
+
+        <actionsColumn name="actions" class="Iflair\SizeChart\Ui\Component\Listing\Column\EditTemplateAction" sortOrder="200">
+            <settings>
+                <indexField>template_id</indexField>
+            </settings>
+        </actionsColumn>
+
+    </columns>
+</listing>
