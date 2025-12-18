@@ -22,7 +22,7 @@ class Index extends Action
     public function execute()
     {
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Iflair_SizeChart::main_memnu');
+        $resultPage->setActiveMenu('Iflair_SizeChart::main_menu');
         $resultPage->getConfig()->getTitle()->prepend(__('Size Units Details'));
 
         return $resultPage;

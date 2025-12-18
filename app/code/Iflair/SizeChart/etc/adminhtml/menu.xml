@@ -16,6 +16,23 @@
              action="sizechart/sizechart/index"
              resource="Iflair_SizeChart::size_chart"
              parent="Iflair_SizeChart::main_menu"/>
+
+        <add id="Iflair_SizeChart::measurement"
+             title="Measurements"
+             module="Iflair_SizeChart"
+             sortOrder="100"
+             parent="Iflair_SizeChart::main_menu"
+             action="sizechart/measurement/index"
+             resource="Iflair_SizeChart::measurement"/>
+
+      <add id="Iflair_SizeChart::template"
+             title="Size Chart Templates"
+             module="Iflair_SizeChart"
+             sortOrder="150"
+             parent="Iflair_SizeChart::main_menu"
+             action="sizechart/template/index"
+             resource="Iflair_SizeChart::template"/>
+
     </menu>
 
 </config>
