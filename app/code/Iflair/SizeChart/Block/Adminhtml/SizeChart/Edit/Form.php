@@ -12,8 +12,8 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         $form = $this->_formFactory->create(
             [
                 'data' => [
-                    'id' => 'add_form',
-                    'action' => $this->getData('action'),
+                    'id' => 'edit_form',
+                    'action' => $this->getUrl('sizechart/template/save'),
                     'method' => 'post',
                     'enctype' => 'multipart/form-data',
                 ],

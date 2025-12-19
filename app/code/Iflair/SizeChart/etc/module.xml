@@ -5,6 +5,7 @@
     <module name="Iflair_SizeChart" setup_version="1.0.0">
         <sequence>
             <module name="Magento_Backend"/>
+            <module name="Magento_Catalog"/>
         </sequence>
     </module>
 

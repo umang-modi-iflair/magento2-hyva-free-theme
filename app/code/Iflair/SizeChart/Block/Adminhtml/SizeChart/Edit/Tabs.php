@@ -7,7 +7,7 @@ class Tabs extends \Magento\Backend\Block\Widget\Tabs
     {
         parent::_construct();
         $this->setId('sizechart_tabs');
-        $this->setDestElementId('add_form');
+        $this->setDestElementId('edit_form');
         $this->setTitle(__('Size Chart Template Information'));
     }
 
