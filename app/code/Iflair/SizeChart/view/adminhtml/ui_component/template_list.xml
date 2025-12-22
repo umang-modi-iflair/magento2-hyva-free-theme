@@ -131,11 +131,11 @@
             </settings>
         </column>
 
-        <actionsColumn name="actions" class="Iflair\SizeChart\Ui\Component\Listing\Column\EditTemplateAction" sortOrder="200">
+        <!-- <actionsColumn name="actions" class="Iflair\SizeChart\Ui\Component\Listing\Column\EditTemplateAction" sortOrder="200">
             <settings>
                 <indexField>template_id</indexField>
             </settings>
-        </actionsColumn>
+        </actionsColumn> -->
 
     </columns>
 </listing>

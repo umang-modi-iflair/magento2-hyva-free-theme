@@ -31,12 +31,13 @@ class Main extends Generic implements TabInterface
     protected function _prepareForm()
     {
         $model = $this->_coreRegistry->registry('sizechart_data');
+
         $form = $this->_formFactory->create();
         $form->setHtmlIdPrefix('template_');
 
         $fieldset = $form->addFieldset(
             'base_fieldset',
-            ['legend' => __('General Information'), 'class'  => 'fieldset-wide']
+            ['legend' => __('General Information'), 'class' => 'fieldset-wide']
         );
 
         if ($model && $model->getId()) {
@@ -64,7 +65,6 @@ class Main extends Generic implements TabInterface
             ]
         ]);
 
-        /* ---------- Size Units Checkboxes ---------- */
         $sizeUnitOptions = [];
         foreach ($this->sizeUnitCollectionFactory->create() as $unit) {
             $sizeUnitOptions[] = ['value' => $unit->getSizeUnit(), 'label' => $unit->getSizeUnit()];
@@ -77,115 +77,111 @@ class Main extends Generic implements TabInterface
             'required' => true
         ]);
 
-        /* ---------- Measurements Checkboxes ---------- */
         $measurementOptions = [];
         foreach ($this->measurementCollectionFactory->create() as $measurement) {
-            $measurementOptions[] = ['value' => $measurement->getMeasurements(), 'label' => $measurement->getMeasurements()];
+            $measurementOptions[] = [
+                'value' => $measurement->getMeasurements(),
+                'label' => $measurement->getMeasurements()
+            ];
         }
 
         $fieldset->addField('measurement', 'checkboxes', [
             'name' => 'measurement[]',
             'label' => __('Measurements'),
-            'values' => $measurementOptions,
+            'values' => $measurementOptions
         ]);
 
-        /* ---------- Hidden Data Field ---------- */
-        $fieldset->addField('size_chart_data', 'hidden', ['name' => 'size_chart_data']);
+        $fieldset->addField('size_chart_data', 'hidden', [
+            'name' => 'size_chart_data'
+        ]);
 
-        /* ---------- Button & Logic ---------- */
         $fieldset->addField('generate_template', 'note', [
             'text' => '
-            <button type="button" class="action-primary" id="generate-template">
-                <span>' . __('Generate Template') . '</span>
-            </button>
+        <button type="button" class="action-primary" id="generate-template">
+            <span>' . __('Generate Template') . '</span>
+        </button>
 
-            <script>
-            require(["jquery", "Magento_Ui/js/modal/alert"], function ($, alert) {
-                
-                function buildTable(existingData = null) {
-                    const sizes = [];
-                    const measurements = [];
+        <script>
+        require(["jquery", "Magento_Ui/js/modal/alert"], function ($, alert) {
 
-                    $("input[name=\'size_unit[]\']:checked").each(function () {
-                        sizes.push($(this).val());
-                    });
+      function buildTable(existingData = null) {
+        const sizes = [];
+        const measurements = [];
 
-                    $("input[name=\'measurement[]\']:checked").each(function () {
-                        measurements.push($(this).val());
-                    });
+        $("input[name=\'size_unit[]\']:checked").each(function () {
+            sizes.push($(this).val());
+        });
 
-                    if (!sizes.length || !measurements.length) {
-                        $("#template-preview").hide();
-                        return;
-                    }
+        $("input[name=\'measurement[]\']:checked").each(function () {
+            measurements.push($(this).val());
+        });
 
-                    const table = $("#size-chart-table");
-                    table.find("thead, tbody").empty();
+        if (!sizes.length || !measurements.length) {
+            $("#template-preview").hide();
+            return;
+        }
 
-                    let thead = "<tr><th>Size</th>";
-                    measurements.forEach(m => thead += "<th>" + m + "</th>");
-                    thead += "</tr>";
-                    table.find("thead").append(thead);
+        const table = $("#size-chart-table");
+        table.find("thead, tbody").empty();
 
-                    sizes.forEach(size => {
-                        let row = "<tr><td><strong>" + size + "</strong></td>";
-                        measurements.forEach(m => {
-                            const val = (existingData && existingData[size]) ? (existingData[size][m] || "") : "";
-                            row += "<td><input type=\"text\" class=\"size-input\" " +
-                                "data-size=\"" + size + "\" data-measurement=\"" + m + "\" " +
-                                "value=\"" + val + "\" style=\"width:60px\" /></td>";
-                        });
-                        row += "</tr>";
-                        table.find("tbody").append(row);
-                    });
+        let thead = "<tr><th>Size</th>";
+        measurements.forEach(m => thead += "<th>" + m + "</th>");
+        thead += "</tr>";
+        table.find("thead").append(thead);
 
-                    $("#template-preview").show();
-                }
-
-                // Handle Generate Click
-                $("#generate-template").on("click", function () {
-                    if (!$("input[name=\'size_unit[]\']:checked").length || !$("input[name=\'measurement[]\']:checked").length) {
-                        alert({ title: "Selection Required", content: "Please select Size Units and Measurements first." });
-                        return;
-                    }
-                    buildTable();
-                });
-
-                // Sync UI table to hidden field before save
-                $("body").on("beforeSubmit", function () {
-                    const data = {};
-                    $(".size-input").each(function () {
-                        const size = $(this).data("size");
-                        const m = $(this).data("measurement");
-                        if (!data[size]) data[size] = {};
-                        data[size][m] = $(this).val();
-                    });
-                    $("input[name=\'size_chart_data\']").val(JSON.stringify(data));
-                });
-
-                // Initialize on load for Edit mode
-                $(document).ready(function () {
-                    const savedValue = $("input[name=\'size_chart_data\']").val();
-                    if (savedValue && savedValue !== "" && savedValue !== "[]") {
-                        try {
-                            buildTable(JSON.parse(savedValue));
-                        } catch (e) { console.error("Invalid JSON in size_chart_data"); }
-                    }
-                });
+        sizes.forEach(size => {
+            let row = "<tr><td><strong>" + size + "</strong></td>";
+            measurements.forEach(m => {
+                const val = existingData && existingData[size] ? (existingData[size][m] || "") : "";
+                row += "<td><input type=\"text\" class=\"size-input\" data-size=\"" + size + "\" data-measurement=\"" + m + "\" value=\"" + val + "\" style=\"width:60px\" /></td>";
             });
-            </script>'
+            row += "</tr>";
+            table.find("tbody").append(row);
+        });
+
+        $("#template-preview").show();
+    }
+
+    $("#generate-template").on("click", function () {
+        if (!$("input[name=\'size_unit[]\']:checked").length || !$("input[name=\'measurement[]\']:checked").length) {
+            alert({ title: "Selection Required", content: "Please select Size Units and Measurements first." });
+            return;
+        }
+        buildTable();
+    });
+
+    $("#edit_form").on("submit", function () {
+        const data = {};
+        $(".size-input").each(function () {
+            const size = $(this).data("size");
+            const m = $(this).data("measurement");
+            if (!data[size]) data[size] = {};
+            data[size][m] = $(this).val();
+        });
+        $("input[name=\'size_chart_data\']").val(JSON.stringify(data));
+    });
+
+    // Load grid in edit mode
+    $(document).ready(function () {
+        const saved = $("input[name=\'size_chart_data\']").val();
+        if (saved) {
+            try { buildTable(JSON.parse(saved)); } catch (e) {}
+        }
+    });
+
+});
+</script>'
         ]);
 
-        /* ---------- Table Container ---------- */
         $fieldset->addField('template_preview', 'note', [
             'text' => '
-            <div id="template-preview" style="display:none; margin-top:20px; border:1px solid #adadad; padding:15px; background:#fff;">
-                <table class="admin__table-secondary" id="size-chart-table" style="width:auto">
+            <div id="template-preview" style="display:none; margin-top:20px; border:1px solid #adadad; padding:15px;">
+                <table class="admin__table-secondary" id="size-chart-table">
                     <thead></thead>
-                    <tbody class="ui-sortable"></tbody>
+                    <tbody></tbody>
                 </table>
             </div>'
-        ]);
+                    ]);
 
         if ($model) {
             $data = $model->getData();
