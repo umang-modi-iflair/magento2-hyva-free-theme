@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <fieldset name="size_chart_section">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Size Chart Templates</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="opened" xsi:type="boolean">true</item>
+                <item name="sortOrder" xsi:type="number">10</item>
+                <item name="componentType" xsi:type="string">fieldset</item>
+            </item>
+        </argument>
+        <htmlContent name="demo_tab_content">
+            <block class="Iflair\SizeChart\Block\Adminhtml\Product\Edit\Tab\Product" name="demo.tab.block" template="Iflair_SizeChart::product/edit/tab/product_chart.phtml"/>
+        </htmlContent>
+    </fieldset>
+</form>

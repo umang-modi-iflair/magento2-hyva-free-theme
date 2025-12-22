@@ -1,0 +1,148 @@
+<div class="custom-popup-link mf-initial">
+    <a href="javascript:void(0);" id="customSizeChartLink">Size guide</a>
+</div>
+
+<div id="sizeChartModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Size Guide</h2>
+        <hr>
+        <div class="table-wrapper">
+            <table id="sizeChartTable">
+                <?php
+                $sizeChartData = $block->getSizeChartData(); 
+                
+                if (!empty($sizeChartData) && is_array($sizeChartData)): 
+
+                    $firstRow = reset($sizeChartData);
+                    $columns = array_keys($firstRow);
+                ?>
+                    <thead>
+                        <tr>
+                            <th>Size</th> <?php foreach ($columns as $column): ?>
+                                <th><?= $block->escapeHtml(ucfirst($column)) ?></th>
+                            <?php endforeach; ?>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($sizeChartData as $sizeLabel => $values): ?>
+                            <tr>
+                                <strong><td><?= $block->escapeHtml($sizeLabel) ?></td></strong>
+                                <?php foreach ($columns as $column): ?>
+                                    <td><?= $block->escapeHtml($values[$column] ?? '-') ?></td>
+                                <?php endforeach; ?>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                <?php else: ?>
+                    <tbody>
+                        <tr><td colspan="4">No size chart available for this product.</td></tr>
+                    </tbody>
+                <?php endif; ?>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- CSS -->
+<style>
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    transition: 0.3s;
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px 30px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 700px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.close:hover {
+    color: #333;
+}
+
+/* Table wrapper */
+.table-wrapper {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+/* Table styling */
+#sizeChartTable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+#sizeChartTable th, #sizeChartTable td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+#sizeChartTable thead {
+    background-color: #007bff;
+    color: #fff;
+}
+
+#sizeChartTable tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#sizeChartTable tbody tr:hover {
+    background-color: #e2f0ff;
+}
+
+/* Responsive font size */
+@media (max-width: 600px) {
+    .modal-content {
+        width: 95%;
+        padding: 15px;
+    }
+
+    #sizeChartTable th, #sizeChartTable td {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+}
+</style>
+
+<!-- JS -->
+<script>
+const modal = document.getElementById("sizeChartModal");
+const link = document.getElementById("customSizeChartLink");
+const closeBtn = modal.querySelector(".close");
+
+link.addEventListener("click", () => { modal.style.display = "block"; });
+closeBtn.addEventListener("click", () => { modal.style.display = "none"; });
+window.addEventListener("click", (e) => { if(e.target === modal) modal.style.display = "none"; });
+</script>

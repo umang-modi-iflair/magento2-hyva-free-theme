@@ -1,0 +1,42 @@
+<?php
+$templates = $block->getSizeChartTemplates();
+$jsonData = $block->getJsonTemplateData();
+?>
+<div class="size-chart-container">
+    <div class="admin__field" style="display: inline-block; text-align: left;">
+        <label class="admin__field-label" for="size_chart_select">
+            <span>Size Chart Template</span>
+        </label>
+        <div class="admin__field-control">
+            <select class="admin__control-select" name="product[size_chart_template_id]" id="size_chart_select">
+                <option value="">-- Please Select --</option>
+                <?php foreach ($templates as $template): ?>
+                    <option value="<?= $template['template_id'] ?>"><?= $template['template_name'] ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+    </div>
+
+    <div id="size-chart-preview-container" style="margin-top: 30px; display: flex; justify-content: center;">
+        <div id="preview-content" style="max-width: 600px;"></div>
+    </div>
+</div>
+
+<script>
+require(['jquery'], function ($) {
+    var templateData = <?= $jsonData ?>;
+
+    $('#size_chart_select').on('change', function () {
+        var id = $(this).val();
+        $('#preview-content').html(templateData[id] || '');
+    });
+});
+</script>
+
+
+<style>
+    #preview-content table { width: 100%; border-collapse: collapse; }
+    #preview-content th { background: #514943; color: white; padding: 10px; text-transform: uppercase; }
+    #preview-content td { padding: 10px; border: 1px solid #ddd; text-align: center; }
+    #preview-content tr:nth-child(even) { background: #f9f9f9; }
+</style>
