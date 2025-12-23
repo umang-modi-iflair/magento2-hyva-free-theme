@@ -1,35 +1,55 @@
 <?php
-$templates = $block->getSizeChartTemplates();
 $jsonData = $block->getJsonTemplateData();
 ?>
 <div class="size-chart-container">
-    <div class="admin__field" style="display: inline-block; text-align: left;">
-        <label class="admin__field-label" for="size_chart_select">
-            <span>Size Chart Template</span>
-        </label>
-        <div class="admin__field-control">
-            <select class="admin__control-select" name="product[size_chart_template_id]" id="size_chart_select">
-                <option value="">-- Please Select --</option>
-                <?php foreach ($templates as $template): ?>
-                    <option value="<?= $template['template_id'] ?>"><?= $template['template_name'] ?></option>
-                <?php endforeach; ?>
-            </select>
-        </div>
-    </div>
-
-    <div id="size-chart-preview-container" style="margin-top: 30px; display: flex; justify-content: center;">
+    <div id="size-chart-preview-container" style="margin-top: 20px; display: flex; justify-content: center;">
         <div id="preview-content" style="max-width: 600px;"></div>
     </div>
 </div>
 
 <script>
-require(['jquery'], function ($) {
+require(['jquery', 'uiRegistry'], function ($, registry) {
     var templateData = <?= $jsonData ?>;
 
-    $('#size_chart_select').on('change', function () {
-        var id = $(this).val();
-        $('#preview-content').html(templateData[id] || '');
-    });
+    // Wait for UI component field to be initialized
+    setTimeout(function() {
+        // Get the UI component select field
+        var selectField = registry.get('product_form.product_form.size_chart_section.size_chart_template_id');
+        
+        if (selectField) {
+            // Listen for changes on the UI component field
+            selectField.on('value', function(value) {
+                if (value && templateData[value]) {
+                    $('#preview-content').html(templateData[value]);
+                } else {
+                    $('#preview-content').html('');
+                }
+            });
+            
+            // Initialize preview if value already exists
+            var currentValue = selectField.value();
+            if (currentValue && templateData[currentValue]) {
+                $('#preview-content').html(templateData[currentValue]);
+            }
+        } else {
+            // Fallback: Try to find the select element directly
+            setTimeout(function() {
+                var selectElement = $('select[name*="size_chart_template_id"]');
+                if (selectElement.length > 0) {
+                    selectElement.on('change', function() {
+                        var id = $(this).val();
+                        $('#preview-content').html(templateData[id] || '');
+                    });
+                    
+                    // Initialize preview
+                    var initialValue = selectElement.val();
+                    if (initialValue && templateData[initialValue]) {
+                        $('#preview-content').html(templateData[initialValue]);
+                    }
+                }
+            }, 1000);
+        }
+    }, 1000);
 });
 </script>
 

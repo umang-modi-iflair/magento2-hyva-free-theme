@@ -30,36 +30,26 @@ class Product extends Template
         return $product ? $product->getId() : null;
     }
 
-    /**
-     * Fetch all active templates for the dropdown
-     */
+
     public function getSizeChartTemplates()
     {
         $connection = $this->resource->getConnection();
         $table = $this->resource->getTableName('size_chart_templates');
-
-        return $connection->fetchAll(
-            $connection->select()
-                ->from($table)
-                ->where('status = ?', 1)
-        );
+        return $connection->fetchAll($connection->select()->from($table)->where('status = ?', 1));
     }
 
-    /**
-     * Fetch the template ID currently assigned to THIS product
-     */
     public function getSelectedTemplateId()
     {
-        $productId = $this->getCurrentProductId();
-        if (!$productId) return null;
+        $product = $this->registry->registry('current_product');
+        if (!$product || !$product->getId()) return null;
 
         $connection = $this->resource->getConnection();
-        $table = $this->resource->getTableName('size_chart_templates');
+        $table = $this->resource->getTableName('size_chart_product');
 
         return $connection->fetchOne(
             $connection->select()
                 ->from($table, ['template_id'])
-                ->where('product_id = ?', $productId)
+                ->where('product_id = ?', (int)$product->getId())
         );
     }
 

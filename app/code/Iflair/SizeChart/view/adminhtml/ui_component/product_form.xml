@@ -10,6 +10,20 @@
                 <item name="componentType" xsi:type="string">fieldset</item>
             </item>
         </argument>
+        <field name="size_chart_template_id" formElement="select" sortOrder="10">
+            <settings>
+                <dataType>int</dataType>
+                <label translate="true">Size Chart Template</label>
+                <dataScope>product.size_chart_template_id</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Iflair\SizeChart\Model\Source\SizeChartTemplate"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
         <htmlContent name="demo_tab_content">
             <block class="Iflair\SizeChart\Block\Adminhtml\Product\Edit\Tab\Product" name="demo.tab.block" template="Iflair_SizeChart::product/edit/tab/product_chart.phtml"/>
         </htmlContent>

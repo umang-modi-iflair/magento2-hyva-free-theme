@@ -22,25 +22,38 @@
         </constraint>
     </table>
     
-<table name="size_chart_templates" resource="default" engine="innodb" comment="Size Chart Templates">
-    <column xsi:type="int" name="template_id" unsigned="true" nullable="false" identity="true" comment="Template ID"/>
-    <column xsi:type="int" name="product_id" unsigned="true" nullable="true" comment="Linked Product ID"/>
-    <column xsi:type="varchar" name="template_name" length="255" nullable="false" comment="Template Name"/>
-    <column xsi:type="varchar" name="template_code" length="255" nullable="false" comment="Template Code"/>
-    <column xsi:type="smallint" name="status" nullable="false" default="1" comment="Status (1 = Enabled, 0 = Disabled)"/>
-    <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="false" comment="Created At"/>
-    <column xsi:type="longtext" name="size_chart_data" nullable="true" comment="Size Chart JSON Data"/>
+    <table name="size_chart_templates" resource="default" engine="innodb">
+        <column xsi:type="int" name="template_id" unsigned="true" nullable="false" identity="true"/>
+        <column xsi:type="varchar" name="template_name" length="255" nullable="false"/>
+        <column xsi:type="longtext" name="size_chart_data" nullable="true"/>
+        
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="template_id"/>
+        </constraint>
+    </table>
 
-    <constraint xsi:type="primary" referenceId="PRIMARY">
-        <column name="template_id"/>
-    </constraint>
+    <table name="size_chart_product" resource="default" engine="innodb">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true"/>
+        <column xsi:type="int" name="template_id" unsigned="true" nullable="false"/>
+        <column xsi:type="int" name="product_id" unsigned="true" nullable="false"/>
+        
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
 
-    <constraint xsi:type="foreign" 
-                referenceId="FK_SIZE_CHART_PRODUCT_ID_RELATION" 
-                table="size_chart_templates" 
-                column="product_id" 
-                referenceTable="catalog_product_entity" 
-                referenceColumn="entity_id" 
-                onDelete="CASCADE"/>
-</table>
+        <constraint xsi:type="foreign" referenceId="FK_SIZE_CHART_TEMPLATE_ID" 
+                    table="size_chart_product" column="template_id" 
+                    referenceTable="size_chart_templates" referenceColumn="template_id" 
+                    onDelete="CASCADE"/>
+
+        <constraint xsi:type="foreign" referenceId="FK_SIZE_CHART_PRODUCT_ID" 
+                    table="size_chart_product" column="product_id" 
+                    referenceTable="catalog_product_entity" referenceColumn="entity_id" 
+                    onDelete="CASCADE"/>
+    </table>
 </schema>
+
+
+<!-- catalog_product_entity -> entity_id
+size_chart_templates -> id
+size_chart_product -> template_id -->
