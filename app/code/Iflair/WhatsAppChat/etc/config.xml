@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+*
+* Developer: Hemant Singh Magento Certified Developer
+* Category:  Wishusucess_WhatsAppChat
+* Website:   http://www.wishusucess.com/
+*/    
+-->
+ <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <contact>
+            <whatsapp_chat>
+                <status>1</status>
+                <phone_number>+91-7992293862</phone_number>
+                <message>Hello! I am interested in your product</message>
+            </whatsapp_chat>
+        </contact>
+    </default>
+</config>

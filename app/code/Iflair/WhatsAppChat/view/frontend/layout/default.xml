@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+*
+* Developer: Hemant Singh Magento Certified Developer
+* Category:  Wishusucess_WhatsAppChat
+* Website:   http://www.wishusucess.com/
+*/
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+        <css src="Iflair_WhatsAppChat::css/whatsapp-chat.css" />
+    </head>
+	<body>
+		<referenceContainer name="before.body.end">
+			<block class="Magento\Framework\View\Element\Template" name="dangs_whatsapp_chat" 
+                template="Iflair_WhatsAppChat::button.phtml" 
+                before="before.body.end" cacheable="false">
+            </block>
+		</referenceContainer>
+	</body>
+</page>

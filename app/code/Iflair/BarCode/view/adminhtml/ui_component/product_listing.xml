@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:framework:Ui/etc/ui_configuration.xsd">
+
+    <listingToolbar name="listing_top">
+        <massaction name="listing_massaction">
+            <action name="generate_barcode">
+                <settings>
+                    <type>generate_barcode</type>
+                    <label translate="true">Generate Barcode Code</label>
+                    <url path="barcode/product/massGenerate"/>
+                    <confirm>
+                        <title translate="true">Generate Barcode Codes</title>
+                        <message translate="true">
+                            Are you sure you want to generate Barcode codes for selected products?
+                        </message>
+                    </confirm>
+                </settings>
+            </action>
+        </massaction>
+    </listingToolbar>
+
+</listing>

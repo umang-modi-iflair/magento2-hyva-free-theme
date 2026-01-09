@@ -1,0 +1,32 @@
+<div class="admin__control-wysiwig">
+    <div class="buttons-set">
+        <button type="button" class="scalable action-add-widget plugin" click="clickInsertWidget">
+            <span><span><span translate="'Insert Widget...'"></span></span></span>
+        </button>
+        <button type="button" class="scalable action-add-image plugin" click="clickInsertImage">
+            <span><span><span translate="'Insert Image...'"></span></span></span>
+        </button>
+        <button type="button" class="scalable add-variable plugin" click="clickInsertVariable">
+            <span><span><span translate="'Insert Variable...'"></span></span></span>
+        </button>
+        <!-- Your custom button -->
+        <button type="button" class="scalable add-variable plugin" click="clickCustombutton">
+            <span><span><span translate="'Custom button'"></span></span></span>
+        </button>
+    </div>
+</div>
+
+<textarea class="admin__control-textarea" data-bind="
+    value: value,
+    valueUpdate: valueUpdate,
+    hasFocus: focused,
+    attr: {
+        name: inputName,
+        cols: cols,
+        rows: rows,
+        'aria-describedby': noticeId,
+        placeholder: placeholder,
+        id: uid,
+        disabled: disabled
+    }"
+></textarea>
